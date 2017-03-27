@@ -1,30 +1,41 @@
 <div class="pushShenpi" ng-controller="faqide">
 	<div class="dsp_wrap">
 		<div class="row dsp_title">
-		  	<div class="col-md-1">序号</div>
 		  	<div class="col-md-2">类型</div>
 		  	<div class="col-md-3">开始时间</div>
 		 	<div class="col-md-3">结束时间</div>
-		 	<div class="col-md-1">发起人</div>
+		 	<div class="col-md-2">审批人</div>
 		 	<div class="col-md-2">状态</div>
 		</div>
 		<div class="dsp_info">
-			<ul class="row">
-				<li class="col-md-1">1</li>
-				<li class="col-md-2">请假</li>
-				<li class="col-md-3">12322</li>
-				<li class="col-md-3">456678</li>
-				<li class="col-md-1">李健</li>
-				<li class="col-md-2"><ins>待审批</ins><button class="btn btn-danger">删除</button></li>
+			<ul class="row" ng-repeat="a in dwsp">
+				<li class="col-md-2">{{a.zleixing}}</li>
+				<li class="col-md-3">{{a.kaishishijian}}</li>
+				<li class="col-md-3">{{a.jieshushijian}}</li>
+				<li class="col-md-2">{{a.shenpiren}}</li>
+				<li class="col-md-2"><ins>{{a.zhuangtai|resetCategory}}</ins><button class="btn btn-danger" ng-click="del(a.id)">删除</button></li>
 			</ul>
-			<ul class="row">
-				<li class="col-md-1">1</li>
-				<li class="col-md-2">请假</li>
-				<li class="col-md-3">12322</li>
-				<li class="col-md-3">456678</li>
-				<li class="col-md-1">李健</li>
-				<li class="col-md-2"><ins>待审批</ins><button class="btn btn-danger">删除</button></li>
+			<!--<ul class="row" ng-repeat="a in dwspone">
+				<li class="col-md-2">{{a.zleixing}}</li>
+				<li class="col-md-3">{{a.kaishishijian}}</li>
+				<li class="col-md-3">{{a.jieshushijian}}</li>
+				<li class="col-md-2">{{a.shenpiren}}</li>
+				<li class="col-md-2"><ins>{{a.zhuangtai|resetCategory}}</ins><button class="btn btn-danger">删除</button></li>
 			</ul>
+			<ul class="row" ng-repeat="a in dwsptwo">
+				<li class="col-md-2">{{a.zleixing}}</li>
+				<li class="col-md-3">{{a.kaishishijian}}</li>
+				<li class="col-md-3">{{a.jieshushijian}}</li>
+				<li class="col-md-2">{{a.shenpiren}}</li>
+				<li class="col-md-2"><ins>{{a.zhuangtai|resetCategory}}</ins><button class="btn btn-danger">删除</button></li>
+			</ul>
+			<ul class="row" ng-repeat="a in dwspthere">
+				<li class="col-md-2">{{a.zleixing}}</li>
+				<li class="col-md-3">{{a.ruzhishijian}}</li>
+				<li class="col-md-3">{{a.lizhishijian}}</li>
+				<li class="col-md-2">{{a.shenpiren}}</li>
+				<li class="col-md-2"><ins>{{a.zhuangtai|resetCategory}}</ins><button class="btn btn-danger">删除</button></li>
+			</ul>-->
 		</div>	
 	</div>
 	

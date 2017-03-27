@@ -3,40 +3,35 @@
 		<h1><i class="glyphicon glyphicon-bed"></i><span>报销</span></h1>
 		<div>
 			<li>
-				<label>*报销金额</label>
-				<input type="text" class="form-control qj_leixing" placeholder="">
+				<label>报销金额</label>
+				<input type="text" class="form-control qj_leixing" placeholder="" ng-model="jine">
 			</li>
 			<li>
 				<label>开始时间</label>
-				<input class="form-control qj_leixing" type="time">
+				<input ng-model="kaishi" type="text" class="kaishi form-control workinput wicon mr25 qj_leixing" id="inpstart" readonly>
 			</li>
 			<li>
 				<label>结束时间</label>
-				<input class="form-control qj_leixing" type="time">
+				<input ng-model="jieshu" type="text" class="jieshu form-control workinput wicon mr25 qj_leixing" id="inpend" readonly>
 			</li>
 			<li>
 				<label>费用明细</label>
-				<textarea class="form-control qj_leixing" rows="3"></textarea>
+				<textarea class="form-control qj_leixing" rows="3" ng-model="minxi"></textarea>
 			</li>
 			<li>
 				<label>审批人员</label>
-				<input type="text" class="form-control qj_leixing" placeholder="请选择">
+				<input type="text"  disabled class="form-control qj_leixing shenpiren" placeholder="请选择" ng-model="shenpiren">
 			</li>
 			<li>
-				<button class="btn btn-info qj_tj">提交</button>
+				<button class="btn btn-info qj_tj" ng-click="tijiao()">提交</button>
 			</li>
 		</div>
 	</div>
 	<div class="qj_spr">
 		<div class="qj_shuru">
-			<input type="text" class="form-control" placeholder="Search">
-			<ul>
-				<li>陈颖志</li>
-				<li>李健</li>
-				<li>王海泽</li>
-				<li>杜冰冰</li>
-				<li>郭佳</li>
-				<li>祁保宏</li>
+			<input type="text" class="form-control sousuo" placeholder="Search" ng-model="find">
+			<ul ng-repeat="a in nicheng | filter:find" class="nichen">
+				<li ng-click="spr($index)">{{a.nicheng}}</li>
 			</ul>
 		</div>
 	</div>

@@ -1,30 +1,41 @@
 <div class="pushShenpi" ng-controller="daishenpi">
 	<div class="dsp_wrap">
 		<div class="row dsp_title">
-		  	<div class="col-md-1">序号</div>
 		  	<div class="col-md-2">类型</div>
 		  	<div class="col-md-3">开始时间</div>
 		 	<div class="col-md-3">结束时间</div>
-		 	<div class="col-md-1">审批人</div>
+		 	<div class="col-md-2">审批人</div>
 		 	<div class="col-md-2">操作</div>
 		</div>
 		<div class="dsp_info">
-			<ul class="row">
-				<li class="col-md-1">1</li>
-				<li class="col-md-2">请假</li>
-				<li class="col-md-3">2017-3-26</li>
-				<li class="col-md-3">2017-3-27</li>
-				<li class="col-md-1">李健</li>
-				<li class="col-md-2"><button class="btn btn-info" data-toggle="modal" data-target="#myModalFive">批阅</button><button class="btn btn-danger">删除</button></li>
+			<ul class="row" ng-repeat="a in dwsp">
+				<li class="col-md-2">{{a.zleixing}}</li>
+				<li class="col-md-3">{{a.kaishishijian}}</li>
+				<li class="col-md-3">{{a.jieshushijian}}</li>
+				<li class="col-md-2">{{a.shenpiren}}</li>
+				<li class="col-md-2"><button class="btn btn-info" data-toggle="modal" data-target="#myModalFive" ng-click="xx(a.id)">批阅</button></li>
 			</ul>
-			<ul class="row">
-				<li class="col-md-1">1</li>
-				<li class="col-md-2">请假</li>
-				<li class="col-md-3">2017-3-26</li>
-				<li class="col-md-3">2017-3-27</li>
-				<li class="col-md-1">李健</li>
-				<li class="col-md-2"><button class="btn btn-info" data-toggle="modal" data-target="#myModalFive">批阅</button><button class="btn btn-danger">删除</button></li>
+			<!--<ul class="row" ng-repeat="a in dwspone">
+				<li class="col-md-2">{{a.zleixing}}</li>
+				<li class="col-md-3">{{a.kaishishijian}}</li>
+				<li class="col-md-3">{{a.jieshushijian}}</li>
+				<li class="col-md-2">{{a.shenpiren}}</li>
+				<li class="col-md-2"><button class="btn btn-info" data-toggle="modal" data-target="#myModalFive" ng-click="xx(a.id)">批阅</button><button class="btn btn-danger">删除</button></li>
 			</ul>
+			<ul class="row" ng-repeat="a in dwsptwo">
+				<li class="col-md-2">{{a.zleixing}}</li>
+				<li class="col-md-3">{{a.kaishishijian}}</li>
+				<li class="col-md-3">{{a.jieshushijian}}</li>
+				<li class="col-md-2">{{a.shenpiren}}</li>
+				<li class="col-md-2"><button class="btn btn-info" data-toggle="modal" data-target="#myModalFive" ng-click="xx(a.id)">批阅</button><button class="btn btn-danger">删除</button></li>
+			</ul>
+			<ul class="row" ng-repeat="a in dwspthere">
+				<li class="col-md-2">{{a.zleixing}}</li>
+				<li class="col-md-3">{{a.ruzhishijian}}</li>
+				<li class="col-md-3">{{a.lizhishijian}}</li>
+				<li class="col-md-2">{{a.shenpiren}}</li>
+				<li class="col-md-2"><button class="btn btn-info" data-toggle="modal" data-target="#myModalFive" ng-click="xx(a.id)">批阅</button><button class="btn btn-danger">删除</button></li>
+			</ul>-->
 		</div>	
 	</div>
 <div class="modal fade" id="myModalFive" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -35,15 +46,18 @@
                 <h4 class="modal-title" id="myModalLabel">批阅详情</h4>
             </div>
             <!--<div class="modal-body">在这里添加一些文本</div>-->
-            <ul class="dsp_pyxq">
-			<li>审批类型:<span>请假</span></li>
-			<li>开始时间:<span>2017-3-26</span></li>
-			<li>结束时间:<span>2017-3-27</span></li>
-			<li>事由:<span>我要去减肥我要去减肥我要去减肥</span></li>
+           	<ul class="dsp_pyxq" ng-repeat="a in username">
+            <li>发起人:<span>{{a.nicheng}}</span></li>
+            </ul>
+            <ul class="dsp_pyxq" ng-repeat="a in deteil">
+			<li>审批类型:<span class="dsleixing">{{a.zleixing}}</span></li>
+			<li>开始时间:<span>{{a.kaishishijian}}</span></li>
+			<li>结束时间:<span>{{a.jieshushijian}}</span></li>
+			<li>事由:<span>{{a.shiyou}}</span></li>
 		</ul>
             <div class="modal-footer">
-                <button type="button" class="btn btn-warning" data-dismiss="modal">拒绝</button>
-                <button type="button" class="btn btn-success">同意</button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal" ng-click="jujue()">拒绝</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="tongyi()">同意</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
