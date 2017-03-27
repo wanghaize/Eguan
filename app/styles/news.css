@@ -28,15 +28,17 @@
 	color:#07162d;
 	font-size: 14px;
 	letter-spacing: 3px;
-	cursor: pointer;
 }
 
 .newsConNav>p:nth-child(1){
+	color:#07162d;
+	margin-left:10px;
+	border-bottom: none;
+}
+.newsConNav>p:hover{
 	background:#07162d;
 	color:#dce2ed;
 	border-left:2px solid #ff0e1f;
-	margin-left:10px;
-	border-bottom: none;
 }
 .newsConInfo{
 	width:100%;
