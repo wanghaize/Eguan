@@ -20,14 +20,15 @@
 	background:#dce2ed;
 	color:#07162d;
 	font-size: 14px;
-	letter-spacing: 3px;	
+	letter-spacing: 3px;
+	cursor: pointer;	
 }
-.rizhiConInfo>ul>li:hover{
+/*.rizhiConInfo>ul>li:hover{
 	background:#07162d;
 	border-left:3px solid #ef1627;
 	box-sizing: border-box;
-	color:#dce2ed
-}
+	color:#dce2ed;
+}*/
 .rizhiConInfo>ul>li:nth-child(1){
 	background:#07162d;
 	border-left:3px solid #ef1627;

@@ -1,3 +1,47 @@
-<div class="pushRizhi" ng-controller="worizhi">
-我日志
+<style type="text/css">
+	.rizhiConInfo>ul>li:nth-child(3) {
+		background: #07162d;
+		border-left: 3px solid #ef1627;
+		box-sizing: border-box;
+		color: #dce2ed;
+	}
+	.rizhiConInfo>ul>li:nth-child(2) {
+		background: #dce2ed;
+		border-left:none;
+		box-sizing: border-box;
+		color: #07162d;
+	}
+	.rizhiConInfo>ul>li:nth-child(1) {
+		background: #dce2ed;
+		border-left:none;
+		box-sizing: border-box;
+		color: #07162d;
+	}
+</style>
+<div class="wopushRizhi" ng-controller="worizhi">
+	<input type="text" ng-model="searchRizhi" class="form-control" placeholder="按照联系人昵称进行搜索。。" style="width:80%;float:left">
+
+	<div class="btn-group" style="width:10%;float:left">
+		<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">按时间排序
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" style="margin:0;padding:0;">
+			<li ng-click="timeOrderUp()">
+				<a href="javascript:;">按时间正序排列</a>
+			</li>
+			<li ng-click="timeOrderDown()">
+				<a href="javascript:;">按时间倒序排列</a>
+			</li>
+		</ul>
+	</div>
+	<div class="getRizhiInfo">
+		<div ng-repeat="postInfo in postInfos.slice().reverse() |  filter:searchRizhi | orderBy:time">
+			<p>发送给：{{postUser[$index]}}</p><span>日志类型：{{classifys[$index]}}</span>
+			<p>{{Infosa[$index]}}：<span>{{postInfo.wancheng}}</span></p>
+			<p>{{Infosb[$index]}}：<span>{{postInfo.weiwancheng}}</span></p>
+			<p>{{Infosc[$index]}}：<span>{{postInfo.beizhu}}</span></p>
+			<span>{{postInfo.time}}</span>
+			<i class="glyphicon glyphicon-pushpin"></i>
+		</div>
+	</div>
 </div>
