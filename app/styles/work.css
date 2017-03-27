@@ -1,0 +1,36 @@
+.rizhiConInfo{
+	width:98%;
+	height:50px;
+	margin:1%;
+}
+.rizhiConInfo>ul{
+	width:100%;
+	height:40px;
+}
+.rizhiConInfo>ul>li{
+	width:150px;
+	height:40px;
+	margin-top:10px;
+	text-align: center;
+	line-height: 40px;
+	float: left;
+	border:1px solid #eee;
+	border-radius: 8px 8px 0 0;
+	border-left: none;
+	background:#dce2ed;
+	color:#07162d;
+	font-size: 14px;
+	letter-spacing: 3px;	
+}
+.rizhiConInfo>ul>li:hover{
+	background:#07162d;
+	border-left:3px solid #ef1627;
+	box-sizing: border-box;
+	color:#dce2ed
+}
+.rizhiConInfo>ul>li:nth-child(1){
+	background:#07162d;
+	border-left:3px solid #ef1627;
+	box-sizing: border-box;
+	color:#dce2ed
+}

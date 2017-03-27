@@ -1,0 +1,55 @@
+.pushShenpi{
+	width:100%;
+	height:550px;
+	background: #07162d;
+	margin-top:10px;
+	overflow: hidden;
+	color:#dce2ed;
+	position: relative;
+}
+.f_select_wrap{
+	position: relative;
+}
+.f_select_wrap>.f_select{
+	width: 150px;
+	height: 250px;
+	background: #AFD9EE;
+	overflow-y: initial;
+	position: absolute;
+	top:calc(50% - 125px);
+	left: -5px;
+	border-radius: 6px;
+	text-indent: 10px;
+	z-index: 9;
+}
+.f_select>h1{
+	border-top: 5px solid #5E5E5E;
+	background: #31B0D5;
+	line-height: 30px;
+	text-align: center;
+	text-indent: 0;
+}
+
+.f_select_wrap>.f_select>ul{
+	width: 100%;
+	height: 100%;
+}
+.f_select_wrap>.f_select>ul li{
+	height: 30px;
+	line-height: 30px;
+	/*text-align: center;*/
+	margin: 5px 0;
+	background: #66AFE9;
+	cursor: pointer;
+}
+.f_select_wrap>.f_select>ul li i{
+	text-align: left;
+}
+.f_select_wrap>.f_select>ul li span	{
+	margin-left: 10px;
+}
+
+.faqi_warp_box{
+	position: relative;
+	overflow-y: initial !important;
+}

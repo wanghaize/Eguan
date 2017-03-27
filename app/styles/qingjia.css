@@ -1,0 +1,76 @@
+.faqi_Warp{
+	position: absolute;
+	right: 30px;
+	top:30px;
+	overflow-y: initial;
+	width: 80%;
+	height: calc(100% - 30px);
+	background: rgba(255,255,255,0.8);
+}
+.qj_wrap{
+	width:calc(100% - 250px);
+	height: 100%;
+	background: #2AABD2;
+	float: left;
+}
+
+.qj_wrap>h1{
+	line-height: 50px;
+	background: #105CB6;
+}
+.qj_wrap>h1 i{
+	margin-left: 5px;
+}
+.qj_wrap>h1 span{
+	margin-left: 5px;
+}
+.qj_wrap div{
+	width: 100%;
+}
+.qj_wrap div li{
+	list-style: none;
+	margin-top: 20px;
+}
+.qj_wrap div li label{
+	padding-right: 20px;
+	padding-left: 20px;
+}
+/*.qj_wrap div label{
+	display: inline-block;
+	width: 100%;
+}*/
+.qj_leixing{
+	width: 60%;
+	display: inline-block;
+	/*color: #080808;*/
+	/*float: right;*/
+}
+.qj_tj{
+	display: inline-block;
+	width: 40%;
+	height: 40px;
+	position: relative;
+	left: 25%;
+}
+
+.qj_spr{
+	width: 250px;
+	height: 100%;
+	background: #46B8DA;
+	float: right;
+}
+.qj_spr .qj_shuru{
+	margin-top: 5px;
+}
+.qj_spr .qj_shuru ul{
+	width: 100%;
+}
+.qj_spr .qj_shuru ul li{
+	line-height: 25px;
+	background: #269ABC;
+	text-indent: 15px;
+	cursor: pointer;
+}
+.qj_spr .qj_shuru ul li:nth-child(odd){
+	background: #008CEE;
+}

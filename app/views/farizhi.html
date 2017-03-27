@@ -1,0 +1,77 @@
+
+<div class="pushRizhi" ng-controller="farizhi">
+	<ul>
+		<h2>请选择类型：</h2>
+		<li ng-click="riShow($index)">日报</li>
+		<li ng-click="riShow($index)">周报</li>
+		<li ng-click="riShow($index)">月报</li>
+	</ul>
+	<div class="pushlist">
+		<h2>管理者人员列表：</h2>
+		<input type="text" class="form-control" placeholder="serach..">			
+		<ul>
+			<li>二狗</li>
+			<li>熊二</li>
+			<li>跳跳</li>
+		</ul>
+	</div>
+	<div ng-show="weekPush">
+		<li>
+			<h3>今日完成工作</h3>
+			<textarea ng-model="day.dayFinish"></textarea>
+		</li>
+		<li>
+			<h3>未完成工作</h3>
+			<textarea ng-model="day.dayUnFinish"></textarea>
+		</li>
+		<li>
+			<h3>备注</h3>
+			<textarea ng-model="day.dayBeizhu"></textarea>
+		</li>
+		<li>
+			<h3>发送给管理者</h3>				
+		    <input type="text" class="form-control">	
+			<button type="button" class="btn btn-primary btn-lg ">确认提交</button>
+		</li>
+		
+	</div>
+	<div>
+		<li>
+			<h3>本周完成工作</h3>
+			<textarea ng-model="day.dayFinish"></textarea>
+		</li>
+		<li>
+			<h3>未完成工作</h3>
+			<textarea ng-model="day.dayUnFinish"></textarea>
+		</li>
+		<li>
+			<h3>备注</h3>
+			<textarea ng-model="day.dayBeizhu"></textarea>
+		</li>
+		<li>
+			<h3>发送给管理者</h3>			
+
+		                    <input type="text" class="form-control">
+
+
+		</li>
+	</div>
+	<div ng-show="monthPush">
+		<li>
+			<h3>今日完成工作</h3>
+			<textarea ng-model="day.dayFinish"></textarea>
+		</li>
+		<li>
+			<h3>未完成工作</h3>
+			<textarea ng-model="day.dayUnFinish"></textarea>
+		</li>
+		<li>
+			<h3>备注</h3>
+			<textarea ng-model="day.dayBeizhu"></textarea>
+		</li>
+		<li>
+			<h3>发送给管理者</h3>			
+		        <input type="text" class="form-control">
+		</li>
+	</div>
+</div>

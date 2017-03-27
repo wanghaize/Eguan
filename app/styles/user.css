@@ -1,0 +1,81 @@
+.userFriend{
+	width:98%;
+	height:98%;
+	margin:1%;
+	overflow-y: hidden;
+}
+.userFriend>form{
+	width:70%;
+	height:40px;
+}
+.userFriend>ul{
+	width:100%;
+	height:700px;
+	overflow-y: scroll;
+}
+.userFriend>ul>li{
+	width:100%;
+	height:30px;
+	cursor: pointer;
+}
+.userFriend>ul>li:hover{
+	/*border:2px solid #07162D;*/
+	/*box-sizing: border-box;*/
+}
+.userFriend>ul>li:nth-child(odd){
+	background:#eee;
+}
+.userFriend>ul>li:nth-child(even){
+	background:#fafafa;
+}
+.userFriend>ul>li:nth-child(1){
+	background:#4d4c5a;
+	color:#dce2ed;
+}
+.userFriend>ul>li>span{
+	display: inline-block;
+	float:left;
+	border-left:1px solid #ccc;
+	box-sizing: border-box;
+	height:30px;
+	line-height: 30px;
+	text-align: center;
+}
+.userFriend>ul>li>span>a{
+	display: inline-block;
+	width:50%;
+	height:30px;
+	float:left;
+	border-right:1px solid #ccc;
+	transform:skewX(2px)
+}
+.userFriend>ul>li>span:nth-child(1){
+	width:10%;
+}
+.userFriend>ul>li>span:nth-child(2){
+	width:20%;
+}
+.userFriend>ul>li>span:nth-child(3){
+	width:20%;
+}
+.userFriend>ul>li>span:nth-child(4){
+	width:35%;
+}
+.userFriend>ul>li>span:nth-child(5){
+	width:15%;
+}
+.u_xx ul li{
+	margin-top: 8px;
+}
+.u_xx ul li label{
+	display: inline-block;
+	width: 120px;
+	margin-left: 20px;
+}
+.u_xx ul li input{
+	width: 70%;
+	display: inline-block;
+}
+.u_xx ul li:last-child{
+	margin-bottom: 15px;
+}

@@ -1,0 +1,39 @@
+<div class="rizhiNews" ng-controller="rizhitongzhi">
+	 <form class="bs-example bs-example-form" role="form">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="请根据日志发起人进行搜索">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Go!</button>
+                        
+                    </span>
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+    </form>
+    <ul>
+        <li>
+            <span>序号</span>
+            <span>发起者</span>
+            <span>发送给</span>           
+            <span>内容概要</span>
+            <span>发送时间</span>
+        </li>
+        <li>
+        	<span>{{$index+1}}</span>
+            <span>ergou</span>
+            <span>sangou</span>           
+            <span title="辽宁省鞍山市铁西区通化路2号">辽宁省鞍山市铁西区通化路2号</span>
+            <span>2001</span>
+        </li>
+        <li>
+        	<span>2</span>
+            <span>ergou</span>
+            <span>sangou</span>           
+            <span>gun</span>
+            <span>2001</span>
+        </li>
+    </ul>
+	<p>日志通知</p>
+</div>

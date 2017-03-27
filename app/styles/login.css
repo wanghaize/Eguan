@@ -1,0 +1,162 @@
+/*
+ *
+ * Template Name: Fullscreen Login
+ * Description: Login Template with Fullscreen Background Slideshow
+ * Author: Anli Zaimi
+ * Author URI: http://azmind.com
+ *
+ */
+
+html,body{
+	height: 100%;
+}
+.l_warp_box{
+	height: 100%;
+	position: relative;
+	background: url(../images/1488847758440774.jpg) no-repeat;
+}
+
+.l_warp{
+	width: 470px;
+	height: 420px;
+	/*background:rgba(0,0,0,0.5);*/
+	position: absolute;
+	left: calc(50% - 235px);
+	top:calc(50% - 210px);
+	
+}
+.l_wrap_title{
+	
+}
+.l_wrap_title p{
+	width: 100%;
+	display: block;
+	background: none;
+	padding-top: 15px;
+	
+}
+.l_wrap_title p:first-child{
+	color: #b7ddf2;
+	text-align: left;
+	font-family: "Gadugi";
+	font-size: 30px;
+}
+.l_wrap_title p:last-child{
+	color: #fff;
+	text-align: left;
+	font-family: "微软雅黑";
+	font-size: 30px;
+}
+.l_login_warp{
+	width: 100%;
+	height: 300px;
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+}
+.l_login_warp p{
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	border-bottom: 1px solid #E5E5E5;
+	color:#fff;
+	display: -moz-box; 
+    display: -webkit-box; 
+    margin-top: 30px;
+    position: relative;
+}
+.l_login_warp p input{
+	width: 350px;
+	display: inline-block;
+	margin-left: 10px;
+	-moz-box-flex: 1; 
+    -webkit-box-flex: 1; 
+    background: none;
+    outline: none;
+    border:none;
+}
+.l_login_warp button{
+	width: 175px;
+	height: 45px;
+	border-radius: 30px;
+	border:2px solid #fff;
+	position: absolute;
+	right: 60px;
+	bottom: 30px;
+	font-weight: bolder;
+	color: #fff;
+	background: #52b1eb;
+	outline: none;
+}
+.l_login_warp div{
+	position: absolute;
+	bottom: 40px;
+	color: #c1dff7;
+}
+.l_login_warp p i{
+	font-style: initial;
+	position: absolute;
+	right: 0px;
+}
+/*fuzhi*/
+.regular-checkbox {
+	display: none;
+}
+
+.regular-checkbox + label {
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 9px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+}
+
+.regular-checkbox + label:active, .regular-checkbox:checked + label:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+.regular-checkbox:checked + label {
+	background-color: #e9ecee;
+	border: 1px solid #adb8c0;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: #99a1a7;
+}
+
+.regular-checkbox:checked + label:after {
+	content: '\2714';
+	font-size: 14px;
+	position: absolute;
+	top: 0px;
+	left: 3px;
+	color: #99a1a7;
+}
+
+
+.big-checkbox + label {
+	padding: 18px;
+}
+
+.big-checkbox:checked + label:after {
+	font-size: 28px;
+	left: 6px;
+}
+
+.l_label{
+	position: relative;
+	top:-4px;
+	left: 3px;
+}
+.loginTitle{
+	width: 200px !important;
+	height: 40px;
+	line-height: 40px;
+	background: rgba(255,255,255,0.5);
+	color: #000;
+	text-align: center !important;
+	border-radius: 13px;
+	position: absolute;
+	top:calc(50% - 20px);
+	left: calc(50% - 100px);
+}
