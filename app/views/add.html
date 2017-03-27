@@ -1,3 +1,62 @@
 <div ng-controller="add">
+	
+	
+<div class="left">
+	<h1>Add information</h1>	
+			<div class="form-group">
+		    <label for="exampleInputPassword1">姓名</label>
+		    <input type="text" ng-model="$parent.nicheng" placeholder="*必填*  只能输入汉字"  ng-blur="Nicheng()" id="NC"> <i style="color:red;" ng-show="unicheng">未填写</i> <i style="color:lawngreen;" ng-show="unichengg">通过</i>   <i style="color:red;" ng-show="Unichengg">格式错误(只能输入汉字)</i>
+	    
+		 </div>	
+		  
+		<div class="form-group">
+		    <label for="exampleInputPassword1">Phone</label>
+		    <input type="text" ng-model="$parent.Phone"  placeholder="*必填*"  ng-blur="PHONE()" id="phone"> <i style="color:red;"  ng-show="uphonee" >未填写</i> <i style="color:red;"  ng-show="uphone" >格式不正确  (手机号码格式填写错误)</i>  <i style="color:lawngreen;" ng-show="uphoneg">通过</i>
+		</div>
+		
+		 <div class="form-group" >	
+			<label for="exampleInputEmail1">籍贯</label>
+		    <input type="text" ng-model="$parent.JG" >
+		  </div>
+		  
+		<div class="form-group">
+		    <label for="exampleInputPassword1">紧急联系人</label>
+		    <input type="text" ng-model="$parent.jinji"><i></i>
+		 </div>
+	
+		<div class="form-group">
+		    <label for="exampleInputPassword1">紧急联系人电话</label>
+		    <input type="text" ng-model="$parent.jinjidianhua" id="phone"><i></i>
+		 </div>	   
+		 
 
+		 <div class="form-group" >	
+			<label for="exampleInputEmail1">用户名</label>
+		    <input type="text" ng-model="$parent.Name" placeholder="*必填 请以手机号码格式填写*" ng-blur="NAME()" id="NAME"> <i style="color:red;"  ng-show="unamee">未填写</i>  <i style="color:red;"  ng-show="NAMEE">手机已被注册！！</i>   <i style="color:red;"  ng-show="uname">格式不正确 (手机号码格式填写错误)</i> <i style="color:lawngreen;" ng-show="unameg">通过</i>
+		  </div>
+		<div class="form-group">
+		    <label for="exampleInputPassword1">Password</label>		    
+		    <input type="password" ng-model="$parent.pass" placeholder="*必填 (请以字母开头6-17位)" ng-blur="PASS()" id="psd"> <i style="color:red;" ng-show="upasse">未填写</i> <i style="color:red;" ng-show="upass">格式不正确     (字母开头6-17位) </i>  <i style="color:lawngreen;" ng-show="upassg">通过</i>
+		</div>	
+
+ 
+		<div class="form-group" >
+		  <label for="exampleInputPassword1" ">管理者身份</label>
+		          
+	           <!--<label for="exampleInputPassword1" class="la">公司管理者</label> <input id="glz" name="Fruit" type="radio" class="in"   value="公司管理者" ng-model="$parent.isadmin">    			 
+			   <label for="exampleInputPassword1" class="la">普通员工</label> <input name="Fruit" type="radio" class="in2" value="普通员工" ng-model="$parent.isadmin">   
+			   	-->
+			   	<label for="glz" class="la">公司管理者</label> <input id="glz" name="Fruit" type="radio" class="in"   value="公司管理者" ng-model="$parent.isadmin" id="glz">    			 
+			   <label for="exampleInputPassword3" class="la">普通员工</label> <input name="Fruit" type="radio" class="in2" value="普通员工" ng-model="$parent.isadmin" id="exampleInputPassword3">  
+	      	 <i style="color:red;" ng-show="uGL">必选</i>  <i style="color:lawngreen;" ng-show="uGLg">通过</i>
+	      	 
+		</div>	
+		
+		
+		<div class="form-group">
+		    	<button type="submit" ng-click="TJ()">Add</button>
+		</div>	
+</div>	
+		<h2 class="P" ng-show="suss"> sussess </h2>
+		
 </div>

@@ -27,13 +27,12 @@
 		                <h4 class="modal-title" id="myModalLabel">修改密码</h4>
 		            </div>
 		            <div class="modal-body">
-		            	<p class="xg_wrap"><span>请输入新的密码：</span><input type="password" class="form-control m_xgmm" placeholder="密码由字母和数字组成" ng-model="x_password" ng-blur="m_xg()"><i ng-show="xg_t">{{xg_title}}</i></p>
-		            	<p class="xg_wrap"><span>请再次输入密码：</span><input type="password" class="form-control m_xgmm" placeholder="确保两次输入完全一致" ng-model="xg_password" ng-blur="m_xgs()"><i ng-show="xg_ts">{{xg_titles}}</i></p>
+		            	请输入新的密码：<input type="text" placeholder="密码由字母和数字组成"/><br/>
+		            	请再次输入密码：<input type="text" placeholder="确保两次输入完全一致"/>
 		            </div>
-		            <p class="mm_tsk" ng-show="mm_tsk">修改成功</p>
 		            <div class="modal-footer">
 		                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-		                <button type="button" class="btn btn-primary" ng-click="xg_sub()" id="mm_tj">提交更改</button>
+		                <button type="button" class="btn btn-primary" style="background:#07162d">提交更改</button>
 		            </div>
 		        </div><!-- /.modal-content -->
 		    </div><!-- /.modal -->
@@ -58,23 +57,31 @@
 		</div>
 		<!-- 模态框（Modal） -->
 		<div class="modal fade" id="myModalThree" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		    <div class="modal-dialog">
+		    <div class="modal-dialog">		    	
 		        <div class="modal-content">
 		            <div class="modal-header">
 		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 		                <h4 class="modal-title" id="myModalLabel">
 		                	标题：<br/>
-		                	<input type="text" />
+		                	<input type="text" ng-model="biaoti" ng-blur="Biaoti()" style="margin-top:5px"/>
+		                		<i style="color:red; margin-left:10px" ng-show="uBiaoti">请填写标题</i>
 		                </h4>
 		            </div>
-		            <div class="modal-body" style="height:200px">
+		            
+		            <div class="modal-body" style="height:200px;">
 		            	内容：
-		            	<textarea style="width:100%;height:100%;overflow-y: scroll;resize: none;"></textarea>
+		            	<textarea style="width:100%;height:100%;overflow-y: scroll;resize: none;  margin-top:10px" ng-model="neirong" ng-blur="Neirong()"></textarea>	            	
 		            </div>
-		            <div class="modal-footer">
+		            
+		             <div class="modal-body" style="height:30px; border: 0px;">
+		            	<i style="color:red; margin-top:10px" ng-show="uNeirong">请填写内容</i>
+		            </div>
+		            
+		            <div class="modal-footer" style="margin-top:10px">
 		                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-		                <button type="button" class="btn btn-primary" style="background:#07162d">确认发布</button>
+		                <button type="button" class="btn btn-primary" ng-click="confirm()"  style="background:#07162d">确认发布</button>
 		            </div>
+		            
 		        </div><!-- /.modal-content -->
 		    </div><!-- /.modal -->
 		</div>
