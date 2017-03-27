@@ -24,6 +24,10 @@ angular
 		url:"/news",
 		templateUrl:"views/news.html"	
 	})
+	.state('main.news.gonggao',{
+		url:"/gonggao",
+		templateUrl:"views/gonggao.html"	
+	})
 	.state('main.news.rizhinews',{
 		url:"/rizhinews",
 		templateUrl:"views/rizhinews.html"	
