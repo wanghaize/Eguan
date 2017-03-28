@@ -1,8 +1,17 @@
 angular.module('cyzApp')
  	.controller("main",["$scope","$http","$state","$timeout","$filter",function($scope,$http,$state,$timeout,$filter){
  		//陈颖志
+ 		//获取用户
+   		$http({
+			url:"http://47.88.16.225:402/users/"+localStorage.uid,
+	   		method:"get"
+		}).then(function(data){
+			localStorage.uNnme = data.data.nicheng
+			$scope.userInfo = data.data
+			$scope.imgSrc = $scope.userInfo.imgSrc
+		})
  				//退出登录
-
+		
 		$scope.logint = function(){
 
 			$('#myModalTwo').modal('hide')
