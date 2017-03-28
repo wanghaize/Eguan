@@ -1,3 +1,71 @@
 <div class="newsCon" ng-controller="gonggao">
-nahai
+
+
+	 <form class="bs-example bs-example-form" role="form">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="请根据关键字进行简索" ng-model="Filter">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="filterXX()">Go!</button>                       
+                    </span>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+    
+  <div class="FINDEX">
+           <li>
+            <span>序号</span>
+            <span>标题</span>
+            <span>内容</span>           
+            <span>发布人</span>
+            <span>发布时间</span>
+            <span>操作</span>
+        </li>
+  </div>       
+  
+<ul>
+       <li ng-repeat="da in Data | filter:{biaoti:FilterXX} | orderBy:'-fabushijian'">		
+        			<span>{{$index+1}}</span>       	
+		            <span>{{da.biaoti}}</span>
+		            <span  data-toggle="modal" data-target="#myModaldd" ng-click="ID(da.id)" class="span" title="点我查看详细">{{da.neirong | cut:true:2:' ...' }}</span>           
+		            <span>{{da.faburen}}</span>           
+		            <span>{{da.fabushijian | date:'yyyy-MM-dd HH:mm:ss'}}</span>	
+		            <span ng-click="rem(da.id)">删除</span>	          
+        </li> 
+ </ul>
+ 
+ <div class="modal fade" id="myModaldd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    <div class="modal-dialog">
+		    	
+		        <div class="modal-content">
+		            <div class="modal-header">
+		          	      详情：
+		            </div>
+		            <div class="modal-body">
+		            	标题:&nbsp{{BT}}
+		            </div>
+		            
+		            
+		            <div class="modal-body">
+		            	具体内容:&nbsp{{NR}}
+		            </div>
+		            
+		            <div class="modal-body">
+		            	发布人:&nbsp{{FBR}}
+		            </div>
+		            
+		            
+		            <div class="modal-body">
+		            	发布时间:&nbsp{{FBSJ | date:'yyyy-MM-dd HH:mm:ss'}}
+		            </div>	
+		            
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div><!-- /.modal -->
+		</div>     
 </div>

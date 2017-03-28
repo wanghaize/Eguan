@@ -105,11 +105,8 @@ angular.module('cyzApp')
 		}
  
  		//杜冰冰
-			$scope.dt1 = new Date();
-		    $scope.dt2 = $filter("date")($scope.dt1, "yyyy-MM-dd HH:mm:ss");
-		   
-		    
-		    
+		$scope.dt1 = new Date();
+	    
 		    $http({
 				url:"http://47.88.16.225:402/users",
 				method:"get"	
@@ -159,10 +156,11 @@ $scope.confirm=function(){
 						biaoti:$scope.biaoti,
 						neirong:$scope.neirong,
 						faburen:localStorage.Name,
-						fabushijian:$scope.dt2
+						fabushijian:$scope.dt1
 					}
-				}).then(function(da){
-					$("#myModalThree").modal("hide")				
+				}).then(function(da){				
+					$("#myModalThree").modal("hide")
+					location.reload()  					
 				})		
 }	
 	 else{
@@ -189,6 +187,8 @@ $scope.confirm=function(){
 	
  			
 }
+ 		
+ 	
  		
  		
  		

@@ -1,7 +1,6 @@
 
 	<div class="maincontent" ng-controller="main">
 		<!-- 模态框（Modal） -->
-		<!-- 模态框（Modal） -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		    <div class="modal-dialog">
 		        <div class="modal-content">
@@ -10,12 +9,11 @@
 		                <h4 class="modal-title" id="myModalLabel">修改昵称</h4>
 		            </div>
 		            <div class="modal-body">
-		            	<input type="text" placeholder="请输入新的昵称" class="form-control xg_name" ng-model="xg_micheng">
-		            	<p ng-show="xg_nc" class="xg_nc">{{nc_title}}</p>
+		            	<input type="text" placeholder="请输入新的昵称"/>
 		            </div>
 		            <div class="modal-footer">
 		                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-		                <button type="button" class="btn btn-primary" ng-click="nc_tj()">提交更改</button>
+		                <button type="button" class="btn btn-primary" style="background:#07162d">提交更改</button>
 		            </div>
 		        </div><!-- /.modal-content -->
 		    </div><!-- /.modal -->
@@ -29,20 +27,18 @@
 		                <h4 class="modal-title" id="myModalLabel">修改密码</h4>
 		            </div>
 		            <div class="modal-body">
-		            	<p class="xg_wrap"><span>请输入新的密码：</span><input type="password" class="form-control m_xgmm" placeholder="密码由字母和数字组成" ng-model="x_password" ng-blur="m_xg()"><i ng-show="xg_t">{{xg_title}}</i></p>
-		            	<p class="xg_wrap"><span>请再次输入密码：</span><input type="password" class="form-control m_xgmm" placeholder="确保两次输入完全一致" ng-model="xg_password" ng-blur="m_xgs()"><i ng-show="xg_ts">{{xg_titles}}</i></p>
+		            	请输入新的密码：<input type="text" placeholder="密码由字母和数字组成"/><br/>
+		            	请再次输入密码：<input type="text" placeholder="确保两次输入完全一致"/>
 		            </div>
-		            <p class="mm_tsk" ng-show="mm_tsk">修改成功</p>
 		            <div class="modal-footer">
 		                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-		                <button type="button" class="btn btn-primary" ng-click="xg_sub()" id="mm_tj">提交更改</button>
+		                <button type="button" class="btn btn-primary" style="background:#07162d">提交更改</button>
 		            </div>
 		        </div><!-- /.modal-content -->
 		    </div><!-- /.modal -->
 		</div>
 		<!-- 模态框（Modal） -->
-		<!--退出登录-->
-			<div class="modal fade" id="myModalTwo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal fade" id="myModalTwo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		    <div class="modal-dialog">
 		        <div class="modal-content">
 		            <div class="modal-header">
@@ -54,12 +50,11 @@
 		            </div>
 		            <div class="modal-footer">
 		                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-		                <button type="button" class="btn btn-primary" ng-click="logint()">退出登录</button>
+		                <button type="button" class="btn btn-primary" style="background:#07162d">确认退出</button>
 		            </div>
 		        </div><!-- /.modal-content -->
 		    </div><!-- /.modal -->
-		</div>	
-		
+		</div>
 		<!-- 模态框（Modal） -->
 		<div class="modal fade" id="myModalThree" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		    <div class="modal-dialog">		    	
