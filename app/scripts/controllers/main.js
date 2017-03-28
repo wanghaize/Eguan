@@ -1,6 +1,80 @@
 angular.module('cyzApp')
  	.controller("main",["$scope","$http","$state","$timeout","$filter",function($scope,$http,$state,$timeout,$filter){
  		//陈颖志
+ 		//最新公告提醒
+ 		$http({
+				url:"http://47.88.16.225:402/xiaoxi",
+				method:"get"	
+			}).then(function(data){
+
+				if(data.data!=undefined){
+					$scope.xiaoxiTitle = data.data[data.data.length-1]
+					$('#myModalgg').modal('show')
+					
+				}
+			}) 
+ 		 
+  		 
+ 		//上传头像
+		var input = document.getElementById("demo_input");
+		var result = document.getElementById("result");
+		var img_area = document.getElementById("img_area");
+		if(typeof(FileReader) === 'undefined') {
+			result.innerHTML = "抱歉，你的浏览器不支持 FileReader，请使用现代浏览器操作！";
+			input.setAttribute('disabled', 'disabled');
+		} else {
+			input.addEventListener('change', readFile, false);
+		}
+			
+
+		function readFile() {
+			var file = this.files[0];
+			//这里我们判断下类型如果不是图片就返回 去掉就可以上传任意文件 
+			if(!/image\/\w+/.test(file.type)) {
+				alert("请确保文件为图像类型");
+				return false;
+			}
+		var reader = new FileReader();
+		reader.readAsDataURL(file);
+		reader.onload = function(e) {
+//			result.innerHTML = '<img src="' + this.result + '" alt=""/>';
+//			img_area.innerHTML = '<div class="sitetip">图片img标签展示：</div><img src="' + this.result + '" alt=""/>';
+			console.log(this.result)
+			srcImgs = this.result
+			$http({
+				url:"http://47.88.16.225:402/users/"+localStorage.uid,
+	   			method:"put",
+	   			data:{
+	   				imgSrc:this.result
+	   			}
+			}).then(function(data){
+				$scope.imgSrc = srcImgs
+			},function(){
+				alert("cuow")
+			})
+		}
+		} 		
+ 		
+ 		
+ 		
+ 		//用户资料卡
+ 		
+ 		$scope.m_infoShow = function(){
+   			$scope.m_infoStyle = {
+   				"transition": "0.5s all",
+   				"opacity": "1",
+   				"transform": "translateY(220px)"
+   			}
+ 		}
+ 		$scope.m_infoHide=function(){
+ 			$scope.m_infoStyle = {
+   				"transition": "0.5s all",
+   				"opacity": "0",
+   				"transform": "translateY(0px)"
+   			}
+ 		}		 
+ 		 
+ 		 
  		//获取用户
    		$http({
 			url:"http://47.88.16.225:402/users/"+localStorage.uid,
@@ -12,6 +86,20 @@ angular.module('cyzApp')
 		})
  				//退出登录
 		
+		$scope.logint = function(){
+
+			$('#myModalTwo').modal('hide')
+			$timeout(function(){
+				$state.go("login")
+			},200)
+		
+		}
+		
+		//退出登录1
+		
+ 		
+ 				//退出登录2
+
 		$scope.logint = function(){
 
 			$('#myModalTwo').modal('hide')
@@ -193,15 +281,17 @@ $scope.confirm=function(){
 				   }
 		   
 	}
-	
- 			
 }
- 		
- 	
- 		
- 		
- 		
-		    
-		    
 		    
  	}])
+ 	.filter("isadmin", function() {
+		return function(input) {
+			if(input == "1") {
+				return input = "管理者";
+			}
+			if(input == 2) {
+				return input = "员工";
+			}
+		}
+		return input;
+	})
