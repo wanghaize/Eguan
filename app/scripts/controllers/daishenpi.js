@@ -10,7 +10,7 @@ angular.module('cyzApp')
 			method: "get",
 		}).then(function(data) {
 			for(var i = 0; i < data.data.length; i++) {
-				if(data.data[i].zhuangtai == "1") {
+				if(data.data[i].zhuangtai == "1" && data.data[i].shenpiren==localStorage.uNnme) {
 					$scope.dwsp.push(data.data[i])
 				}
 			}
@@ -20,7 +20,7 @@ angular.module('cyzApp')
 			method: "get",
 		}).then(function(data) {
 			for(var i = 0; i < data.data.length; i++) {
-				if(data.data[i].zhuangtai == "1") {
+				if(data.data[i].zhuangtai == "1" && data.data[i].shenpiren==localStorage.uNnme) {
 					$scope.dwsp.push(data.data[i])
 				}
 			}
@@ -30,7 +30,7 @@ angular.module('cyzApp')
 			method: "get",
 		}).then(function(data) {
 			for(var i = 0; i < data.data.length; i++) {
-				if(data.data[i].zhuangtai == "1") {
+				if(data.data[i].zhuangtai == "1" && data.data[i].shenpiren==localStorage.uNnme) {
 					$scope.dwsp.push(data.data[i])
 				}
 			}
@@ -40,7 +40,7 @@ angular.module('cyzApp')
 			method: "get",
 		}).then(function(data) {
 			for(var i = 0; i < data.data.length; i++) {
-				if(data.data[i].zhuangtai == "1") {
+				if(data.data[i].zhuangtai == "1" && data.data[i].shenpiren==localStorage.uNnme) {
 					$scope.dwsp.push(data.data[i])
 				}
 			}
@@ -71,7 +71,6 @@ angular.module('cyzApp')
 					zhuangtai:"3"
 				}
 			}).then(function(data) {
-				alert("审批完成")
 				xx()
 			})
 		}
@@ -98,7 +97,6 @@ angular.module('cyzApp')
 					zhuangtai:"2"
 				}
 			}).then(function(data) {
-				alert("审批完成")
 				xx()
 			})
 		}

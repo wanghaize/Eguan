@@ -1,4 +1,23 @@
 <div class="faqi_Warp" ng-controller="qingjia">
+	<div class="modal fade" id="myModalqj" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header" style="text-align: center;">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel" style="color: #666;">友情提示</h4>
+				</div>
+				<div class="modal-body tijiaoyanzheng" style="color: #000;text-align: center;">
+					提交成功
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="fanhui()">查看我发起的审批</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="queding()">确定，继续发起审批</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal -->
+	</div>
 	<div class="qj_wrap">
 		<h1><i class="glyphicon glyphicon-file"></i><span>请假</span></h1>
 		<div>
@@ -28,7 +47,7 @@
 				<input type="text" class="form-control qj_leixing shenpiren" placeholder="请选择" ng-model="shenpiren" disabled>
 			</li>
 			<li>
-				<button class="btn btn-info qj_tj" ng-click="tijiao()">提交</button>
+				<button class="btn btn-info qj_tj" ng-click="tijiao()" data-toggle="modal" data-target="#myModalqj">提交</button>
 			</li>
 		</div>
 	</div>

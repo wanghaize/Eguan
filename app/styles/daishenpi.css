@@ -13,8 +13,12 @@
 .dsp_info{
 	text-align: center;
 }
+.dsp_info ul{
+	height: 30px !important;
+}
 .dsp_info ul li{
 	line-height: 30px;
+	
 }
 .dsp_info ul li .btn{
 	line-height: 10px !important;

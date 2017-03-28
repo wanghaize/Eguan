@@ -10,7 +10,7 @@ angular.module('cyzApp')
 			method: "get"
 		}).then(function(data) {
 			for(var i = 0; i < data.data.length; i++) {
-				if(data.data[i].uid == localStorage.uid) {
+				if(data.data[i].faqiren == localStorage.uNnme) {
 					$scope.dwsp.push(data.data[i])
 				}
 			}
@@ -20,7 +20,7 @@ angular.module('cyzApp')
 			method: "get"
 		}).then(function(data) {
 			for(var i = 0; i < data.data.length; i++) {
-				if(data.data[i].uid == localStorage.uid) {
+				if(data.data[i].faqiren == localStorage.uNnme) {
 					$scope.dwsp.push(data.data[i])
 				}
 			}
@@ -30,7 +30,7 @@ angular.module('cyzApp')
 			method: "get"
 		}).then(function(data) {
 			for(var i = 0; i < data.data.length; i++) {
-				if(data.data[i].uid == localStorage.uid) {
+				if(data.data[i].faqiren == localStorage.uNnme) {
 					$scope.dwsp.push(data.data[i])
 				}
 			}
@@ -40,16 +40,17 @@ angular.module('cyzApp')
 			method: "get"
 		}).then(function(data) {
 			for(var i = 0; i < data.data.length; i++) {
-				if(data.data[i].uid == localStorage.uid) {
+				if(data.data[i].faqiren == localStorage.uNnme) {
 					$scope.dwsp.push(data.data[i])
 				}
 			}
 		})
 		}
 		xx()
+		var lx = "",
+			aid=""
 		$scope.del = function(id) {
-			$scope.dwsp=[]
-			var lx = ""
+			aid=id
 			for(var i = 0; i < arr.length; i++) {
 				if(arr[i].id == id) {
 					console.log(arr[i])
@@ -66,11 +67,14 @@ angular.module('cyzApp')
 					}
 				}
 			}
+			
+		}
+		$scope.queding=function(){
+			$scope.dwsp=[]
 			$http({
-				url: 'http://47.88.16.225:402/'+lx+"/"+id,
+				url: 'http://47.88.16.225:402/'+lx+"/"+aid,
 				method: "delete"
 			}).then(function(data) {
-				alert("删除成功")
 				xx()
 			})
 		}

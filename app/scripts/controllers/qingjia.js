@@ -28,7 +28,7 @@ angular.module('cyzApp')
    			}).then(function(data) {
    					$scope.nicheng=[]
    					for (var i=0;i<data.data.length;i++) {
-   						if(data.data[i].isadmin=="1"){
+   						if(data.data[i].isadmin=="1" && data.data[i].nicheng!=localStorage.uNnme){
    							$scope.nicheng.push(data.data[i])
    						}
    					}
@@ -36,7 +36,20 @@ angular.module('cyzApp')
    		$scope.spr=function(index){
    			$(".shenpiren").val($(".nichen>li").eq(index).text())
    		}
+   		$scope.fanhui=function(){
+   			$("#myModalqj").modal("hide")
+   			setTimeout(function(){
+   				$state.go("main.work.shenpi.faqide")
+   			},200)
+   			
+   			
+   		}
+   		$scope.queding=function(){
+   			location.reload()
+   		}
+   		
 		$scope.tijiao = function() {
+			var dt1 = new Date().toLocaleDateString()+new Date().toLocaleTimeString();
 			var leixing = $scope.leixing
 			var kaishi = document.getElementsByClassName("kaishi")[0].value
 			var jieshu = document.getElementsByClassName("jieshu")[0].value
@@ -49,20 +62,22 @@ angular.module('cyzApp')
    				method: "post",
    				data: {
    					zleixing:"请假",
+   					faqiren:localStorage.uNnme,
    					uid: localStorage.uid,
    					leixing: leixing,
    					kaishishijian:	kaishi,
    					jieshushijian: jieshu,
    					shiyou: shiyou,
    					shenpiren: shenpiren,
+   					time:dt1,
    					zhuangtai: "1"
    				}
    				}).then(function(data) {
-   				alert("提交成功")
+   					$(".tijiaoyanzheng").html("确定提交？")
    				})
 				
 			} else {
-				alert("请填写完整")
+				$(".tijiaoyanzheng").html("请填写完整")
 			}
 		}
 	}])

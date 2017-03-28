@@ -7,17 +7,22 @@ angular.module('cyzApp')
 			method: "get",
 		}).then(function(data) {
 			for(var i = 0; i < data.data.length; i++) {
-				if(data.data[i].zhuangtai == "2" || data.data[i].zhuangtai == "3") {
+				if(data.data[i].zhuangtai == "2" && data.data[i].faqiren == localStorage.uNnme) {
+					$scope.dwsp.push(data.data[i])
+				}else if(data.data[i].zhuangtai == "3" && data.data[i].faqiren == localStorage.uNnme){
 					$scope.dwsp.push(data.data[i])
 				}
 			}
+		
 		})
 		$http({
 			url: "http://47.88.16.225:402/chuchai",
 			method: "get",
 		}).then(function(data) {
 			for(var i = 0; i < data.data.length; i++) {
-				if(data.data[i].zhuangtai == "2" || data.data[i].zhuangtai == "3") {
+				if(data.data[i].zhuangtai == "2" && data.data[i].faqiren == localStorage.uNnme) {
+					$scope.dwsp.push(data.data[i])
+				}else if(data.data[i].zhuangtai == "3" && data.data[i].faqiren == localStorage.uNnme){
 					$scope.dwsp.push(data.data[i])
 				}
 			}
@@ -27,7 +32,9 @@ angular.module('cyzApp')
 			method: "get",
 		}).then(function(data) {
 			for(var i = 0; i < data.data.length; i++) {
-				if(data.data[i].zhuangtai == "2" || data.data[i].zhuangtai == "3") {
+				if(data.data[i].zhuangtai == "2" && data.data[i].faqiren == localStorage.uNnme) {
+					$scope.dwsp.push(data.data[i])
+				}else if(data.data[i].zhuangtai == "3" && data.data[i].faqiren == localStorage.uNnme){
 					$scope.dwsp.push(data.data[i])
 				}
 			}
@@ -37,7 +44,9 @@ angular.module('cyzApp')
 			method: "get",
 		}).then(function(data) {
 			for(var i = 0; i < data.data.length; i++) {
-				if(data.data[i].zhuangtai == "2" || data.data[i].zhuangtai == "3") {
+				if(data.data[i].zhuangtai == "2" && data.data[i].faqiren == localStorage.uNnme) {
+					$scope.dwsp.push(data.data[i])
+				}else if(data.data[i].zhuangtai == "3" && data.data[i].faqiren == localStorage.uNnme){
 					$scope.dwsp.push(data.data[i])
 				}
 			}

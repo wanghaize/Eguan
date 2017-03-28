@@ -1,24 +1,44 @@
-<div class="shenpiNews" ng-controller="shenpitongzhi">
+<div class="shenpiNews" ng-controller="shenpinews">
 	<form class="bs-example bs-example-form" role="form">
         <div class="row">
             <div class="col-lg-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="请根据日志发起人进行搜索">
+                    <input type="text" class="form-control" placeholder="请根据审批发起人进行搜索" ng-model="find">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button">Go!</button>
-                        
+                        <button class="btn btn-default" ng-click="prev()">上一页</button>
+						<button class="btn btn-default" ng-click="next()">下一页</button>
                     </span>
                 </div><!-- /input-group -->
             </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
     </form>
-    <ul>
+    <ul class="row sp_title">
+    	<li>
+    		<span class="col-md-1">序号</span>
+			<span class="col-md-2">发起者</span>
+			<span class="col-md-2">审批类型</span>
+			<span class="col-md-3">发送时间</span>
+			<span class="col-md-2">审批人</span>
+			<span class="col-md-2">审批状态</span>
+    	</li>
+	</ul>
+		<ul class="row sp_zhanshi">
+			<li ng-repeat="a in a | filter:find">
+	    		<span class="col-md-1">{{$index+1}}</span>
+				<span class="col-md-2">{{a.faqiren}}</span>
+				<span class="col-md-2">{{a.zleixing}}</span>
+				<span class="col-md-3">{{a.time}}</span>
+				<span class="col-md-2">{{a.shenpiren}}</span>
+				<span class="col-md-2">{{a.zhuangtai | resetCategory}}</span>
+	    	</li>
+		</ul>
+		
+    <!--<ul>
         <li>
             <span>序号</span>
             <span>发起者</span>
             <span>审批类型</span> 
-           
-            <span>内容概要</span>
             <span>发送时间</span>
             <span>审批人</span>
             <span>审批状态</span>
@@ -30,7 +50,6 @@
             <span>gun</span>
             <span>2001</span>
             <span>gun</span>
-            <span>2001</span>
         </li>
         <li>
         	<span>2</span>
@@ -39,8 +58,7 @@
             <span>gun</span>
             <span>2001</span>
             <span>gun</span>
-            <span>2001</span>
         </li>
     </ul>
-	<p>日志通知</p>
+	<p>日志通知</p>-->
 </div>

@@ -1,19 +1,38 @@
 <div class="pushShenpi" ng-controller="faqide">
+	<div class="modal fade" id="myModalgj" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header" style="text-align: center;">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel" style="color: #666;">友情提示</h4>
+				</div>
+				<div class="modal-body" style="color: #000;text-align: center;">
+					确认删除吗？
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="queding()">确定</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal -->
+	</div>
 	<div class="dsp_wrap">
 		<div class="row dsp_title">
-		  	<div class="col-md-2">类型</div>
-		  	<div class="col-md-3">开始时间</div>
-		 	<div class="col-md-3">结束时间</div>
-		 	<div class="col-md-2">审批人</div>
-		 	<div class="col-md-2">状态</div>
+			<div class="col-md-2">类型</div>
+			<div class="col-md-3">开始时间</div>
+			<div class="col-md-3">结束时间</div>
+			<div class="col-md-2">审批人</div>
+			<div class="col-md-2">状态</div>
 		</div>
-		<div class="dsp_info">
+		<div class="dsp_info" style="height: 480px;overflow-x: hidden;">
 			<ul class="row" ng-repeat="a in dwsp">
 				<li class="col-md-2">{{a.zleixing}}</li>
 				<li class="col-md-3">{{a.kaishishijian}}</li>
 				<li class="col-md-3">{{a.jieshushijian}}</li>
 				<li class="col-md-2">{{a.shenpiren}}</li>
-				<li class="col-md-2"><ins>{{a.zhuangtai|resetCategory}}</ins><button class="btn btn-danger" ng-click="del(a.id)">删除</button></li>
+				<li class="col-md-2"><ins>{{a.zhuangtai|resetCategory}}</ins><button class="btn btn-danger" data-toggle="modal" data-target="#myModalgj" ng-click="del(a.id)">删除</button></li>
 			</ul>
 			<!--<ul class="row" ng-repeat="a in dwspone">
 				<li class="col-md-2">{{a.zleixing}}</li>
@@ -36,7 +55,7 @@
 				<li class="col-md-2">{{a.shenpiren}}</li>
 				<li class="col-md-2"><ins>{{a.zhuangtai|resetCategory}}</ins><button class="btn btn-danger">删除</button></li>
 			</ul>-->
-		</div>	
+		</div>
 	</div>
-	
+
 </div>

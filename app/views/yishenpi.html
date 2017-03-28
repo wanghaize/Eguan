@@ -4,15 +4,15 @@
 		  	<div class="col-md-2">类型</div>
 		  	<div class="col-md-3">开始时间</div>
 		 	<div class="col-md-3">结束时间</div>
-		 	<div class="col-md-2">审批人</div>
+		 	<div class="col-md-2">发起人</div>
 		 	<div class="col-md-2">状态</div>
 		</div>
-		<div class="dsp_info">
+		<div class="dsp_info" style="height: 480px;overflow-x: hidden;">
 			<ul class="row"  ng-repeat="a in dwsp">
 				<li class="col-md-2">{{a.zleixing}}</li>
 				<li class="col-md-3">{{a.kaishishijian}}</li>
 				<li class="col-md-3">{{a.jieshushijian}}</li>
-				<li class="col-md-2">{{a.shenpiren}}</li>
+				<li class="col-md-2">{{a.faqiren}}</li>
 				<li class="col-md-2"><ins>{{a.zhuangtai|resetCategory}}</ins></li>
 			</ul>
 			<!--<ul class="row"  ng-repeat="a in dwspone">
