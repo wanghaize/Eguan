@@ -1,5 +1,7 @@
 angular.module('cyzApp')
 	.controller("farizhi", ["$scope", "$http", "$state", "$timeout", function($scope, $http, $state, $timeout) {
+		console.log($(".push").eq(0).find("input").length)
+		
 		//默认显示
 		$scope.dayPush = true;
 		$scope.weekPush = false;
@@ -36,7 +38,17 @@ angular.module('cyzApp')
 				$(".pushRizhi>ul>li")[0].style = "border-left: none;background:#C9D2E3;color:#07162d;"
 			})
 		}
-
+		//获取登录者的昵称
+		$http({
+				url: "http://47.88.16.225:402/users",
+				method: "get"
+		}).then(function(data){
+			for (var i=0;i<data.data.length;i++) {
+				if(data.data[i].id==localStorage.uid){
+					localStorage.nicheng=data.data[i].nicheng;
+				}
+			}
+		})
 		//联系人列表
 		$scope.peoples = [];
 		$http({
@@ -78,43 +90,51 @@ angular.module('cyzApp')
 			console.log($(".nichen>li").eq($index).text())
 			$(".shenpiren").val($(".nichen>li").eq($index).text())
 			localStorage.userName =$(".nichen>li").eq($index).text();
-			/*console.log($scope.addPeoples[$index].nicheng)
-			var user = $scope.addPeoples[$index].nicheng
-			localStorage.nicheng = $scope.addPeoples[$index].nicheng
-					//			$scope.day.dayFageishui=localStorage.username
-			var userId = $scope.addPeoples[$index].id
-			$(function() {
-				$(".userShow").val(user);
-				localStorage.userName = $scope.addPeoples[$index].username;
-			})*/
 		}
+		
+		
+		
+		console.log($(".push").eq(0).find("input").length)
+		
 		//日报发送提交
-		$scope.daysubmit = function() {
-			if($(".day textarea").eq(0).val() && $(".day textarea").eq(1).val() && $(".day input").eq(0).val()){
+		$scope.daysubmit = function(classify) {
+			if($(".push").eq(classify).find("input").val() && $(".push").eq(classify).find("textarea").eq(0).val() && $(".push").eq(classify).find("textarea").eq(0).val()){
 				$http({
 					url: "http://47.88.16.225:402/rizhi",
 					method: "post",
 					data: {
-						classify: 0,
+						classify: classify,
 						wancheng: $scope.day.dayFinish,
 						weiwancheng: $scope.day.dayUnFinish,
 						beizhu: $scope.day.dayBeizhu,
 						fageishui: localStorage.userName,
 						uid: localStorage.uid,
-						time: new Date() + "",
+						time: Number(new Date()),
 						nicheng: localStorage.nicheng
 					}
 				}).then(function(data) {
+					$(function(){
+						$(".alert").html("提交成功！").fadeIn();
+						setTimeout(function() {
+							$(".alert").fadeOut()
+						}, 1000);
+					})
 					$scope.day.dayFinish = "";
 					$scope.day.dayUnFinish = "";
 					$scope.day.dayBeizhu = "";
 					$scope.day.dayFageishui = "";
 				})
 			}else{
-				console.log("buquan")
+				$(function(){
+						$(".alert").html("提交信息不全").fadeIn();
+						setTimeout(function() {
+							$(".alert").fadeOut()
+						}, 1000);
+				})
 			}
 				
 			}
+		
 			//周报发送提交
 		$scope.weeksubmit = function() {
 			if($(".week textarea").eq(0).val() && $(".week textarea").eq(1).val() && $(".week input").eq(0).val()){
@@ -132,11 +152,24 @@ angular.module('cyzApp')
 						nicheng: localStorage.nicheng
 					}
 				}).then(function(data) {
+					$(function(){
+						$(".alert").html("提交成功！").fadeIn();
+						setTimeout(function() {
+							$(".alert").fadeOut()
+						}, 1000);
+					})
 					$scope.week.weekFinish = "";
 					$scope.week.weekUnFinish = "";
 					$scope.week.weekBeizhu = "";
 					$scope.week.weekFageishui = "";
 				})
+				}else{
+					$(function(){
+							$(".alert").html("提交信息不全").fadeIn();
+							setTimeout(function() {
+								$(".alert").fadeOut()
+							}, 1000);
+					})
 				}
 			}
 			//月报发送提交
@@ -156,12 +189,25 @@ angular.module('cyzApp')
 					nicheng: localStorage.nicheng
 				}
 			}).then(function(data) {
+				$(function(){
+						$(".alert").html("提交成功！").fadeIn();
+						setTimeout(function() {
+							$(".alert").fadeOut()
+						}, 1000);
+					})
 				$scope.month.monthFinish = "";
 				$scope.month.monthUnFinish = "";
 				$scope.month.monthBeizhu = "";
 				$scope.month.monthFageishui = "";
 			})
-			}
+			}else{
+					$(function(){
+							$(".alert").html("提交信息不全").fadeIn();
+							setTimeout(function() {
+								$(".alert").fadeOut()
+							}, 1000);
+					})
+				}
 		}
 
 	}])

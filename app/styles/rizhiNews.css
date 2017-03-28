@@ -12,6 +12,14 @@
 	width:100%;
 	height:700px;
 	overflow-y: scroll;
+	position: relative;
+}
+.rizhiNews>ul>img{
+	width:640px;
+	height:360px;
+	position: absolute;
+	top:0;right:0;bottom:0;left:0;
+	margin:auto;
 }
 .rizhiNews>ul>li{
 	width:100%;
@@ -45,16 +53,19 @@
 	width:10%;
 }
 .rizhiNews>ul>li>span:nth-child(2){
-	width:20%;
+	width:15%;
 }
 .rizhiNews>ul>li>span:nth-child(3){
-	width:20%;
+	width:15%;
 }
 .rizhiNews>ul>li>span:nth-child(4){
 	width:30%;
 }
 .rizhiNews>ul>li>span:nth-child(5){
 	width:20%;
+}
+.rizhiNews>ul>li>span:nth-child(6){
+	width:10%;
 }
 /*收日志*/
 .getRizhi{

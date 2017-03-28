@@ -1,4 +1,4 @@
-
+<div class="alert alert-success">成功！很好地完成了提交。</div>
 <div class="pushRizhi" ng-controller="farizhi">
 	<ul>
 		<h2>请选择类型：</h2>
@@ -7,13 +7,12 @@
 		<li ng-click="monthShow()">月报</li>
 	</ul>
 	<div class="pushlist">
-		<h2>管理者人员列表：</h2>
 		<input type="text" ng-model="searchPeople" class="form-control" ng-focus="search" placeholder="serach..">
 		<ul class="nichen">
 			<li ng-click="linePeople($index)" ng-repeat="people in addPeoples | filter:searchPeople">{{people.nicheng}}</li>
 		</ul>
 	</div>
-	<div class="day" ng-show="dayPush">
+	<div class="day push" ng-show="dayPush">
 		<li>
 			<h3>今日完成工作</h3>
 			<textarea placeholder="*该项为必填项" ng-model="day.dayFinish"></textarea>
@@ -29,11 +28,11 @@
 		<li>
 			<h3>发送给管理者</h3>
 			<input type="text" placeholder="请在右侧选择您需要添加的联系人.." ng-click="pushInput()" style="background:transparent;outline: none;border:none;color:white" disabled="disabled" class="form-control userShow shenpiren" ng-model="day.dayFageishui">
-			<button type="button" class="btn btn-primary btn-lg " ng-click="daysubmit()">确认提交</button>
+			<button type="button" class="btn btn-primary btn-lg " ng-click="daysubmit(0)">确认提交</button>
 		</li>
 
 	</div>
-	<div class="week" ng-show="weekPush">
+	<div class="week push" ng-show="weekPush">
 		<li>
 			<h3>本周完成工作</h3>
 			<textarea placeholder="*该项为必填项" ng-model="week.weekFinish"></textarea>
@@ -53,7 +52,7 @@
 
 		</li>
 	</div>
-	<div class="month" ng-show="monthPush">
+	<div class="month push" ng-show="monthPush">
 		<li>
 			<h3>本月工作总结</h3>
 			<textarea placeholder="*该项为必填项" ng-model="month.monthFinish"></textarea>

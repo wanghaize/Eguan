@@ -5,16 +5,7 @@ angular.module('cyzApp')
 		$scope.Infosa = [];
 		$scope.Infosb = [];
 		$scope.Infosc = [];
-		$scope.postUser = [];
-		$http({
-			url: "http://47.88.16.225:402/rizhi",
-			method: "get"
-		}).then(function(data) {
-			console.log(data.data)
-			for(var j = 0; j < data.data.length; j++) {				
-				$scope.postUser.push(data.data[j].nicheng)			
-			}
-		})
+
 		$http({
 				url: "http://47.88.16.225:402/rizhi",
 				method: "get"
@@ -43,26 +34,6 @@ angular.module('cyzApp')
 					}
 				}
 			})
-			//			$scope.searchRizhi=""
-			//日志搜索
-		$scope.$watch("searchRizhi", function() {
-			if($scope.searchRizhi) {
-				$http({
-						url: "http://47.88.16.225:402/rizhi"
-				}).then(function(data) {
-
-					}),
-					function() {
-						alert("error!")
-					}
-			}
-		})
-		
-
-		
-		
-		
-		
 		//按时间排序
 		$scope.timeOrderUp=function(){
 			$scope.time="time";

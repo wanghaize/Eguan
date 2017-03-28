@@ -1,39 +1,76 @@
-<div class="rizhiNews" ng-controller="rizhitongzhi">
-	 <form class="bs-example bs-example-form" role="form">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="请根据日志发起人进行搜索">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Go!</button>
+<div class="rizhiNews" ng-controller="rizhinews">
+	<!-- 模态框（Modal） -->
+		<div class="modal fade" id="riInfos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title" id="myModalLabel">日志详情</h4>
+		            </div>
+		            <div class="modal-body">
+		            	<h3>发送人：{{Message.nicheng}}</h3>
+		            	<h3>发送给：{{Message.fageishui}}</h3>
+		            	<h4>日志类型：{{Message.leixing}}</h4>
+		            	<h5>{{Message.wan}}：{{Message.wancheng}}</h5>
+		            	<h5>{{Message.weiwan}}：{{Message.weiwancheng}}</h5>
+		            	<h5>备注：{{Message.beizhu}}</h5>
+		            	<h6>发送时间：{{Message.time | date:"yyyy-MM-dd HH:mm:ss"}}</h6>
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		                <!--<button type="button" class="btn btn-primary" ng-click="nc_tj()">提交更改</button>-->
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div><!-- /.modal -->
+		</div>
+	<!--模态框-->
+	<form class="bs-example bs-example-form" role="form" style="float:left">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="input-group">
+					<input type="text" ng-model="searchNewsXX" class="form-control" placeholder="请根据日志发起人进行搜索">
+					<span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="searchXX()">Go!</button>
                         
                     </span>
-                </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
-        </div><!-- /.row -->
-    </form>
-    <ul>
-        <li>
-            <span>序号</span>
-            <span>发起者</span>
-            <span>发送给</span>           
-            <span>内容概要</span>
-            <span>发送时间</span>
-        </li>
-        <li>
-        	<span>{{$index+1}}</span>
-            <span>ergou</span>
-            <span>sangou</span>           
-            <span title="辽宁省鞍山市铁西区通化路2号">辽宁省鞍山市铁西区通化路2号</span>
-            <span>2001</span>
-        </li>
-        <li>
-        	<span>2</span>
-            <span>ergou</span>
-            <span>sangou</span>           
-            <span>gun</span>
-            <span>2001</span>
-        </li>
-    </ul>
+				</div>
+				<!-- /input-group -->
+			</div>
+			<!-- /.col-lg-6 -->
+		</div>
+		<!-- /.row -->
+	</form>
+	<div class="btn-group" style="width:10%;float:left">
+		<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">按时间排序
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li ng-click="timeOrderUp()">
+				<a href="javascript:;">按时间正序排列</a>
+			</li>
+			<li ng-click="timeOrderDown()">
+				<a href="javascript:;">按时间倒叙排列</a>
+			</li>
+		</ul>
+	</div>
+	<ul>
+		<!--<img src="../images/af90344d443e806226fd9a3cb82ef356.gif"/>-->
+		<li>
+			<span>序号</span>
+			<span>发起者</span>
+			<span>发送给</span>
+			<span>内容概要</span>
+			<span>发送时间</span>
+			<span>操作</span>
+		</li>
+		<li ng-repeat="new in rizhinews| filter:{nicheng:searchNews} | orderBy:time">
+			<span>{{$index+1}}</span>
+			<span>{{new.nicheng}}</span>
+			<span>{{new.fageishui}}</span>
+			<span id="riInfos" data-toggle="modal" data-target="#riInfos" ng-click="riInfos($index)" style="text-align: left;text-indent: 20px;">{{new.wancheng}}...</span>
+			<span>{{new.time | date:"yyyy-MM-dd HH:mm:ss"}}</span>
+			<span ng-click="riInfoDel($index)">删除</span>
+		</li>
+	</ul>
 	<p>日志通知</p>
 </div>

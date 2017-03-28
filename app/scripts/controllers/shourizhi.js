@@ -1,42 +1,56 @@
 angular.module('cyzApp')
  	.controller("shourizhi",["$scope","$http","$state","$timeout",function($scope,$http,$state,$timeout){
-			$scope.getInfos=[];
 			$scope.classifys=[];
 			$scope.Infosa=[];
 			$scope.Infosb=[];
 			$scope.Infosc=[];
+			//按时间排序
+		$scope.timeOrderUp=function(){
+			$scope.time="time";
+		}
+		$scope.timeOrderDown=function(){
+			$scope.time="-time";
+		}
+			
+			
+			//获取登录者昵称
+				$http({
+					url:"http://47.88.16.225:402/users",
+					method:"get"
+				}).then(function(data){
+					for (var i=0;i<data.data.length;i++) {
+						if(data.data[i].id==localStorage.uid){
+							localStorage.unicheng=data.data[i].nicheng;
+						}
+					}
+					
+				})
+				console.log(localStorage.unicheng)
 			$http({
 				url:"http://47.88.16.225:402/rizhi",
 				method:"get"
 			}).then(function(data){
-				$scope.getIDs="";
-				$scope.getNichengs=[];
+				$scope.Getss=[];
 				for (var k=0;k<data.data.length;k++) {
-					if(data.data[k].fageishui==localStorage.userName){
-						$scope.getInfos.push(data.data[k]);
-						$scope.getIDs=data.data[k].uid;
-					}else{
-//						alert("kong")
-//						数据为空的时候效果/
+					if(data.data[k].fageishui==localStorage.unicheng){
+						
+						$scope.Gets=data.data[k]
+					$scope.Getss.push($scope.Gets)
+						
 					}
-					$http({
-						url:"http://47.88.16.225:402/users",
-						method:"get"
-					}).then(function(data){
-						for(var p=0;p<data.data.length;p++){
-							if($scope.getIDs==data.data[p].id){
-								$scope.getNichengs.push(data.data[p].nicheng)
-							}
-						}
-					})
+					
+//					else{
+////						alert("kong")
+////						数据为空的时候效果/
+//					}
 				}
-				for (var i=0;i<$scope.getInfos.length;i++) {
-					if($scope.getInfos[i].classify==0){
+				for (var i=0;i<$scope.Getss.length;i++) {
+					if($scope.Getss[i].classify==0){
 						$scope.classifys.unshift("日报");
 						$scope.Infosa.unshift("今日完成工作");
 						$scope.Infosb.unshift("未完成工作");
 						$scope.Infosc.unshift("备注");
-					}else if($scope.getInfos[i].classify==1){
+					}else if($scope.Getss[i].classify==1){
 						$scope.classifys.unshift("周报");
 						$scope.Infosa.unshift("本周完成工作");
 						$scope.Infosb.unshift("本周工作总结");
@@ -49,5 +63,20 @@ angular.module('cyzApp')
 					}
 				}
 			})
+//				console.log(data.data)
+//				$scope.getIDs="";
+//				$scope.getNichengs=[];
+//				for (var k=0;k<data.data.length;k++) {
+//					if(data.data[k].fageishui==localStorage.unicheng){
+//						$scope.getInfos.push(data.data[k]);
+//						$scope.getIDs=data.data[k].uid;
+//					}else{
+////						alert("kong")
+////						数据为空的时候效果/
+//					}
+//				}
+//				console.log($scope.getInfos)
+				
+//			})
 		
  	}])
