@@ -1,7 +1,7 @@
-<div class="newsCon"  ng-controller="user">
+<div class="newsCon" ng-controller="user">
 	<div class="newsConNav">
 		<p ng-click="guanli()">管理层</p>
-		<p ng-click="yuangong()">员工层</p>		
+		<p ng-click="yuangong()">员工层</p>
 	</div>
 	<div class="newsConInfo">
 		<!--
@@ -10,102 +10,108 @@
         	描述：管理者列表页面
         -->
 		<div class="userFriend">
-		 <form class="bs-example bs-example-form" role="form">
-	        <div class="row">
-	            <div class="col-lg-6">
-	                <div class="input-group">
-	                    <input type="text" class="form-control" placeholder="请根据昵称进行搜索" ng-model="find">
-	                    
-	                    <!--<span class="input-group-btn">
+			<form class="bs-example bs-example-form" role="form">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="请根据昵称进行搜索" ng-model="find">
+
+							<!--<span class="input-group-btn">
 	                        <button class="btn btn-default" type="button">Go!</button>
 	                        
 	                    </span>-->
-	                </div>
-	                	<!-- /input-group -->
-	            </div><!-- /.col-lg-6 -->
-	        </div><!-- /.row -->
-	    </form>
-	    <div class="u_page">
-			<button ng-click="prev()">上一页</button>
-			<button ng-click="next()">下一页</button>
-	    </div>
-	    		
-	    <ul>
-	        <li>
-	            <span>序号</span>
-	            <span>昵称</span>
-	            <span>联系方式</span>           
-	            <span>住址详情</span>
-	            <span>编辑</span>
-	        </li>
-	        <li ng-repeat="i in a | filter:find">
-	        	<span>{{i.$$hashKey}}</span>
-	            <span>{{i.nicheng}}</span>
-	            <span>{{i.tel}}</span>           
-	            <span title="{{i.address}}">{{i.address}}</span>
-	            <span>
+						</div>
+						<!-- /input-group -->
+					</div>
+					<!-- /.col-lg-6 -->
+				</div>
+				<!-- /.row -->
+			</form>
+			<div class="u_page">
+				<button ng-click="prev()">上一页</button>
+				<button ng-click="next()">下一页</button>
+			</div>
+
+			<ul>
+				<li>
+					<span>序号</span>
+					<span>昵称</span>
+					<span>联系方式</span>
+					<span>住址详情</span>
+					<span>编辑</span>
+				</li>
+				<li ng-repeat="i in a | filter:find">
+					<span>{{$index}}</span>
+					<span>{{i.nicheng}}</span>
+					<span>{{i.tel}}</span>
+					<span title="{{i.address}}">{{i.address}}</span>
+					<span>
 	            	<a class=".glyphicon .glyphicon-pencil" data-toggle="modal" data-target="#myModalFour" href="javascript:;" ng-click="xg(i.id)">修改</a>
-	            	<a class=".glyphicon .glyphicon-trash" href="javascript:;" ng-click="del(i.id)">删除</a>
+	            	<a class=".glyphicon .glyphicon-trash" href="javascript:;" data-toggle="modal" data-target="#myModalgel" ng-click="del(i.id)">删除</a>
 	            </span>
-	        </li>
-	    </ul>
-	    
-	    <!---修改信息->
+				</li>
+			</ul>
+		<!--模态框删除数据-->
+		
+			<div class="modal fade" id="myModalgel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">是否删除</h4>
+						</div>
+						<h6>
+							确认删除，点击确定;取消关闭....
+						
+						</h6>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+							<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="qd()">确定</button>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal -->
+
+			</div>
+			<!---修改信息->
 	    
 		<!--模态框-->
-	<div class="modal fade" id="myModalFour" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	    <div class="modal-dialog">
-	        <div class="modal-content">
-	            <div class="modal-header">
-	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	                <h4 class="modal-title" id="myModalLabel">修改个人信息</h4>
-	            </div>
-	            <div class="u_xx">
-	            	<ul>
-	            		<li><label>姓名/昵称:</label><input type="text" class="form-control" ng-model="nicheng"></li>
-	            		<li><label>联系方式:</label><input type="text" class="form-control" ng-model="tel" ng-blur="sjyz()"></li>
-	            		<li><label>住址详情:</label><input type="text" class="form-control" ng-model="address"></li>
-	            		<li><label>紧急联系人:</label><input type="text" class="form-control" ng-model="jinjilianxiren"></li>
-	            		<li><label>紧急联系人电话:</label><input type="text" class="form-control" ng-model="jinjilianxirendianhua" ng-blur="sjyz()"></li>
-	            		<li><label>职位:</label><span>{{zz}}</span></li>
-	            	</ul>
-	            </div>
-	            <div class="modal-footer">
-	                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-	                <button type="button" class="btn btn-primary" ng-click='tj()'>提交更改</button>
-	            </div>
-	        </div><!-- /.modal-content -->
-	    </div><!-- /.modal -->
-	    
-	</div>
-	
-</div>    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
+			<div class="modal fade" id="myModalFour" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">修改个人信息</h4>
+						</div>
+						<div class="u_xx">
+							<ul>
+								<li><label>姓名/昵称:</label><input type="text" class="form-control" ng-model="nicheng"></li>
+								<li><label>联系方式:</label><input type="text" class="form-control" ng-model="tel" ng-blur="sjyz()"></li>
+								<li><label>住址详情:</label><input type="text" class="form-control" ng-model="address"></li>
+								<li><label>紧急联系人:</label><input type="text" class="form-control" ng-model="jinjilianxiren"></li>
+								<li><label>紧急联系人电话:</label><input type="text" class="form-control" ng-model="jinjilianxirendianhua" ng-blur="sjyz()"></li>
+								<li><label>职位:</label><span>{{zz}}</span></li>
+							</ul>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click='tj()'>提交更改</button>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal -->
+
+			</div>
+
 		</div>
-		<!--
+
+	</div>
+	<!--
         	作者：1933564949@qq.com
         	时间：2017-03-25
         	描述：管理者列表页面
         -->
-		
-		
-	</div>
 
-
+</div>
