@@ -9,8 +9,8 @@
 }
 .qj_wrap{
 	width:calc(100% - 250px);
-	height: 100%;
-	background: #2AABD2;
+	height: 550px;
+	background: #07162d;
 	float: left;
 }
 
@@ -55,9 +55,10 @@
 
 .qj_spr{
 	width: 250px;
-	height: 100%;
-	background: #46B8DA;
+	height: 350px;
+	background: #A6E1EC;
 	float: right;
+	border-bottom: 3px solid #fff;
 }
 .qj_spr .qj_shuru{
 	margin-top: 5px;
@@ -70,6 +71,8 @@
 	background: #269ABC;
 	text-indent: 15px;
 	cursor: pointer;
+	margin-top: 5px;
+	color: #000;
 }
 .qj_spr .qj_shuru ul li:nth-child(odd){
 	background: #008CEE;

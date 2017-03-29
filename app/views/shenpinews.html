@@ -24,11 +24,11 @@
     	</li>
 	</ul>
 		<ul class="row sp_zhanshi">
-			<li ng-repeat="a in a | filter:find">
+			<li ng-repeat="a in a | filter:find | orderBy:'-time'">
 	    		<span class="col-md-1">{{$index+1}}</span>
 				<span class="col-md-2">{{a.faqiren}}</span>
 				<span class="col-md-2">{{a.zleixing}}</span>
-				<span class="col-md-3">{{a.time}}</span>
+				<span class="col-md-3">{{a.time |date:'yyyy-MM-dd HH:mm:ss'}}</span>
 				<span class="col-md-2">{{a.shenpiren}}</span>
 				<span class="col-md-2">{{a.zhuangtai | resetCategory}}</span>
 	    	</li>

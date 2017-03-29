@@ -1,6 +1,7 @@
 .dsp_wrap{
+	height: 100%;
 	overflow-y: initial !important;
-	background: #31B0D5;
+	background: #dce2ed;
 }
 .dsp_wrap .dsp_title div{
 	background: #033F4B;
@@ -12,9 +13,18 @@
 }
 .dsp_info{
 	text-align: center;
+	/*background: #B2DBA1;*/
+	width: 100%;
+	color: #000;
 }
 .dsp_info ul{
+	width: 100%;
+	margin: 0;
 	height: 30px !important;
+	background: #ccc;
+}
+.dsp_info ul:nth-child(odd){
+	background: #fafafa !important;
 }
 .dsp_info ul li{
 	line-height: 30px;

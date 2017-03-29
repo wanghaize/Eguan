@@ -59,7 +59,7 @@ angular.module('cyzApp')
 			var jieshu = document.getElementsByClassName("jieshu")[0].value
 			var yuanyin = $scope.yuanyin
 			var shenpiren = document.getElementsByClassName("shenpiren")[0].value
-			var dt1 = new Date().toLocaleDateString()+new Date().toLocaleTimeString();
+			var dt1 = Date.parse(new Date())
 			if(shenpiren && kaishi && jieshu && yuanyin) {
 				$http({
    				url: "http://47.88.16.225:402/lizhishenqing",

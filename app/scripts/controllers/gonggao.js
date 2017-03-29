@@ -7,7 +7,8 @@ angular.module('cyzApp')
 				url:"http://47.88.16.225:402/xiaoxi",
 				method:"get"	
 			}).then(function(data){
-				 $scope.Data=data.data			
+				 $scope.Data=data.data
+				 console.log($scope.Data[12].fabushijian)
 			})
 
  }

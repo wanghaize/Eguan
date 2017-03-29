@@ -1,16 +1,17 @@
 angular.module('cyzApp')
  	.controller("main",["$scope","$http","$state","$timeout","$filter",function($scope,$http,$state,$timeout,$filter){
+ 		//	未登录禁止进去此页面
+		if(localStorage.getItem("uid")=="" || localStorage.getItem("uid")==undefined){
+	    	 $state.go("login")
+	    }
  		//陈颖志
    		//登录管理者身份判断
- 		
- 		
- 		
  		//最新公告提醒
  		$http({
 				url:"http://47.88.16.225:402/xiaoxi",
 				method:"get"	
 			}).then(function(data){
-
+					console.log(data)
 				if(data.data!=undefined){
 					$scope.xiaoxiTitle = data.data[data.data.length-1]
 					$('#myModalgg').modal('show')
@@ -210,8 +211,8 @@ angular.module('cyzApp')
 		}
  
  		//杜冰冰
-		$scope.dt1 = new Date();
-	    
+		var timestamp = Date.parse(new Date());
+		$scope.dt1 = timestamp
 		    $http({
 				url:"http://47.88.16.225:402/users",
 				method:"get"	
@@ -223,8 +224,7 @@ angular.module('cyzApp')
 						}								
 					}									
 				})
-	
-				
+		
 $scope.Biaoti=function(){		    	
 		   if($scope.biaoti==undefined){
 			   $scope.uBiaoti = true		   
@@ -290,6 +290,12 @@ $scope.confirm=function(){
 		   
 	}
 }
+
+
+$(".m_active li").click(function(){
+	$(this).attr("class","m_activeLi").siblings().removeClass("m_activeLi")
+})
+
 		    
  	}])
  	.filter("isadmin", function() {

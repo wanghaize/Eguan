@@ -57,7 +57,7 @@ angular.module('cyzApp')
    		}
    		
 		$scope.tijiao = function() {
-			 dt1 = new Date().toLocaleDateString()+new Date().toLocaleTimeString();
+			dt1 = Date.parse(new Date())
 			 leixing = $scope.leixing
 			 kaishi = document.getElementsByClassName("kaishi")[0].value
 			 jieshu = document.getElementsByClassName("jieshu")[0].value

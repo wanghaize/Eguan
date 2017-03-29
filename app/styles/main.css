@@ -114,14 +114,15 @@ html,body{
 .mainNav>ul>li:hover>span{
 	color:#07162d;
 }
-.mainNav>ul>li:nth-child(1){
+.m_activeLi{
 	background:#c9d2e3;
-	border-left:3px solid #ef1627;
+	border-left:3px solid #ef1627 !important;
 	box-sizing: border-box;
 }
-.mainNav>ul>li:nth-child(1)>span{
+.m_activeLi span{
 	color:#07162d;
-}
+} 
+
 .mainNav>ul>li:nth-child(6):hover>div{
 	height:150px;
 }
