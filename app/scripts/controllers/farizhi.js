@@ -98,7 +98,7 @@ angular.module('cyzApp')
 		
 		//日报发送提交
 		$scope.daysubmit = function(classify) {
-			if($(".push").eq(classify).find("input").val() && $(".push").eq(classify).find("textarea").eq(0).val() && $(".push").eq(classify).find("textarea").eq(0).val()){
+			if($(".day textarea").eq(0).val() && $(".day textarea").eq(1).val() && $(".day input").eq(0).val()){
 				$http({
 					url: "http://47.88.16.225:402/rizhi",
 					method: "post",

@@ -3,14 +3,34 @@ angular.module('cyzApp')
 	
  		
  function CX(){
-			$http({
+ 	if(localStorage.uid!=undefined){
+ 		$http({
 				url:"http://47.88.16.225:402/xiaoxi",
 				method:"get"	
 			}).then(function(data){
 				 $scope.Data=data.data
-				 console.log($scope.Data[12].fabushijian)
+				 
+				$scope.num = 0;
+				$scope.num = Math.ceil(data.data.length / 10)
+				$scope.currentpage = 0;
+				$scope.listpage = 10;
+				$scope.page = 1;
+				$scope.next = function() {
+					if($scope.currentpage < $scope.num - 1) {
+						$scope.currentpage++;
+						$scope.page += 1;
+					}
+				}
+				$scope.prev = function() {
+					if($scope.currentpage > 0) {
+						$scope.currentpage--;
+						$scope.page -= 1;
+					}
+				}
+ 
 			})
-
+ 	}
+			
  }
  
  CX() 
@@ -73,4 +93,9 @@ $scope.dell = function(){
 
     return value + (tail || ' …');
   };
-});
+})
+.filter("myfilter", function() {
+		return function(list, start) {
+			return list.slice(start)
+		}
+	})

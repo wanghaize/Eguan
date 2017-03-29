@@ -24,11 +24,13 @@
 
 	 <form class="bs-example bs-example-form" role="form">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-10">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="请根据关键字进行简索" ng-model="Filter">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button" ng-click="filterXX()">Go!</button>                       
+                        <button class="btn btn-default" type="button" ng-click="prev()">上一页</button>                       
+                        <button class="btn btn-default" type="button" ng-click="next()">下一页</button>                       
                     </span>
                 </div>
             </div>
@@ -48,7 +50,7 @@
   </div>       
   
 <ul>
-       <li ng-repeat="da in Data | filter:{biaoti:FilterXX} | orderBy:'-fabushijian'">		
+       <li ng-repeat="da in Data | filter:{biaoti:FilterXX} | orderBy:'-fabushijian' | myfilter:currentpage*listpage | limitTo:listpage ">		
         			<span>{{$index+1}}</span>       	
 		            <span>{{da.biaoti}}</span>
 		            <span  data-toggle="modal" data-target="#myModaldd" ng-click="ID(da.id)" class="span" title="点我查看详细">{{da.neirong | cut:true:2:' ...' }}</span>           

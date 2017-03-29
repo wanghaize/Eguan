@@ -10,9 +10,8 @@
 	border:1px solid #ccc;
 	box-sizing: border-box;
 	box-shadow: 1px 0px 2px #ccc;
-/*	overflow: hidden;*/
 	border-bottom:1px solid #eee;
-	/*box-sizing: border-box;*/
+	cursor: pointer;
 }
 .newsConNav>p{
 	width:150px;

@@ -107,6 +107,14 @@
 	border:1px solid white;
 	position: relative;
 }
+.getRizhiInfo>div p{
+	text-indent: 15px;
+	line-height: 25px;
+}
+.getRizhiInfo>div span{
+	display: inline-block;
+	text-indent: 15px;
+}
 .getRizhiInfo>div>i{
 	position: absolute;
 	top:5px;

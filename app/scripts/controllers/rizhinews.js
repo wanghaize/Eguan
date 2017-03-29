@@ -6,7 +6,21 @@ angular.module('cyzApp')
 		}).then(function(data){
 			$scope.rizhinews=data.data;
 			console.log($scope.rizhinews[0].time)
-			
+				$scope.num = 0;
+				$scope.num = Math.ceil(data.data.length / 10)
+				$scope.currentpage = 0;
+				$scope.listpage = 10;
+				$scope.next = function() {
+					if($scope.currentpage < $scope.num - 1) {
+						$scope.currentpage++;
+					}
+				}
+				$scope.prev = function() {
+					if($scope.currentpage > 0) {
+						$scope.currentpage--;
+					}
+				}
+				
 		})
 		
 		$scope.riInfos=function($index){
@@ -27,13 +41,7 @@ angular.module('cyzApp')
 				
 			}
 		}
-		//按时间排序
-		$scope.timeOrderUp=function(){
-			$scope.time="time";
-		}
-		$scope.timeOrderDown=function(){
-			$scope.time="-time";
-		}
+
 		//搜索
 		$scope.searchXX=function(){
 			$scope.searchNews=$scope.searchNewsXX
@@ -59,3 +67,10 @@ angular.module('cyzApp')
 		}
 		
  	}])
+ 	
+ 	.filter("myfilter", function() {
+		return function(list, start) {
+			return list.slice(start)
+		}
+	})
+

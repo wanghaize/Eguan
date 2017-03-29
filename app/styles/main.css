@@ -288,3 +288,10 @@ html,body{
 	margin-top: 10px;
 	text-align: left;
 }
+.gongTitle li span{
+	display: inline-block;
+	width: 70%;
+}
+.ne_tit{
+	line-height: 30px;
+}

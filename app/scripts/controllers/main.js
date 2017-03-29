@@ -11,7 +11,6 @@ angular.module('cyzApp')
 				url:"http://47.88.16.225:402/xiaoxi",
 				method:"get"	
 			}).then(function(data){
-					console.log(data)
 				if(data.data!=undefined){
 					$scope.xiaoxiTitle = data.data[data.data.length-1]
 					$('#myModalgg').modal('show')
@@ -78,6 +77,7 @@ angular.module('cyzApp')
    				"transform": "translateY(0px)"
    			}
  		}		 
+ 		 
  		 
  		 
  		//获取用户

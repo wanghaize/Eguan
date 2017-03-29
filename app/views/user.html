@@ -4,11 +4,7 @@
 		<p ng-click="yuangong()">员工层</p>
 	</div>
 	<div class="newsConInfo">
-		<!--
-        	作者：1933564949@qq.com
-        	时间：2017-03-25
-        	描述：管理者列表页面
-        -->
+
 		<div class="userFriend">
 			<form class="bs-example bs-example-form" role="form">
 				<div class="row">
@@ -20,22 +16,19 @@
 								<button class="btn btn-default" ng-click="next()">下一页</button>
 							</span>
 						</div>
-						<!-- /input-group -->
 					</div>
-					<!-- /.col-lg-6 -->
 				</div>
-				<!-- /.row -->
 			</form>
 			<ul>
 				<li>
 					<span>序号</span>
-					<span>昵称</span>
+					<span>姓名</span>
 					<span>联系方式</span>
 					<span>住址详情</span>
 					<span>编辑</span>
 				</li>
-				<li ng-repeat="i in a | filter:find">
-					<span>{{$index}}</span>
+				<li ng-repeat="i in a | filter:{nicheng:find,isadmin:nnn} | myfilter:currentpage*listpage | limitTo:listpage">
+					<span>{{$index+1}}</span>
 					<span>{{i.nicheng}}</span>
 					<span>{{i.tel}}</span>
 					<span title="{{i.address}}">{{i.address}}</span>
@@ -43,9 +36,9 @@
 	            	<a class=".glyphicon .glyphicon-pencil" data-toggle="modal" data-target="#myModalFour" href="javascript:;" ng-click="xg(i.id)">修改</a>
 	            	<a class=".glyphicon .glyphicon-trash" href="javascript:;" data-toggle="modal" data-target="#myModalgel" ng-click="del(i.id)">删除</a>
 	            </span>
+	            <span style="display:none">{{i.isadmin}}</span>
 				</li>
 			</ul>
-		<!--模态框删除数据-->
 		
 			<div class="modal fade" id="myModalgel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
@@ -63,14 +56,10 @@
 							<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="qd()">确定</button>
 						</div>
 					</div>
-					<!-- /.modal-content -->
 				</div>
-				<!-- /.modal -->
 
 			</div>
-			<!---修改信息->
 	    
-		<!--模态框-->
 			<div class="modal fade" id="myModalFour" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -85,7 +74,7 @@
 								<li><label>住址详情:</label><input type="text" class="form-control" ng-model="address"></li>
 								<li><label>紧急联系人:</label><input type="text" class="form-control" ng-model="jinjilianxiren"></li>
 								<li><label>紧急联系人电话:</label><input type="text" class="form-control" ng-model="jinjilianxirendianhua" ng-blur="sjyz()"></li>
-								<li><label>职位:</label><span>{{zz}}</span></li>
+								<li><label>职位:</label><span>{{isadmin |zz}}</span></li>
 							</ul>
 						</div>
 						<div class="modal-footer">
@@ -93,19 +82,13 @@
 							<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click='tj()'>提交更改</button>
 						</div>
 					</div>
-					<!-- /.modal-content -->
 				</div>
-				<!-- /.modal -->
 
 			</div>
 
 		</div>
 
 	</div>
-	<!--
-        	作者：1933564949@qq.com
-        	时间：2017-03-25
-        	描述：管理者列表页面
-        -->
+
 
 </div>

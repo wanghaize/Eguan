@@ -1,69 +1,115 @@
 angular.module('cyzApp')
  	.controller("user",["$scope","$http","$state","$timeout",function($scope,$http,$state,$timeout){
-		//	未登录禁止进去此页面
-
-		
-		function Suser(){		
-			$http({				
-				url:"http://47.88.16.225:402/users",
-				method:"get"
-			}).then(function(d){
-				console.log(d)
-				$scope.a = d.data;
-				$scope.pageNum = 1;
-				$scope.total = $scope.a.length;
-				$scope.pageSize = 10;
-				$scope.totalPage = Math.ceil($scope.total/$scope.pageSize);
-				$scope.start = $scope.pageSize*($scope.pageNum - 1);
-				$scope.end = $scope.pageSize*$scope.pageNum;
-				$scope.a = $scope.a.slice($scope.start,$scope.end);
-			},function(d){
-				console.log("错误")
-			})
+	Suser()
+	function Suser(){
+		$http({
+			url:"http://47.88.16.225:402/users",
+			method:"get"		
+		}).then(function(data){
+			$scope.a=data.data
+			$scope.guanli = function(){
+				$scope.a=[]
+				for(var i=0;i<data.data.length;i++){
+						if(data.data[i].isadmin == '1'){
+							$scope.a.push(data.data[i])
+						}
+				}
+				nex($scope.a)
+			}
+			$scope.yuangong = function(){
+				console.log($scope.a)
+				$scope.a=[]
+				console.log($scope.a)
+				for(var i=0;i<data.data.length;i++){
+						if(data.data[i].isadmin == '2'){
+							$scope.a.push(data.data[i])
+						}
+				}
+				
+				nex($scope.a)
+			}	
+	nex($scope.a)		
+	function nex(n){
+		$scope.num = 0;
+		$scope.num = Math.ceil(n.length / 10)
+		$scope.currentpage = 0;
+		$scope.listpage = 10;
+		$scope.next = function() {
+			if($scope.currentpage < $scope.num - 1) {
+				$scope.currentpage++;
+			}
 		}
-		Suser()
-//  管理层
-        $scope.zz=""
-		$scope.guanli=function(){
+		$scope.prev = function() {
 			
-			$http({
-				url:"http://47.88.16.225:402/users",
-				method:"get",
-				
-			}).then(function(d){
-				$scope.a=[]
-				for(var i=0;i<d.data.length;i++){
-						if(d.data[i].isadmin == '1'){
-							$scope.a.push(d.data[i])
-							$scope.zz="管理者"
-						}
-						
+			if($scope.currentpage > 0) {
+				$scope.currentpage--;
+					}
 				}
-			},function(){
-				alert("error!")
-			})
-		}	
+	}	
+		},function(data){
+			console.log("错误")
+		})
+}
+//		function Suser(){		
+//			$http({				
+//				url:"http://47.88.16.225:402/users",
+//				method:"get"
+//			}).then(function(d){
+//				console.log(d)
+//				$scope.a = d.data;
+//				$scope.pageNum = 1;
+//				$scope.total = $scope.a.length;
+//				$scope.pageSize = 10;
+//				$scope.totalPage = Math.ceil($scope.total/$scope.pageSize);
+//				$scope.start = $scope.pageSize*($scope.pageNum - 1);
+//				$scope.end = $scope.pageSize*$scope.pageNum;
+//				$scope.a = $scope.a.slice($scope.start,$scope.end);
+//			},function(d){
+//				console.log("错误")
+//			})
+//		}
+//		Suser()
+//  管理层
+//      $scope.zz=""
+//		$scope.guanli=function(){
+//			
+//			$http({
+//				url:"http://47.88.16.225:402/users",
+//				method:"get",
+//				
+//			}).then(function(d){
+//				$scope.a=[]
+//				for(var i=0;i<d.data.length;i++){
+//						if(d.data[i].isadmin == '1'){
+//							$scope.a.push(d.data[i])
+//							$scope.zz="管理者"
+//						}
+//						
+//				}
+//			},function(){
+//				alert("error!")
+//			})
+//		}	
 //员工层		
-		$scope.yuangong=function(){
-			$http({
-				url:"http://47.88.16.225:402/users",
-				method:"get",
+//		$scope.yuangong=function(){
+//			$http({
+//				url:"http://47.88.16.225:402/users",
+//				method:"get",
+//				
+//			}).then(function(d){
+//				$scope.a=[]
+//				for(var i=0;i<d.data.length;i++){
+//						if(d.data[i].isadmin !== "1"){
+//							$scope.a.push(d.data[i])
+//							$scope.zz="员工"
+//						}	
+//				}
+//			},function(){
+//				alert("error!")
+//			})
+//		}	
 				
-			}).then(function(d){
-				$scope.a=[]
-				for(var i=0;i<d.data.length;i++){
-						if(d.data[i].isadmin !== "1"){
-							$scope.a.push(d.data[i])
-							$scope.zz="员工"
-						}
-						
-				}
-			},function(){
-				alert("error!")
-			})
-		}	
-				
-//  删除
+////  删除
 		var aid='';
 		$scope.del=function(id){
 			aid=id
@@ -89,6 +135,7 @@ angular.module('cyzApp')
 			$scope.address = data.data.address
 			$scope.jinjilianxiren = data.data.jinjilianxiren
 			$scope.jinjilianxirendianhua = data.data.jinjilianxirendianhua
+			$scope.isadmin = data.data.isadmin
 		})
 	}
 	$scope.sjyz=function(){
@@ -119,65 +166,6 @@ angular.module('cyzApp')
 			alert('error')
 		})
 	}
-////// 下一页
-	$scope.next=function(){
-		$http({
-				url:"http://47.88.16.225:402/users",
-				method:"get",
-				
-			}).then(function(d){
-				
-				$scope.a = d.data;
-				$scope.a = d.data;
-				$scope.pageNum++;
-				if($scope.pageNum>$scope.totalPage){
-					$scope.pageNum=$scope.totalPage
-				}
-				$scope.total = $scope.a.length;
-				$scope.pageSize = 10;
-				$scope.totalPage = Math.ceil($scope.total/$scope.pageSize);
-				$scope.start = $scope.pageSize*($scope.pageNum - 1);
-				$scope.end = $scope.pageSize*$scope.pageNum;
-				$scope.a = $scope.a.slice($scope.start,$scope.end);
-				
-			})
-	}
-	
-//////上一页
-		$scope.prev=function(){
-		$http({
-				url:"http://47.88.16.225:402/users",
-				method:"get",
-				
-			}).then(function(d){
-				$scope.a = d.data;
-//				console.log($scope.a.length)
-				
-				$scope.a = d.data;
-				$scope.pageNum--;
-				if($scope.pageNum<1){
-					$scope.pageNum=1
-				}
-				$scope.total = $scope.a.length;
-				$scope.pageSize = 10;
-				$scope.totalPage = Math.ceil($scope.total/$scope.pageSize);
-				$scope.start = $scope.pageSize*($scope.pageNum - 1);
-				$scope.end = $scope.pageSize*$scope.pageNum;
-				$scope.a = $scope.a.slice($scope.start,$scope.end);
-
-				
-			})
-	}
-//		//封装
-//		
-////		function fenye(sjson){
-////				$scope.total = sjson.length;
-////				$scope.pageSize = 10;
-////				$scope.totalPage = Math.ceil($scope.total/$scope.pageSize);
-////				$scope.start = $scope.pageSize*($scope.pageNum - 1);
-////				$scope.end = $scope.pageSize*$scope.pageNum;
-////				$scope.a = sjson.slice($scope.start,$scope.end);
-////		}
 
 $(".userConNav p").click(function(){
 	$(this).attr("id","userActive").siblings().removeAttr("id")
@@ -185,5 +173,18 @@ $(".userConNav p").click(function(){
 
 
 }])
+.filter("myfilter", function() {
+		return function(list, start) {
+			return list.slice(start)
+		}
+	})
  	
- 	
+.filter("zz",function(){
+	return function(val){
+		if(val=="1"){
+			return "管理者"
+		}else{
+			return "普通员工"
+		}
+	}
+})
