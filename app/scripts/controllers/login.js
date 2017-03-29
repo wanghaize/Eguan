@@ -92,7 +92,7 @@ angular.module('cyzApp')
    				$timeout(function(){
    					$scope.l_ti = false
    				},500)
-     			$state.go("main")
+     			$state.go("main.news.gonggao")
    			},function(data){
 				console.log("失败")
 				$scope.loginTitle = "用户名或密码错误"

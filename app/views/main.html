@@ -131,11 +131,11 @@
 					<i class=".glyphicon .glyphicon-log-out"></i>退出
 				</div>
 				<ul>	
-					<li ui-sref=".news" ng-click="news()"><span>消息通知</span></li>
+					<li ui-sref=".news.gonggao" ng-click="news()"><span>消息通知</span></li>
 					<li ui-sref=".user"><span>联系人</span></li>
-					<li ui-sref=".work"><span>日常工作</span></li>
-					<li ui-sref=".add"><span>添加用户</span></li>
-					<li data-toggle="modal" data-target="#myModalThree"><span>发布公告</span></li>
+					<li ui-sref=".work.rizhi.farizhi"><span>日常工作</span></li>
+					<li ui-sref=".add" ng-show="yinc"><span>添加用户</span></li>
+					<li data-toggle="modal" data-target="#myModalThree" ng-show="yinc"><span>发布公告</span></li>
 					<li ng-click="more()">
 						<span>系统设置</span>
 						<div>

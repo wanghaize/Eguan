@@ -1,5 +1,26 @@
 <div class="newsCon" ng-controller="gonggao">
-
+			<!--模态框删除数据 陈颖志修改--> 
+		
+			<div class="modal fade" id="myModalgo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">是否删除</h4>
+						</div>
+						<h6>
+							您确定要删除数据么？
+						
+						</h6>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+							<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="dell()">确定</button>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal -->
+			</div>
 
 	 <form class="bs-example bs-example-form" role="form">
         <div class="row">
@@ -33,7 +54,7 @@
 		            <span  data-toggle="modal" data-target="#myModaldd" ng-click="ID(da.id)" class="span" title="点我查看详细">{{da.neirong | cut:true:2:' ...' }}</span>           
 		            <span>{{da.faburen}}</span>           
 		            <span>{{da.fabushijian | date:'yyyy-MM-dd HH:mm:ss'}}</span>	
-		            <span ng-click="rem(da.id)">删除</span>	          
+		            <span data-toggle="modal" data-target="#myModalgo" ng-click="rem(da.id)">删除</span>	          
         </li> 
  </ul>
  

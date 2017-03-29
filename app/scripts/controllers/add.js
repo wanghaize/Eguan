@@ -294,9 +294,15 @@ else if( $scope.uGLg==true &&$scope.unichengg==true &&  $scope.uphoneg==true && 
  					    $scope.suss = false;   
  					},2000);
  					
- 					$timeout(function(){
- 						location.reload()  
- 					},500); 					
+   					$timeout(function(){
+   						$scope.Name=""
+   						$scope.pass =""
+   						$scope.Phone=""
+   						$scope.JG = ""
+   						$scope.jinji = ""
+   						$scope.jinjidianhua = ""
+   						$scope.nicheng = ""
+   					},500); 					
  					
  				},function(daa){	
 				

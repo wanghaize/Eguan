@@ -1,85 +1,89 @@
-*{margin:0px;padding: 0px; }
+* {
+	margin: 0px;
+	padding: 0px;
+}
 
+.left h1 {
+	line-height: 55px;
+	width: 100%;
+	text-indent: 30px;
+	font-size: 23px;
+	color: floralwhite;
+	background: #0077B0;
+}
 
-.left h1{line-height:55px;width:100%; text-indent: 30px; font-size:23px;color:floralwhite;background:#0077B0;}
+.left {
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
 
-.left{overflow: hidden; width:100%;height:100%; }
+.form-group {
+	width: 100%;
+	height: 40px;
+	margin-left: 80px;
+	margin-top: 20px;
+	position: relative;
+	line-height: 40px;
+	overflow: hidden;
+}
 
-.form-group{width:100%;
-				height:40px; 				
-				margin-left:80px;
-				margin-top:20px; 
-				position: relative; 
-				line-height:40px;
-				overflow: hidden;}
-					
+.form-group label {
+	width: 150px;
+	float: left;
+	font-size: 18px;
+}
 
-.form-group label{width:150px; float: left; 	font-size: 18px;}
+.form-group input {
+	width: 600px;
+	height: 40px;
+	text-indent: 10px;
+	border-radius: 7px;
+	font-size: 14px;
+	outline: none;
+}
 
-.form-group input{width:600px; height:40px; 
-						text-indent: 10px; 
-						border-radius: 7px;
-						font-size: 14px;
-						outline: none;
-						}
+.form-group button {
+	width: 750px;
+	background: rgba(255, 255, 255, 0.5);
+	outline: none;
+	height: 40px;
+	border-radius: 7px;
+}
 
+.left .form-group i {
+	margin-left: 20px;
+	width: auto
+}
 
- .form-group button{width:750px; background:rgba(255,255,255,0.5); 
- 					 outline:none; 
- 					 height:40px; 					 
- 					 border-radius:7px;}
+.left .form-group .in2,
+.left .form-group .in {
+	width: 12px;
+	height: 12px;
+	margin-top: 15px;
+	left: 250px;
+	float: left;
+	outline: none;
+	position: absolute;
+}
 
+.left .form-group .in2 {
+	left: 533px;
+}
 
-.left  .form-group i{margin-left:20px; width:auto}
+.left .form-group .la {
+	width: 300px;
+}
 
-.left  .form-group .in2,.left  .form-group .in{width:12px; height:12px;margin-top:15px;  left:250px; float:left;outline: none; position: absolute;}
-
-.left  .form-group .in2{left:533px;}
-
-.left  .form-group  .la{width:300px;}
-
-h2{line-height:80px;width:400px;
-		 background:rgba(000,000,000,0.5);
-		 text-align: center; font-size: 35px;
-		 position: fixed; top:40%;left:40%;
-		 border-radius: 10px;color:#fff;
-		 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+h2 {
+	line-height: 80px;
+	width: 400px;
+	background: rgba(000, 000, 000, 0.5);
+	text-align: center;
+	font-size: 35px;
+	position: fixed;
+	top: 40%;
+	left: 40%;
+	border-radius: 10px;
+	color: #fff;
 }

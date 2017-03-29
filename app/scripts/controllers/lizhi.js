@@ -44,8 +44,15 @@ angular.module('cyzApp')
    			
    			
    		}
+		var off = false		
    		$scope.queding=function(){
-   			location.reload()
+   			if(off){
+				$scope.jieshu =""
+				$scope.kaishi =""
+				$scope.yuanyin =""
+			}else{
+				console.log(123)
+			}
    		}
 		$scope.tijiao = function() {
 			var kaishi = document.getElementsByClassName("kaishi")[0].value
@@ -71,8 +78,10 @@ angular.module('cyzApp')
    				}).then(function(data) {
    					$(".tijiaoyanzheng").html("确定提交？")
    				})
+   				off = true
 			} else {
 				$(".tijiaoyanzheng").html("请填写完整")
+				off = false
 			}
 		}
 

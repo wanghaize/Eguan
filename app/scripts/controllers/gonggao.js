@@ -35,16 +35,21 @@ $scope.ID =function(id){
 					})	
 }
 
-//删除
+//删除 陈颖志修改
+var ids = ""
 $scope.rem =function(id){
-		$http({
-			url:"http://47.88.16.225:402/xiaoxi/"+id,
+	ids = id
+		
+	}
+
+$scope.dell = function(){
+	$http({
+			url:"http://47.88.16.225:402/xiaoxi/"+ids,
 			method:"delete"		
 		}).then(function(data){	
 			 CX()					
-		})
-	}
-
+	})
+}
 
 }])
 

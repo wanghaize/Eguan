@@ -1,6 +1,10 @@
 angular.module('cyzApp')
  	.controller("main",["$scope","$http","$state","$timeout","$filter",function($scope,$http,$state,$timeout,$filter){
  		//陈颖志
+   		//登录管理者身份判断
+ 		
+ 		
+ 		
  		//最新公告提醒
  		$http({
 				url:"http://47.88.16.225:402/xiaoxi",
@@ -83,13 +87,25 @@ angular.module('cyzApp')
 			localStorage.uNnme = data.data.nicheng
 			$scope.userInfo = data.data
 			$scope.imgSrc = $scope.userInfo.imgSrc
+			console.log(data.data.isadmin)
+			if(data.data.isadmin!="1"){
+				$scope.yinc = false
+			}else{
+				$scope.yinc = true
+			}
 		})
  				//退出登录
 		
 		$scope.logint = function(){
-
+//			$http({
+//				url:"http://47.88.16.225:402/users/logint/"+localStorage.uid,
+//		   		method:"post"
+//			}).then(function(){
+//				console.log(123)
+//			})
 			$('#myModalTwo').modal('hide')
 			$timeout(function(){
+				localStorage.clear()
 				$state.go("login")
 			},200)
 		
@@ -100,14 +116,6 @@ angular.module('cyzApp')
  		
  				//退出登录2
 
-		$scope.logint = function(){
-
-			$('#myModalTwo').modal('hide')
-			$timeout(function(){
-				$state.go("login")
-			},200)
-		
-		}
 		
 		//修改昵称
 		$scope.xg_nc = false

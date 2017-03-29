@@ -44,17 +44,25 @@ angular.module('cyzApp')
    			
    			
    		}
+   		var off = false
    		$scope.queding=function(){
-   			location.reload()
+			if(off){
+				$scope.leixing =""
+				$scope.kaishi =""
+				$scope.jieshu =""
+				$scope.shiyou =""
+			}else{
+				console.log(123)
+			}
    		}
    		
 		$scope.tijiao = function() {
-			var dt1 = new Date().toLocaleDateString()+new Date().toLocaleTimeString();
-			var leixing = $scope.leixing
-			var kaishi = document.getElementsByClassName("kaishi")[0].value
-			var jieshu = document.getElementsByClassName("jieshu")[0].value
-			var shiyou = $scope.shiyou
-			var shenpiren = document.getElementsByClassName("shenpiren")[0].value
+			 dt1 = new Date().toLocaleDateString()+new Date().toLocaleTimeString();
+			 leixing = $scope.leixing
+			 kaishi = document.getElementsByClassName("kaishi")[0].value
+			 jieshu = document.getElementsByClassName("jieshu")[0].value
+			 shiyou = $scope.shiyou
+			 shenpiren = document.getElementsByClassName("shenpiren")[0].value
 			console.log(kaishi+","+jieshu)
 			if(leixing && shenpiren && kaishi && jieshu && shiyou) {
 				$http({
@@ -75,9 +83,10 @@ angular.module('cyzApp')
    				}).then(function(data) {
    					$(".tijiaoyanzheng").html("确定提交？")
    				})
-				
+				off = true
 			} else {
 				$(".tijiaoyanzheng").html("请填写完整")
+				off = false
 			}
 		}
 	}])

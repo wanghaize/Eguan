@@ -38,11 +38,14 @@ angular.module('cyzApp')
 		$scope.searchXX=function(){
 			$scope.searchNews=$scope.searchNewsXX
 		}
-		//删除
+		//删除 陈颖志修改
+		var id_index = ""
 		$scope.riInfoDel=function($index){
-			console.log($scope.rizhinews[$index].id)
+			id_index = $index
+		}
+		$scope.dell = function(){
 			$http({
-				url:"http://47.88.16.225:402/rizhi/"+$scope.rizhinews[$index].id,
+				url:"http://47.88.16.225:402/rizhi/"+$scope.rizhinews[id_index].id,
 				method:"delete"
 			}).then(function(data){
 				$http({

@@ -44,8 +44,16 @@ angular.module('cyzApp')
    			
    			
    		}
+		var off = false
    		$scope.queding=function(){
-   			location.reload()
+   			if(off){
+				$scope.jine =""
+				$scope.kaishi =""
+				$scope.jieshu =""
+				$scope.minxi =""
+			}else{
+				console.log(123)
+			}
    		}
 		$scope.tijiao = function() {
 			var jine = $scope.jine
@@ -73,8 +81,10 @@ angular.module('cyzApp')
    				}).then(function(data) {
    					$(".tijiaoyanzheng").html("确定提交？")
    				})
+   				off = true
 			} else {
 				$(".tijiaoyanzheng").html("请填写完整")
+				off = false
 			}
 		}
 

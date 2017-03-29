@@ -41,11 +41,17 @@ angular.module('cyzApp')
    			setTimeout(function(){
    				$state.go("main.work.shenpi.faqide")
    			},200)
-   			
-   			
    		}
+		var off = false
    		$scope.queding=function(){
-   			location.reload()
+   			if(off){
+				$scope.leixing =""
+				$scope.kaishi =""
+				$scope.jieshu =""
+				$scope.shiyou =""
+			}else{
+				console.log(123)
+			}
    		}
  		$scope.tijiao = function() {
 			var leixing = $scope.leixing
@@ -73,8 +79,10 @@ angular.module('cyzApp')
    				}).then(function(data) {
    					$(".tijiaoyanzheng").html("确定提交？")
    				})
+   				off = true
    				} else {
 					$(".tijiaoyanzheng").html("请填写完整")
+					off = false
 			}
 		}
  	}])

@@ -1,4 +1,25 @@
 <div class="rizhiNews" ng-controller="rizhinews">
+	<!--删除数据 陈颖志-->
+	<div class="modal fade" id="myModalrzggg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">是否删除</h4>
+						</div>
+						<h6>
+							您确定要删除数据么？
+						
+						</h6>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+							<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="dell()">确定</button>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal -->
+	</div>
 	<!-- 模态框（Modal） -->
 		<div class="modal fade" id="riInfos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		    <div class="modal-dialog">
@@ -40,21 +61,7 @@
 		</div>
 		<!-- /.row -->
 	</form>
-	<div class="btn-group" style="width:10%;float:left">
-		<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">按时间排序
-			<span class="caret"></span>
-		</button>
-		<ul class="dropdown-menu" role="menu">
-			<li ng-click="timeOrderUp()">
-				<a href="javascript:;">按时间正序排列</a>
-			</li>
-			<li ng-click="timeOrderDown()">
-				<a href="javascript:;">按时间倒叙排列</a>
-			</li>
-		</ul>
-	</div>
 	<ul>
-		<!--<img src="../images/af90344d443e806226fd9a3cb82ef356.gif"/>-->
 		<li>
 			<span>序号</span>
 			<span>发起者</span>
@@ -69,7 +76,7 @@
 			<span>{{new.fageishui}}</span>
 			<span id="riInfos" data-toggle="modal" data-target="#riInfos" ng-click="riInfos($index)" style="text-align: left;text-indent: 20px;">{{new.wancheng}}...</span>
 			<span>{{new.time | date:"yyyy-MM-dd HH:mm:ss"}}</span>
-			<span ng-click="riInfoDel($index)">删除</span>
+			<span data-toggle="modal" data-target="#myModalrzggg" ng-click="riInfoDel($index)">删除</span>
 		</li>
 	</ul>
 	<p>日志通知</p>
