@@ -5,4 +5,7 @@ angular.module('cyzApp')
 		if(localStorage.getItem("uid")=="" || localStorage.getItem("uid")==undefined){
 	    	 $state.go("login")
 	    }
+		$(".workCon p").click(function(){
+			$(this).attr("class","n_active").siblings().removeClass("n_active")
+		})	
  	}])

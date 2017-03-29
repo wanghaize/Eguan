@@ -5,4 +5,7 @@ angular.module('cyzApp')
 		if(localStorage.getItem("uid")=="" || localStorage.getItem("uid")==undefined){
 	    	 $state.go("login")
 	    }
+		$(".rz_Wrapp li").click(function(){
+			$(this).attr("class","rzActive").siblings().removeClass("rzActive")
+		})	
  	}])

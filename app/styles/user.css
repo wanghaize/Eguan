@@ -1,3 +1,9 @@
+.newsConNav #userActive{
+	background:#07162d;
+	color:#dce2ed;
+	border-left:2px solid #ff0e1f;	
+}
+
 .userFriend{
 	width:98%;
 	height:98%;

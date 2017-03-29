@@ -1,5 +1,5 @@
 <div class="newsCon" ng-controller="user">
-	<div class="newsConNav">
+	<div class="newsConNav userConNav">
 		<p ng-click="guanli()">管理层</p>
 		<p ng-click="yuangong()">员工层</p>
 	</div>
@@ -15,11 +15,10 @@
 					<div class="col-lg-6">
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="请根据昵称进行搜索" ng-model="find">
-
-							<!--<span class="input-group-btn">
-	                        <button class="btn btn-default" type="button">Go!</button>
-	                        
-	                    </span>-->
+							<span class="input-group-btn">
+								<button class="btn btn-default" ng-click="prev()">上一页</button>
+								<button class="btn btn-default" ng-click="next()">下一页</button>
+							</span>
 						</div>
 						<!-- /input-group -->
 					</div>
@@ -27,11 +26,6 @@
 				</div>
 				<!-- /.row -->
 			</form>
-			<div class="u_page">
-				<button ng-click="prev()">上一页</button>
-				<button ng-click="next()">下一页</button>
-			</div>
-
 			<ul>
 				<li>
 					<span>序号</span>

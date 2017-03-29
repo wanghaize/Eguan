@@ -308,10 +308,7 @@ else if( $scope.uGLg==true &&$scope.unichengg==true &&  $scope.uphoneg==true && 
 				
  				 	$http({
  						url:"http://47.88.16.225:402/users",
- 						method:"get",
- 						data:{
- 								username:$scope.Name
- 							}
+ 						method:"get"
  					}).then(function(daa){
  						
  						for(var i=0;i<daa.data.length;i++)

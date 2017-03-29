@@ -7,6 +7,9 @@
 	color:#dce2ed;
 	position: relative;
 }
+.f_xuanxiang .fq_Active{
+	background: #2E6DA4 !important;
+}
 .f_select_wrap{
 	position: relative;
 }
@@ -53,3 +56,4 @@
 	position: relative;
 	overflow-y: initial !important;
 }
+
