@@ -4,6 +4,7 @@ angular.module('cyzApp')
 			$scope.Infosa=[];
 			$scope.Infosb=[];
 			$scope.Infosc=[];
+			$scope.loading=true;
 			//按时间排序
 		$scope.timeOrderUp=function(){
 			$scope.time="time";
@@ -31,6 +32,7 @@ angular.module('cyzApp')
 				method:"get"
 			}).then(function(data){
 				$scope.Getss=[];
+				$scope.loading=false;
 				for (var k=0;k<data.data.length;k++) {
 					if(data.data[k].fageishui==localStorage.unicheng){
 						
@@ -63,20 +65,5 @@ angular.module('cyzApp')
 					}
 				}
 			})
-//				console.log(data.data)
-//				$scope.getIDs="";
-//				$scope.getNichengs=[];
-//				for (var k=0;k<data.data.length;k++) {
-//					if(data.data[k].fageishui==localStorage.unicheng){
-//						$scope.getInfos.push(data.data[k]);
-//						$scope.getIDs=data.data[k].uid;
-//					}else{
-////						alert("kong")
-////						数据为空的时候效果/
-//					}
-//				}
-//				console.log($scope.getInfos)
-				
-//			})
 		
  	}])

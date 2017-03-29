@@ -1,4 +1,8 @@
 <div class="newsCon" ng-controller="gonggao">
+	<!--加载中。。。-->
+		<div class="loading" ng-show="loading">
+			<img src="../images/5-121204193Q9-50.gif"/>
+		</div>
 			<!--模态框删除数据 陈颖志修改--> 
 		
 			<div class="modal fade" id="myModalgo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -29,8 +33,8 @@
                     <input type="text" class="form-control" placeholder="请根据关键字进行简索" ng-model="Filter">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button" ng-click="filterXX()">Go!</button>                       
-                        <button class="btn btn-default" type="button" ng-click="prev()">上一页</button>                       
-                        <button class="btn btn-default" type="button" ng-click="next()">下一页</button>                       
+                        <button class="btn btn-default" id="prevpage" type="button" ng-click="prev()">上一页</button>                       
+                        <button class="btn btn-default" id="nextpage" type="button" ng-click="next()">下一页</button>                       
                     </span>
                 </div>
             </div>

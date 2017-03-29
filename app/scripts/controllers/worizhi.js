@@ -5,11 +5,12 @@ angular.module('cyzApp')
 		$scope.Infosa = [];
 		$scope.Infosb = [];
 		$scope.Infosc = [];
-
+		$scope.loading=true;
 		$http({
 				url: "http://47.88.16.225:402/rizhi",
 				method: "get"
 			}).then(function(data) {
+				$scope.loading=false;
 				for(var k = 0; k < data.data.length; k++) {
 					if(data.data[k].uid == localStorage.uid) {
 						$scope.postInfos.push(data.data[k])

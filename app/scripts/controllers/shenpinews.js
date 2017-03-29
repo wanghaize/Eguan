@@ -1,6 +1,7 @@
 angular.module('cyzApp')
 	.controller("shenpinews", ["$scope", "$http", "$state", "$timeout", function($scope, $http, $state, $timeout) {
 		$scope.dwsp = []
+		$scope.loading=true;
 		$http({
 			url: "http://47.88.16.225:402/qingjia",
 			method: "get",
@@ -26,6 +27,7 @@ angular.module('cyzApp')
 						url: "http://47.88.16.225:402/lizhishenqing",
 						method: "get",
 					}).then(function(data) {
+						$scope.loading=false;
 						for(var i = 0; i < data.data.length; i++) {
 							$scope.dwsp.push(data.data[i])
 						}
@@ -38,14 +40,32 @@ angular.module('cyzApp')
 						$scope.start = $scope.pageSize*($scope.pageNum - 1);
 						$scope.end = $scope.pageSize*$scope.pageNum;
 						$scope.a = $scope.a.slice($scope.start,$scope.end);
+						
+						if($scope.a[1]==$scope.dwsp[1] ){
+								$("#prevpage").attr("disabled","disabled")	
+							}
+				
+						if($scope.a[1]!==$scope.dwsp[1] ){
+								$("#nextpage").attr("disabled",false)	
+							}
+						
+						
+						if($scope.a.length<$scope.pageSize ){
+									$("#nextpage").attr("disabled","disabled")	
+									$("#prevpage").attr("disabled","disabled")	
+							}
+				
 					})
 				})
+				
+				
+
+				
 			})
 		})
 
 			$scope.next=function(){
-		
-				
+						
 				$scope.a = $scope.dwsp;
 				$scope.pageNum++;
 				if($scope.pageNum>$scope.totalPage){
@@ -57,6 +77,14 @@ angular.module('cyzApp')
 				$scope.start = $scope.pageSize*($scope.pageNum - 1);
 				$scope.end = $scope.pageSize*$scope.pageNum;
 				$scope.a = $scope.a.slice($scope.start,$scope.end);
+				
+				
+				if($scope.a.length<$scope.pageSize ){
+					$("#nextpage").attr("disabled","disabled")	
+					$("#prevpage").attr("disabled",false)	
+				}
+				
+				
 				
 			
 	}
@@ -75,8 +103,16 @@ angular.module('cyzApp')
 				$scope.start = $scope.pageSize*($scope.pageNum - 1);
 				$scope.end = $scope.pageSize*$scope.pageNum;
 				$scope.a = $scope.a.slice($scope.start,$scope.end);
-
-				
+			
+			
+			if($scope.a[1]==$scope.dwsp[1] ){
+					$("#prevpage").attr("disabled","disabled")	
+				}
+			
+				if($scope.a.length>=$scope.pageSize ){
+					$("#nextpage").attr("disabled",false)	
+					
+				}
 			
 	}
 

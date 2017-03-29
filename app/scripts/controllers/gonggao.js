@@ -1,6 +1,6 @@
 angular.module('cyzApp')
  	.controller("gonggao",["$scope","$http","$state","$timeout",function($scope,$http,$state,$timeout){
-	
+	$scope.loading=true;
  		
  function CX(){
  	if(localStorage.uid!=undefined){
@@ -8,24 +8,50 @@ angular.module('cyzApp')
 				url:"http://47.88.16.225:402/xiaoxi",
 				method:"get"	
 			}).then(function(data){
+				$scope.loading=false;
 				 $scope.Data=data.data
 				 
-				$scope.num = 0;
+				$scope.a = $scope.Data;								
+				$scope.num = 0;				
+				$scope.SY = 1;				
 				$scope.num = Math.ceil(data.data.length / 10)
 				$scope.currentpage = 0;
 				$scope.listpage = 10;
 				$scope.page = 1;
+				
+				if($scope.SY=="1"){
+					$("#prevpage").attr("disabled","disabled")		
+				}
+				
+
 				$scope.next = function() {
 					if($scope.currentpage < $scope.num - 1) {
 						$scope.currentpage++;
 						$scope.page += 1;
+						$scope.SY++
 					}
+					
+					if($scope.num==$scope.SY){
+						$("#nextpage").attr("disabled","disabled")	
+						$("#prevpage").attr("disabled",false)	
+					}					
 				}
+				
 				$scope.prev = function() {
 					if($scope.currentpage > 0) {
 						$scope.currentpage--;
 						$scope.page -= 1;
+						$scope.SY--
 					}
+					
+					if($scope.num!==$scope.SY){
+						$("#nextpage").attr("disabled",false)		
+					}
+					
+					if($scope.SY=="1"){
+						$("#prevpage").attr("disabled","disabled")		
+					}
+					
 				}
  
 			})

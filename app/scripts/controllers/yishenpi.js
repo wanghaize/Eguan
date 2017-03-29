@@ -1,6 +1,7 @@
 angular.module('cyzApp')
 	.controller("yishenpi", ["$scope", "$http", "$state", "$timeout", function($scope, $http, $state, $timeout) {
-		$scope.dwsp = []
+		$scope.dwsp = [];
+		$scope.loading=true;
 		var arr = $scope.dwsp
 		$http({
 			url: "http://47.88.16.225:402/qingjia",
@@ -43,6 +44,7 @@ angular.module('cyzApp')
 			url: "http://47.88.16.225:402/lizhishenqing",
 			method: "get",
 		}).then(function(data) {
+			$scope.loading=false;
 			for(var i = 0; i < data.data.length; i++) {
 				if(data.data[i].zhuangtai == "2" && data.data[i].faqiren == localStorage.uNnme) {
 					$scope.dwsp.push(data.data[i])

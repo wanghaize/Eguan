@@ -1,4 +1,8 @@
 <div class="shenpiNews" ng-controller="shenpinews">
+	<!--加载中。。。-->
+		<div class="loading" ng-show="loading">
+			<img src="../images/5-121204193Q9-50.gif"/>
+		</div>
 	<form class="bs-example bs-example-form" role="form">
         <div class="row">
             <div class="col-lg-6">
@@ -6,8 +10,8 @@
                     <input type="text" class="form-control" placeholder="请根据审批发起人进行搜索" ng-model="find">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button">Go!</button>
-                        <button class="btn btn-default" ng-click="prev()">上一页</button>
-						<button class="btn btn-default" ng-click="next()">下一页</button>
+                        <button class="btn btn-default" id="prevpage" ng-click="prev()">上一页</button>
+						<button class="btn btn-default" id="nextpage" ng-click="next()">下一页</button>
                     </span>
                 </div><!-- /input-group -->
             </div><!-- /.col-lg-6 -->
@@ -33,32 +37,5 @@
 				<span class="col-md-2">{{a.zhuangtai | resetCategory}}</span>
 	    	</li>
 		</ul>
-		
-    <!--<ul>
-        <li>
-            <span>序号</span>
-            <span>发起者</span>
-            <span>审批类型</span> 
-            <span>发送时间</span>
-            <span>审批人</span>
-            <span>审批状态</span>
-        </li>
-        <li>
-        	<span>{{$index+1}}</span>
-            <span>ergou</span>
-            <span>sangou</span>           
-            <span>gun</span>
-            <span>2001</span>
-            <span>gun</span>
-        </li>
-        <li>
-        	<span>2</span>
-            <span>ergou</span>
-            <span>sangou</span>           
-            <span>gun</span>
-            <span>2001</span>
-            <span>gun</span>
-        </li>
-    </ul>
-	<p>日志通知</p>-->
+	
 </div>

@@ -1,11 +1,13 @@
 angular.module('cyzApp')
  	.controller("user",["$scope","$http","$state","$timeout",function($scope,$http,$state,$timeout){
+ 		$scope.loading=true;
 	Suser()
 	function Suser(){
 		$http({
 			url:"http://47.88.16.225:402/users",
 			method:"get"		
 		}).then(function(data){
+			$scope.loading=false;
 			$scope.a=data.data
 			$scope.guanli = function(){
 				$scope.a=[]

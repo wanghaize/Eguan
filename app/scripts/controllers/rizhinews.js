@@ -1,9 +1,12 @@
 angular.module('cyzApp')
  	.controller("rizhinews",["$scope","$http","$state","$timeout",function($scope,$http,$state,$timeout){
+ 		$scope.loading=true;
 		$http({
 			url:"http://47.88.16.225:402/rizhi",
 			method:"get"
 		}).then(function(data){
+ 		$scope.loading=false;
+			
 			$scope.rizhinews=data.data;
 			console.log($scope.rizhinews[0].time)
 				$scope.num = 0;

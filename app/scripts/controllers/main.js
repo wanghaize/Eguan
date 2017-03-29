@@ -1,5 +1,7 @@
 angular.module('cyzApp')
  	.controller("main",["$scope","$http","$state","$timeout","$filter",function($scope,$http,$state,$timeout,$filter){
+ 		$scope.loading=true;
+ 		
  		//	未登录禁止进去此页面
 		if(localStorage.getItem("uid")=="" || localStorage.getItem("uid")==undefined){
 	    	 $state.go("login")
@@ -11,6 +13,7 @@ angular.module('cyzApp')
 				url:"http://47.88.16.225:402/xiaoxi",
 				method:"get"	
 			}).then(function(data){
+				$scope.loading=false;
 				if(data.data!=undefined){
 					$scope.xiaoxiTitle = data.data[data.data.length-1]
 					$('#myModalgg').modal('show')
@@ -41,6 +44,7 @@ angular.module('cyzApp')
 		var reader = new FileReader();
 		reader.readAsDataURL(file);
 		reader.onload = function(e) {
+			$scope.loading=true;
 //			result.innerHTML = '<img src="' + this.result + '" alt=""/>';
 //			img_area.innerHTML = '<div class="sitetip">图片img标签展示：</div><img src="' + this.result + '" alt=""/>';
 			console.log(this.result)
@@ -52,6 +56,7 @@ angular.module('cyzApp')
 	   				imgSrc:this.result
 	   			}
 			}).then(function(data){
+				$scope.loading=false;
 				$scope.imgSrc = srcImgs
 			},function(){
 				alert("cuow")
