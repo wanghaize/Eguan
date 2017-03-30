@@ -1,20 +1,27 @@
 <div class="getRizhi" ng-controller="shourizhi">
 	<!--加载中。。。-->
-		<div class="loading" ng-show="loading">
-			<img src="../images/5-121204193Q9-50.gif"/>
-		</div>
-<input type="text" ng-model="searchRizhi" class="form-control" placeholder="按照联系人昵称进行搜索。。" style="width:80%;float:left">	
+	<div class="loading" ng-show="loading">
+		<img src="../images/5-121204193Q9-50.gif" />
+	</div>
+	<input type="text" ng-model="searchRizhi" class="form-control" placeholder="按照联系人昵称进行搜索。。" style="width:80%;float:left">
 
-   <div class="btn-group" style="width:10%;float:left">
+	<div class="btn-group" style="width:10%;float:left">
 		<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">按时间排序
 			<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu" role="menu" style="margin:0;padding:0;">
-			<li ng-click="timeOrderUp()"><a href="javascript:;">按时间正序排列</a></li>
-			<li ng-click="timeOrderDown()"><a href="javascript:;">按时间倒叙排列</a></li>
+			<li ng-click="timeOrderUp()">
+				<a href="javascript:;">按时间正序排列</a>
+			</li>
+			<li ng-click="timeOrderDown()">
+				<a href="javascript:;">按时间倒叙排列</a>
+			</li>
 		</ul>
 	</div>
-	<div class="getRizhiInfo">
+	<div class="getRizhiInfo" id="lxf_boxa">
+		<p ng-show="Infoaaa" style="color:white;font-size: 30px;text-align: center;">
+			抱歉,暂无数据 !
+		</p>
 		<div ng-repeat="getInfo in Getss | filter:{nicheng:searchRizhi} | orderBy:time">
 			<p>来自于：{{getInfo.nicheng}}</p><span>日志类型：{{classifys[$index]}}</span>
 			<p>{{Infosa[$index]}}：<span>{{getInfo.wancheng}}</span></p>
@@ -22,7 +29,22 @@
 			<p>{{Infosc[$index]}}：<span>{{getInfo.beizhu}}</span></p>
 			<span>{{getInfo.time | date:"yyyy-MM-dd HH:mm:ss"}}</span>
 			<i class="glyphicon glyphicon-pushpin"></i>
-		</div>		
+		</div>
+		<!--<li ng-repeat="postInfo in postInfos.slice().reverse() | filter:{fageishui:searchRizhi} | orderBy:time">
+			<a href="javascript:;">
+				<span style="display: block;width:200px;height:auto;">
+					<p>发送给：{{postInfo.fageishui}}</p>
+					<p>{{Infosa[$index]}}：<a>{{postInfo.wancheng}}</a></p>
+					<p>{{Infosb[$index]}}：<a>{{postInfo.weiwancheng}}</a></p>
+					<p>{{Infosc[$index]}}：<a>{{postInfo.beizhu}}</a></p>
+					<p>{{postInfo.time | date:"yyyy-MM-dd HH:mm:ss"}}</p>
+				</span>
+			</a>
+			<h3>{{classifys[$index]}}</h3>
+		</li>-->
 	</div>
-	
+
 </div>
+
+<script>
+</script>

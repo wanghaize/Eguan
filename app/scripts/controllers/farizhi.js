@@ -1,7 +1,7 @@
 angular.module('cyzApp')
 	.controller("farizhi", ["$scope", "$http", "$state", "$timeout", function($scope, $http, $state, $timeout) {
 		console.log($(".push").eq(0).find("input").length)
-		
+		$scope.loadingrizhi=true;
 		//默认显示
 		$scope.dayPush = true;
 		$scope.weekPush = false;
@@ -55,6 +55,7 @@ angular.module('cyzApp')
 				url: "http://47.88.16.225:402/users",
 				method: "get"
 			}).then(function(data) {
+				$scope.loadingrizhi=false;
 				for(var i = 0; i < data.data.length; i++) {
 					if(data.data[i].id == localStorage.uid) {} else {
 						if(data.data[i].isadmin == 1) {
@@ -148,7 +149,7 @@ angular.module('cyzApp')
 						beizhu: $scope.week.weekBeizhu,
 						fageishui: localStorage.userName,
 						uid: localStorage.uid,
-						time: new Date() + "",
+						time: Number(new Date()),
 						nicheng: localStorage.nicheng
 					}
 				}).then(function(data) {
@@ -185,7 +186,7 @@ angular.module('cyzApp')
 					beizhu: $scope.month.monthBeizhu,
 					fageishui: localStorage.userName,
 					uid: localStorage.uid,
-					time: new Date() + "",
+					time: Number(new Date()),
 					nicheng: localStorage.nicheng
 				}
 			}).then(function(data) {

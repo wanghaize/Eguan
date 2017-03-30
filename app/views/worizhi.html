@@ -1,8 +1,8 @@
 <div class="wopushRizhi" ng-controller="worizhi">
 	<!--加载中。。。-->
-		<div class="loading" ng-show="loading">
-			<img src="../images/5-121204193Q9-50.gif"/>
-		</div>
+	<div class="loading" ng-show="loading">
+		<img src="../images/5-121204193Q9-50.gif" />
+	</div>
 	<input type="text" ng-model="searchRizhi" class="form-control" placeholder="按照联系人昵称进行搜索。。" style="width:80%;float:left">
 
 	<div class="btn-group" style="width:10%;float:left">
@@ -18,14 +18,23 @@
 			</li>
 		</ul>
 	</div>
-	<div class="getRizhiInfo">
-		<div ng-repeat="postInfo in postInfos.slice().reverse() | filter:{fageishui:searchRizhi} | orderBy:time">
-			<p>发送给：{{postInfo.fageishui}}</p><span>日志类型：{{classifys[$index]}}</span>
-			<p>{{Infosa[$index]}}：<span>{{postInfo.wancheng}}</span></p>
-			<p>{{Infosb[$index]}}：<span>{{postInfo.weiwancheng}}</span></p>
-			<p>{{Infosc[$index]}}：<span>{{postInfo.beizhu}}</span></p>
-			<span>{{postInfo.time | date:"yyyy-MM-dd HH:mm:ss"}}</span>
-			<i class="glyphicon glyphicon-pushpin"></i>
+	<div class="getRizhiInfo" id="lxf_box">
+		<div ng-show="Info">
+			抱歉,暂无数据 !
 		</div>
+		<li ng-repeat="postInfo in postInfos.slice().reverse() | filter:{fageishui:searchRizhi} | orderBy:time">
+			<a href="javascript:;">
+				<span style="display: block;width:200px;height:auto;">
+					<p>发送给：{{postInfo.fageishui}}</p>
+					<p>{{Infosa[$index]}}：<a>{{postInfo.wancheng}}</a></p>
+					<p>{{Infosb[$index]}}：<a>{{postInfo.weiwancheng}}</a></p>
+					<p>{{Infosc[$index]}}：<a>{{postInfo.beizhu}}</a></p>
+					<p>{{postInfo.time | date:"yyyy-MM-dd HH:mm:ss"}}</p>
+				</span>
+			</a>
+			<h3>{{classifys[$index]}}</h3>
+			<i class="glyphicon glyphicon-pushpin"></i>
+		</li>
+
 	</div>
 </div>

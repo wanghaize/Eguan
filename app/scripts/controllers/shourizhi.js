@@ -1,17 +1,11 @@
 angular.module('cyzApp')
- 	.controller("shourizhi",["$scope","$http","$state","$timeout","$location",function($scope,$http,$state,$timeout,$location){
-		$scope.u = $location.url()
-		$scope.uNum = $scope.u.indexOf("shourizhi")
-		if($scope.uNum!=-1){
-			$(".rz_Wrapp li").eq(1).attr("class","rzActive").siblings().removeClass("rzActive")
-		}
-			
-			
+ 	.controller("shourizhi",["$scope","$http","$state","$timeout",function($scope,$http,$state,$timeout){
 			$scope.classifys=[];
 			$scope.Infosa=[];
 			$scope.Infosb=[];
 			$scope.Infosc=[];
 			$scope.loading=true;
+			$scope.Infoaaa=false;
 			//按时间排序
 		$scope.timeOrderUp=function(){
 			$scope.time="time";
@@ -40,18 +34,23 @@ angular.module('cyzApp')
 			}).then(function(data){
 				$scope.Getss=[];
 				$scope.loading=false;
+//				if(data==null||data.data.length==undefined){
+//					$scope.Info=true;
+//				}else{
+//					$scope.Info=false;
+//				}
 				for (var k=0;k<data.data.length;k++) {
 					if(data.data[k].fageishui==localStorage.unicheng){
-						
+						$scope.Infoaaa=false;
 						$scope.Gets=data.data[k]
-					$scope.Getss.push($scope.Gets)
+						$scope.Getss.push($scope.Gets)
 						
 					}
+//					console.log($scope.Getss)
 					
-//					else{
-////						alert("kong")
-////						数据为空的时候效果/
-//					}
+					else{
+//						$scope.Info=true;
+					}
 				}
 				for (var i=0;i<$scope.Getss.length;i++) {
 					if($scope.Getss[i].classify==0){
@@ -71,6 +70,13 @@ angular.module('cyzApp')
 						$scope.Infosc.unshift("备注");
 					}
 				}
-			})
+		})
+			
+			
+			
+			
+		
 		
  	}])
+ 	
+

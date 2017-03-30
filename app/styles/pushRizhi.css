@@ -93,6 +93,17 @@
 	margin-top:-245px;	
 	overflow: hidden;
 }
+.pushRizhi>.pushlist>.loadingrizhi{
+	width:70px;
+	height:70px;
+	position: absolute;
+	top:0;bottom:0;left:0;right:0;
+	margin:auto;
+}
+.pushRizhi>.pushlist>.loadingrizhi>img{
+	width:100%;
+	height:100%;
+}
 .pushRizhi>.pushlist>h2{
 	margin:10px;
 	margin-left:0;
@@ -150,9 +161,68 @@
 .userShow{
 	color:black;
 }
-.getRizhiInfo>div>p{
-	margin:5px;
+.dropdown-menu>li{
+	background:#fff;
 }
-.getRizhiInfo>div>span{
+
+
+/*瀑布流布局样式*/
+#lxf_box { position: relative;
+ margin:0;padding:0;
+ }
+
+#lxf_box>li { 
+	border-radius: 35px 8px 35px 8px;
+	height:auto;
 	margin:5px;
+	list-style: none;
+	position: relative; 
+	width:300px;
+	float:left;
+	border: solid 1px #ccc; 
+	padding: 10px; left: 0px; top: 0; 
+	}
+#lxf_box>li>i{
+	position: absolute;
+	top:5px;right:5px;
 }
+#lxf_box>li h3{
+	margin-top:10px;
+}
+#lxf_box>li p{
+	margin-top:10px;
+}
+#lxf_box>li a{
+	color:#fff;
+	text-decoration: none;
+}
+
+/*css3动画*/
+#lxf_box>li { -webkit-transition: all .7s ease-out .1s; -moz-transition: all .7s ease-out; -o-transition: all .7s ease-out .1s; transition: all .7s ease-out .1s }
+
+
+
+/*瀑布流布局样式
+#lxf_boxa { position: relative; margin:0;padding:0;}
+#lxf_boxa>li { 
+	height:auto;
+	margin:5px;
+	list-style: none;
+	position: absolute; 
+	border: solid 1px #ccc; 
+	padding: 10px; left: 0px; top: 0; 
+	}
+#lxf_boxa>li h3{
+	margin-top:10px;
+}
+#lxf_boxa>li p{
+	margin-top:10px;
+}
+#lxf_boxa>li a{
+	color:#fff;
+	text-decoration: none;
+}*/
+
+/*css3动画*/
+/*#lxf_boxa>li { -webkit-transition: all .7s ease-out .1s; -moz-transition: all .7s ease-out; -o-transition: all .7s ease-out .1s; transition: all .7s ease-out .1s }
+*/

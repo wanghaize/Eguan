@@ -56,8 +56,9 @@
 					<input type="text" ng-model="searchNewsXX" class="form-control" placeholder="请根据日志发起人进行搜索">
 					<span class="input-group-btn">
                         <button class="btn btn-default" type="button" ng-click="searchXX()">Go!</button>
-						 <button class="btn btn-default" id="prevpage" ng-click="prev()">上一页</button>
-						<button class="btn btn-default" id="nextpage" ng-click="next()">下一页</button>                 
+ 						<button class="btn btn-default" ng-click="prev()">上一页</button>
+						<button class="btn btn-default" ng-click="next()">下一页</button>
+						                    
                     </span>
 				</div>
 				<!-- /input-group -->
@@ -79,14 +80,10 @@
 			<span>{{$index+1}}</span>
 			<span>{{new.nicheng}}</span>
 			<span>{{new.fageishui}}</span>
-			<span id="riInfos" data-toggle="modal" data-target="#riInfos" ng-click="riInfos($index)" style="text-align: left;text-indent: 20px;">{{new.wancheng |limitTo:5}}...</span>
+			<span title="点击查看详情" id="riInfos" data-toggle="modal" data-target="#riInfos" ng-click="riInfos($index)" style="text-align: left;text-indent: 20px;">{{new.wancheng | limitTo :6}}...</span>
 			<span>{{new.time | date:"yyyy-MM-dd HH:mm:ss"}}</span>
 			<span data-toggle="modal" data-target="#myModalrzggg" ng-click="riInfoDel($index)">删除</span>
 		</li>
-		
-			 <div ng-show="HIDE">
-	        		抱歉,暂无数据 !      	
-	         </div>
 	</ul>
 	<p>日志通知</p>
 </div>

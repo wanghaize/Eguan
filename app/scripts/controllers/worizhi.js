@@ -1,23 +1,17 @@
 angular.module('cyzApp')
-	.controller("worizhi", ["$scope", "$http", "$state", "$timeout","$location", function($scope, $http, $state, $timeout,$location) {
-		
-		$scope.u = $location.url()
-		$scope.uNum = $scope.u.indexOf("worizhi")
-		if($scope.uNum!=-1){
-			$(".rz_Wrapp li").eq(2).attr("class","rzActive").siblings().removeClass("rzActive")
-		}
-		
+	.controller("worizhi", ["$scope", "$http", "$state", "$timeout", function($scope, $http, $state, $timeout) {
 		$scope.postInfos = [];
 		$scope.classifys = [];
 		$scope.Infosa = [];
 		$scope.Infosb = [];
 		$scope.Infosc = [];
-		$scope.loading=true;
+		$scope.loading = true;
 		$http({
 				url: "http://47.88.16.225:402/rizhi",
 				method: "get"
 			}).then(function(data) {
-				$scope.loading=false;
+
+				$scope.loading = false;
 				for(var k = 0; k < data.data.length; k++) {
 					if(data.data[k].uid == localStorage.uid) {
 						$scope.postInfos.push(data.data[k])
@@ -41,13 +35,14 @@ angular.module('cyzApp')
 						$scope.Infosc.unshift("备注");
 					}
 				}
+
 			})
-		//按时间排序
-		$scope.timeOrderUp=function(){
-			$scope.time="time";
+			//按时间排序
+		$scope.timeOrderUp = function() {
+			$scope.time = "time";
 		}
-		$scope.timeOrderDown=function(){
-			$scope.time="-time";
+		$scope.timeOrderDown = function() {
+			$scope.time = "-time";
 		}
 
 	}])
