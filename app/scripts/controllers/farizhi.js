@@ -1,5 +1,10 @@
 angular.module('cyzApp')
 	.controller("farizhi", ["$scope", "$http", "$state", "$timeout", function($scope, $http, $state, $timeout) {
+//		未登录禁止进去此页面
+		if(localStorage.getItem("uid")=="" || localStorage.getItem("uid")==undefined){
+	    	 $state.go("login")
+	    }
+		
 		console.log($(".push").eq(0).find("input").length)
 		$scope.loadingrizhi=true;
 		//默认显示

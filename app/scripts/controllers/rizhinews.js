@@ -1,5 +1,10 @@
 angular.module('cyzApp')
  	.controller("rizhinews",["$scope","$http","$state","$stateParams","$timeout","$location",function($scope,$http,$state,$timeout,$stateParams,$location){
+// 		未登录禁止进去此页面
+		if(localStorage.getItem("uid")=="" || localStorage.getItem("uid")==undefined){
+	    	 $state.go("login")
+	    }
+ 		
  		$scope.u = $location.url().split("/")
 		$scope.ur = $location.url().split("/").length
 		$scope.zul = $scope.u[$scope.ur-1]
@@ -31,7 +36,7 @@ angular.module('cyzApp')
 				$scope.page = 1;
 				
 				if($scope.SY=="1"){
-					$("#prevpage").attr("disabled","disabled")		
+					$("#prevpage").attr("disabled","disabled")
 				}
 				
 				if($scope.num=="1"){
@@ -62,11 +67,9 @@ angular.module('cyzApp')
 					if($scope.num!==$scope.SY){
 						$("#nextpage").attr("disabled",false)		
 					}
-					
 					if($scope.SY=="1"){
 						$("#prevpage").attr("disabled","disabled")		
 					}
-					
 				}			
 		})
 		

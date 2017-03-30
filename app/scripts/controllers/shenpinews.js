@@ -1,6 +1,11 @@
 angular.module('cyzApp')
 	.controller("shenpinews", ["$scope", "$http", "$state", "$timeout","$location", function($scope, $http, $state, $timeout,$location) {
 //		console.log($location.url())
+		
+//		未登录禁止进去此页面
+		if(localStorage.getItem("uid")=="" || localStorage.getItem("uid")==undefined){
+	    	 $state.go("login")
+	    }
 		$scope.u = $location.url().split("/")
 		$scope.ur = $location.url().split("/").length
 		$scope.zul = $scope.u[$scope.ur-1]
@@ -72,10 +77,17 @@ angular.module('cyzApp')
 							}
 						
 						
+						if($scope.totalPage=="1" ){
+							$("#nextpage").attr("disabled","disabled")	
+							$("#prevpage").attr("disabled","disabled")	
+					}
+						
 						if($scope.a.length<$scope.pageSize ){
 									$("#nextpage").attr("disabled","disabled")	
 									$("#prevpage").attr("disabled","disabled")	
 							}
+						
+						
 				
 					})
 				})
@@ -99,14 +111,18 @@ angular.module('cyzApp')
 				$scope.start = $scope.pageSize*($scope.pageNum - 1);
 				$scope.end = $scope.pageSize*$scope.pageNum;
 				$scope.a = $scope.a.slice($scope.start,$scope.end);
+
 				
-				
-				if($scope.a.length<$scope.pageSize ){
+				if($scope.pageNum==$scope.totalPage ){
 					$("#nextpage").attr("disabled","disabled")	
 					$("#prevpage").attr("disabled",false)	
 				}
 				
 				
+				if($scope.a.length<$scope.pageSize ){
+					$("#nextpage").attr("disabled","disabled")	
+					$("#prevpage").attr("disabled",false)	
+				}				
 				
 			
 	}

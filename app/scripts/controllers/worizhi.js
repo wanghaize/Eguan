@@ -1,5 +1,10 @@
 angular.module('cyzApp')
 	.controller("worizhi", ["$scope", "$http", "$state", "$timeout","$location", function($scope, $http, $state, $timeout,$location) {
+//		未登录禁止进去此页面
+		if(localStorage.getItem("uid")=="" || localStorage.getItem("uid")==undefined){
+	    	 $state.go("login")
+	    }
+		
 		$scope.u = $location.url()
 		$scope.uNum = $scope.u.indexOf("worizhi")
 		if($scope.uNum!=-1){

@@ -1,6 +1,11 @@
 angular.module('cyzApp')
  	.controller("shenpi",["$scope","$http","$state","$timeout","$location",function($scope,$http,$state,$timeout,$location){
-	$scope.u = $location.url()
+	
+// 		未登录禁止进去此页面
+		if(localStorage.getItem("uid")=="" || localStorage.getItem("uid")==undefined){
+	    	 $state.go("login")
+	    }
+ 		$scope.u = $location.url()
 		console.log($scope.u.indexOf("work")) 
 		console.log($scope.u)
 		$scope.uNum = $scope.u.indexOf("work")

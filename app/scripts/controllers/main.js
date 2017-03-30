@@ -157,6 +157,9 @@ angular.module('cyzApp')
 								$scope.xg_nc = false
 								$('#myModal').modal('hide')
 							},500)
+							
+							location.reload()
+							
 					},function(){
 						
 					})
@@ -220,8 +223,8 @@ angular.module('cyzApp')
 						$scope.mm_tsk = false
 						$('#myModalOne').modal('hide')
 					},500)
-					$scope.x_password =""
-					$scope.xg_password =""
+					
+					$route.reload();
 				},function(data){
 					console.log("shibai")
 				})
@@ -230,7 +233,10 @@ angular.module('cyzApp')
 			}
 		}
  
- 		//杜冰冰
+		
+		
+		
+ 		//公告
 		var timestamp = Date.parse(new Date());
 		$scope.dt1 = timestamp
 		    $http({
@@ -291,8 +297,8 @@ $scope.confirm=function(){
 						$scope.fbShow = false
 						$("#myModalThree").modal("hide")
 					},800)
-					$scope.biaoti=""
-					$scope.neirong=""	
+					
+					location.reload()
 					//$state.go("main.news.gonggao")  					
 				})		
 }	

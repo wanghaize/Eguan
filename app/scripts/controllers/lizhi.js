@@ -1,5 +1,10 @@
 angular.module('cyzApp')
  	.controller("lizhi",["$scope","$http","$state","$timeout",function($scope,$http,$state,$timeout){
+ 		
+// 		未登录禁止进去此页面
+		if(localStorage.getItem("uid")=="" || localStorage.getItem("uid")==undefined){
+	    	 $state.go("login")
+	    }
  		$scope.imgShow=true
  		var start = {
 			format: 'YYYY-MM-DD hh:mm:ss',

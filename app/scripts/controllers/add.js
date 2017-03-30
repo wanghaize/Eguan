@@ -1,6 +1,11 @@
 angular.module('cyzApp')
  	.controller("add",["$scope","$http","$state","$timeout","$interval","$location",function($scope,$http,$state,$timeout,$interval,$location){
-		$scope.u = $location.url()
+// 		未登录禁止进去此页面
+		if(localStorage.getItem("uid")=="" || localStorage.getItem("uid")==undefined){
+	    	 $state.go("login")
+	    }
+ 		
+ 		$scope.u = $location.url()
 		$scope.uNum = $scope.u.indexOf("add")
 		if($scope.uNum!=-1){
 			$(".m_active li").eq(3).attr("class","m_activeLi").siblings().removeClass("m_activeLi")

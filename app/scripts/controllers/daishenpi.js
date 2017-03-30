@@ -11,8 +11,7 @@ angular.module('cyzApp')
 		$scope.HIDE=false
 		var arr = $scope.dwsp
 		function xx(){
-			
-		
+
 		$http({
 			url: "http://47.88.16.225:402/qingjia",
 			method: "get",
@@ -60,6 +59,17 @@ angular.module('cyzApp')
 //				$scope.HIDE=true
 //			}
 //		},1)
+		
+		
+		
+		
+
+		if($scope.dwsp.length==0){
+			$scope.HIDE=true
+		}
+		
+		
+		
 		}
 		xx()
 		
