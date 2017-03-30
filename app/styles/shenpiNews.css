@@ -37,6 +37,21 @@
 	text-align: center;
 }
 .sp_zhanshi{
-	height: 670px;
-	
+	height: 670px;	
 }
+
+
+
+.sp_zhanshi div{
+	position: absolute;
+	width:500px;
+	height:100px;
+	top:50%;
+	left:50%;
+	margin-top:-50px;
+	margin-left:-250px;
+	text-align: center;
+	font-size:50px;
+	color:#999
+}
+

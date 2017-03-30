@@ -62,6 +62,9 @@
 		            <span>{{da.fabushijian| date:'yyyy-MM-dd HH:mm:ss'}}</span>	
 		            <span data-toggle="modal" data-target="#myModalgo" ng-click="rem(da.id)">删除</span>	          
         </li> 
+        <div ng-show="HIDE">
+        	抱歉,暂无数据 !      	
+        </div>
  </ul>
  
  <div class="modal fade" id="myModaldd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

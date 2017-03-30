@@ -42,6 +42,17 @@ angular.module('cyzApp')
 						for(var i = 0; i < data.data.length; i++) {
 							$scope.dwsp.push(data.data[i])
 						}
+						
+						
+						
+						
+						
+						if($scope.dwsp.length==undefined || $scope.dwsp.length==0){
+							$scope.HIDE=true
+						}
+						
+						
+						
 						console.log($scope.dwsp)
 						$scope.a = $scope.dwsp;
 						$scope.pageNum = 1;

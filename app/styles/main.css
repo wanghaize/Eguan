@@ -175,7 +175,13 @@ html,body{
 	margin-bottom:10px;padding:0;
 	font-size: 16px;
 }
-
+.fb_title{
+	display: inline-block;
+	width: 60%;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+}
 
 /*修改密码css*/
 .xg_wrap{

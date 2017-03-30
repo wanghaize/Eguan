@@ -1,5 +1,6 @@
 angular.module('cyzApp')
  	.controller("baoxiao",["$scope","$http","$state","$timeout",function($scope,$http,$state,$timeout){
+ 		$scope.imgShow=true
  		var start = {
 			format: 'YYYY-MM-DD hh:mm:ss',
 			minDate: $.nowDate(0), //设定最小日期为当前日期
@@ -27,6 +28,7 @@ angular.module('cyzApp')
    				method: "get"
    				}).then(function(data) {
    					$scope.nicheng=[]
+   					$scope.imgShow=false
    					for (var i=0;i<data.data.length;i++) {
    						if(data.data[i].isadmin=="1" && data.data[i].nicheng!=localStorage.uNnme){
    							$scope.nicheng.push(data.data[i])

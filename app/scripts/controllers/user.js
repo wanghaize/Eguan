@@ -15,8 +15,9 @@ angular.module('cyzApp')
 		}).then(function(data){
 			$scope.loading=false;
 			$scope.a=data.data
-						
-				
+			if($scope.a.length==undefined || $scope.a.length==0){
+				$scope.HIDE=true
+			}			
 			$scope.guanli = function(){
 				$scope.a=[]
 				for(var i=0;i<data.data.length;i++){
@@ -24,8 +25,6 @@ angular.module('cyzApp')
 							$scope.a.push(data.data[i])
 						}
 				}
-				
-				
 				nex($scope.a)
 			}
 			$scope.yuangong = function(){
@@ -37,146 +36,56 @@ angular.module('cyzApp')
 							$scope.a.push(data.data[i])
 						}
 				}
-				
 				nex($scope.a)
 			}	
 	nex($scope.a)		
 	function nex(n){
-		
-		
 				$scope.num = 0;				
 				$scope.SY = 1;				
 				$scope.num = Math.ceil($scope.a.length / 10)
 				$scope.currentpage = 0;
 				$scope.listpage = 10;
 				$scope.page = 1;
-				
-				
-				
 				if($scope.SY=="1"){
 					$("#prevpage").attr("disabled","disabled")		
 				}
-				
-				
 				if($scope.num=="1"){
 					$("#prevpage").attr("disabled","disabled")
 					$("#nextpage").attr("disabled","disabled")					
 				}else{
 					$("#nextpage").attr("disabled",false)
 				}
-				
-				
 				$scope.next = function() {
 					if($scope.currentpage < $scope.num - 1) {
 						$scope.currentpage++;
 						$scope.page += 1;
 						$scope.SY++
 					}
-					
 					if($scope.num==$scope.SY){
 						$("#nextpage").attr("disabled","disabled")	
 						$("#prevpage").attr("disabled",false)	
 					}					
 				}
-				
 				$scope.prev = function() {
 					if($scope.currentpage > 0) {
 						$scope.currentpage--;
 						$scope.page -= 1;
 						$scope.SY--
 					}
-					
 					if($scope.num!==$scope.SY){
 						$("#nextpage").attr("disabled",false)		
 					}
-					
 					if($scope.SY=="1"){
 						$("#prevpage").attr("disabled","disabled")		
 					}
-					
 				}
-		
-		
-		
-		
 		
 	}	
 		},function(data){
 			console.log("错误")
 		})
 }
-//		function Suser(){		
-//			$http({				
-//				url:"http://47.88.16.225:402/users",
-//				method:"get"
-//			}).then(function(d){
-//				console.log(d)
-//				$scope.a = d.data;
-//				$scope.pageNum = 1;
-//				$scope.total = $scope.a.length;
-//				$scope.pageSize = 10;
-//				$scope.totalPage = Math.ceil($scope.total/$scope.pageSize);
-//				$scope.start = $scope.pageSize*($scope.pageNum - 1);
-//				$scope.end = $scope.pageSize*$scope.pageNum;
-//				$scope.a = $scope.a.slice($scope.start,$scope.end);
-//			},function(d){
-//				console.log("错误")
-//			})
-//		}
-//		Suser()
-//  管理层
-//      $scope.zz=""
-//		$scope.guanli=function(){
-//			
-//			$http({
-//				url:"http://47.88.16.225:402/users",
-//				method:"get",
-//				
-//			}).then(function(d){
-//				$scope.a=[]
-//				for(var i=0;i<d.data.length;i++){
-//						if(d.data[i].isadmin == '1'){
-//							$scope.a.push(d.data[i])
-//							$scope.zz="管理者"
-//						}
-//						
-//				}
-//			},function(){
-//				alert("error!")
-//			})
-//		}	
-//员工层		
-//		$scope.yuangong=function(){
-//			$http({
-//				url:"http://47.88.16.225:402/users",
-//				method:"get",
-//				
-//			}).then(function(d){
-//				$scope.a=[]
-//				for(var i=0;i<d.data.length;i++){
-//						if(d.data[i].isadmin !== "1"){
-//							$scope.a.push(d.data[i])
-//							$scope.zz="员工"
-//						}	
-//				}
-//			},function(){
-//				alert("error!")
-//			})
-//		}	
-				
-////  删除
-		var aid='';
-		$scope.del=function(id){
-			aid=id
-		}
-		$scope.qd=function(){
-			$http({
-					url:"http://47.88.16.225:402/users/"+aid,
-					method:"delete"
-			}).then(function(d){		
-					Suser()
-			})
-		}
+
 	
 //  修改	
 	$scope.xg=function(id){

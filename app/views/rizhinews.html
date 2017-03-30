@@ -79,10 +79,14 @@
 			<span>{{$index+1}}</span>
 			<span>{{new.nicheng}}</span>
 			<span>{{new.fageishui}}</span>
-			<span id="riInfos" data-toggle="modal" data-target="#riInfos" ng-click="riInfos($index)" style="text-align: left;text-indent: 20px;">{{new.wancheng}}...</span>
+			<span id="riInfos" data-toggle="modal" data-target="#riInfos" ng-click="riInfos($index)" style="text-align: left;text-indent: 20px;">{{new.wancheng |limitTo:5}}...</span>
 			<span>{{new.time | date:"yyyy-MM-dd HH:mm:ss"}}</span>
 			<span data-toggle="modal" data-target="#myModalrzggg" ng-click="riInfoDel($index)">删除</span>
 		</li>
+		
+			 <div ng-show="HIDE">
+	        		抱歉,暂无数据 !      	
+	         </div>
 	</ul>
 	<p>日志通知</p>
 </div>

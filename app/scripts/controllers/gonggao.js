@@ -1,5 +1,12 @@
 angular.module('cyzApp')
- 	.controller("gonggao",["$scope","$http","$state","$timeout",function($scope,$http,$state,$timeout){
+ 	.controller("gonggao",["$scope","$http","$state","$timeout","$location",function($scope,$http,$state,$timeout,$location){
+ 		$scope.u = $location.url()
+		$scope.uNum = $scope.u.indexOf("daishenpi")
+		if($scope.uNum!=-1){
+			$(".newsConNav p").eq(0).attr("class","n_active").siblings().removeClass("n_active")
+		}
+ 		
+ 		
 	$scope.loading=true;
  		
  function CX(){
@@ -9,8 +16,15 @@ angular.module('cyzApp')
 				method:"get"	
 			}).then(function(data){
 				$scope.loading=false;
-				 $scope.Data=data.data
-				 
+				$scope.Data=data.data
+				
+				console.log(data.data)
+				
+				if(data.data.length==undefined || data.data.length==0){
+					$scope.HIDE=true
+				}
+				
+				
 				$scope.a = $scope.Data;								
 				$scope.num = 0;				
 				$scope.SY = 1;				
@@ -128,6 +142,11 @@ $scope.dell = function(){
 })
 .filter("myfilter", function() {
 		return function(list, start) {
-			return list.slice(start)
+			if(list==undefined){
+				
+			}else{
+				return list.slice(start)
+			}
+			
 		}
 	})

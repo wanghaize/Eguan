@@ -18,6 +18,11 @@ angular.module('cyzApp')
 			console.log($scope.rizhinews[0].time)
 			
 			
+			if(data.data.length==undefined || data.data.length==0){
+				$scope.HIDE=true
+			}
+			
+			
 				$scope.num = 0;				
 				$scope.SY = 1;				
 				$scope.num = Math.ceil(data.data.length / 10)

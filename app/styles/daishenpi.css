@@ -17,6 +17,8 @@
 	width: 100%;
 	color: #000;
 }
+
+
 .dsp_info ul{
 	width: 100%;
 	margin: 0;
@@ -24,9 +26,30 @@
 	line-height: 40px;
 	background: #eee;
 }
+
+
+
+.dsp_info  div{
+	position: absolute;
+	width:500px;
+	height:100px;
+	top:50%;
+	left:50%;
+	margin-top:-50px;
+	margin-left:-250px;
+	text-align: center;
+	font-size:50px;
+	color:#999
+}
+
+
+
 .dsp_info ul:nth-child(odd){
 	background: #fafafa !important;
 }
+
+
+
 
 .dsp_info ul li{
 	line-height: 40px;

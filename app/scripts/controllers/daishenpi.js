@@ -16,6 +16,14 @@ angular.module('cyzApp')
 			url: "http://47.88.16.225:402/qingjia",
 			method: "get",
 		}).then(function(data) {
+
+			
+			if($scope.dwsp.length==undefined || $scope.dwsp.length==0){
+				$scope.HIDE=true
+
+			}
+			
+			
 			for(var i = 0; i < data.data.length; i++) {
 				if(data.data[i].zhuangtai == "1" && data.data[i].shenpiren==localStorage.uNnme) {
 					$scope.dwsp.push(data.data[i])

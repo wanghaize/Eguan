@@ -14,11 +14,16 @@ angular.module('cyzApp')
 				method:"get"	
 			}).then(function(data){
 				$scope.loading=false;
-				if(data.data!=undefined){
-					$scope.xiaoxiTitle = data.data[data.data.length-1]
-					$('#myModalgg').modal('show')
+				if(data.data.length==0){
 					
+				}else{
+					if(data.data!=undefined){
+						$scope.xiaoxiTitle = data.data[data.data.length-1]
+						$('#myModalgg').modal('show')
+						
+					}
 				}
+				
 			}) 
  		 
   		 
@@ -256,7 +261,7 @@ $scope.Biaoti=function(){
 	
   
 $scope.confirm=function(){	
-
+	$scope.fbShow = false
 
 	if($scope.uNeirong == false	&&  $scope.uBiaoti == false	){
 				$http({
@@ -268,9 +273,17 @@ $scope.confirm=function(){
 						faburen:localStorage.Name,
 						fabushijian:$scope.dt1
 					}
-				}).then(function(da){				
-					$("#myModalThree").modal("hide")
-					location.reload()  					
+				}).then(function(da){	
+					//$("#myModalThree").modal("hide")
+					$scope.fbShow = true
+					
+					$timeout(function(){
+						$scope.fbShow = false
+						$("#myModalThree").modal("hide")
+					},800)
+					$scope.biaoti=""
+					$scope.neirong=""	
+					//$state.go("main.news.gonggao")  					
 				})		
 }	
 	 else{
