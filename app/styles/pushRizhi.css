@@ -63,11 +63,7 @@
 	color:white;
 	border-left:2px solid #EF1627;
 }
-/*.pushRizhi>ul>li:hover{
-	background:rgba(16,50,101,0.2);
-	color:white;
-	border-left:2px solid #EF1627;
-}*/
+
 .oLiselect{
 	background:rgba(16,50,101,0.2);
 	color:white;
@@ -200,29 +196,9 @@
 /*css3动画*/
 #lxf_box>li { -webkit-transition: all .7s ease-out .1s; -moz-transition: all .7s ease-out; -o-transition: all .7s ease-out .1s; transition: all .7s ease-out .1s }
 
-
-
-/*瀑布流布局样式
-#lxf_boxa { position: relative; margin:0;padding:0;}
-#lxf_boxa>li { 
-	height:auto;
-	margin:5px;
-	list-style: none;
-	position: absolute; 
-	border: solid 1px #ccc; 
-	padding: 10px; left: 0px; top: 0; 
-	}
-#lxf_boxa>li h3{
-	margin-top:10px;
+.infoP{
+	text-align: center;
+	line-height: 500px;
+	font-size: 50px;
+	color: #999;
 }
-#lxf_boxa>li p{
-	margin-top:10px;
-}
-#lxf_boxa>li a{
-	color:#fff;
-	text-decoration: none;
-}*/
-
-/*css3动画*/
-/*#lxf_boxa>li { -webkit-transition: all .7s ease-out .1s; -moz-transition: all .7s ease-out; -o-transition: all .7s ease-out .1s; transition: all .7s ease-out .1s }
-*/

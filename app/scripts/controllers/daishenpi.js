@@ -8,6 +8,7 @@ angular.module('cyzApp')
 
 		$scope.dwsp = [];
 		$scope.loading=true;
+		$scope.HIDE=false
 		var arr = $scope.dwsp
 		function xx(){
 			
@@ -16,14 +17,6 @@ angular.module('cyzApp')
 			url: "http://47.88.16.225:402/qingjia",
 			method: "get",
 		}).then(function(data) {
-
-			
-			if($scope.dwsp.length==undefined || $scope.dwsp.length==0){
-				$scope.HIDE=true
-
-			}
-			
-			
 			for(var i = 0; i < data.data.length; i++) {
 				if(data.data[i].zhuangtai == "1" && data.data[i].shenpiren==localStorage.uNnme) {
 					$scope.dwsp.push(data.data[i])
@@ -61,8 +54,15 @@ angular.module('cyzApp')
 				}
 			}
 		})
+//		$timeout(function(){
+//			console.log($scope.dwsp)
+//			if($scope.dwsp.length==undefined || $scope.dwsp.length==0){
+//				$scope.HIDE=true
+//			}
+//		},1)
 		}
 		xx()
+		
 		var aid=""
 		$scope.jujue=function(){
 			$scope.dwsp = []
@@ -136,62 +136,5 @@ angular.module('cyzApp')
 					}
 				}
 			})
-			/*	$scope.deteil = []
-				$scope.username=[]*/
-			/*$http({
-				url: "http://47.88.16.225:402/qingjia",
-				method: "get",
-			}).then(function(data) {
-				for(var i = 0; i < data.data.length; i++) {
-					if(data.data[i].id == id) {
-						$scope.deteil.push(data.data[i])
-					}
-				}
-				$http({
-					url: "http://47.88.16.225:402/chuchai",
-					method: "get",
-				}).then(function(data) {
-					for(var i = 0; i < data.data.length; i++) {
-						if(data.data[i].id == id) {
-							$scope.deteil.push(data.data[i])
-						}
-					}
-					$http({
-						url: "http://47.88.16.225:402/baoxiao",
-						method: "get",
-					}).then(function(data) {
-						for(var i = 0; i < data.data.length; i++) {
-							if(data.data[i].id == id) {
-								$scope.deteil.push(data.data[i])
-							}
-						}
-						$http({
-							url: "http://47.88.16.225:402/lizhishenqing",
-							method: "get",
-						}).then(function(data) {
-							for(var i = 0; i < data.data.length; i++) {
-								if(data.data[i].id == id) {
-									$scope.deteil.push(data.data[i])
-								}
-							}
-							console.log($scope.deteil[0].uid)
-							$http({
-							url: "http://47.88.16.225:402/users",
-							method: "get",
-							}).then(function(data) {
-								console.log(data)
-								for(var i = 0; i < data.data.length; i++) {
-									if(data.data[i].id == $scope.deteil[0].uid) {
-										$scope.username.push(data.data[i])
-									}
-								}
-								console.log($scope.deteil[0].uid)
-							
-							})
-						})
-					})
-				})
-			})
-*/
 		}
 	}])

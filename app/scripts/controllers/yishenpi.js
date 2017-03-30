@@ -50,6 +50,9 @@ angular.module('cyzApp')
 			method: "get",
 		}).then(function(data) {
 			$scope.loading=false;
+			if($scope.dwsp.length==undefined || $scope.dwsp.length==0){
+				$scope.HIDE=true
+			}
 			for(var i = 0; i < data.data.length; i++) {
 				if(data.data[i].zhuangtai == "2" && data.data[i].faqiren == localStorage.uNnme) {
 					$scope.dwsp.push(data.data[i])

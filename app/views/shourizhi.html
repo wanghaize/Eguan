@@ -1,7 +1,7 @@
 <div class="getRizhi" ng-controller="shourizhi">
 	<!--加载中。。。-->
 	<div class="loading" ng-show="loading">
-		<img src="../images/5-121204193Q9-50.gif" />
+		<img src="images/5-121204193Q9-50.gif" />
 	</div>
 	<input type="text" ng-model="searchRizhi" class="form-control" placeholder="按照联系人昵称进行搜索。。" style="width:80%;float:left">
 
@@ -19,7 +19,7 @@
 		</ul>
 	</div>
 	<div class="getRizhiInfo" id="lxf_boxa">
-		<p ng-show="Infoaaa" style="color:white;font-size: 30px;text-align: center;">
+		<p ng-show="Infoaaa" style="color:#999;font-size: 30px;text-align: center;">
 			抱歉,暂无数据 !
 		</p>
 		<div ng-repeat="getInfo in Getss | filter:{nicheng:searchRizhi} | orderBy:time">

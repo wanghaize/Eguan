@@ -1,7 +1,7 @@
 <div class="pushShenpi" ng-controller="yishenpi">
 	<!--加载中。。。-->
 		<div class="loading" ng-show="loading">
-			<img src="../images/5-121204193Q9-50.gif"/>
+			<img src="images/5-121204193Q9-50.gif"/>
 		</div>
 	<div class="dsp_wrap">
 		<div class="row dsp_title">
@@ -19,27 +19,9 @@
 				<li class="col-md-2">{{a.faqiren}}</li>
 				<li class="col-md-2"><ins>{{a.zhuangtai|resetCategory}}</ins></li>
 			</ul>
-			<!--<ul class="row"  ng-repeat="a in dwspone">
-				<li class="col-md-2">{{a.zleixing}}</li>
-				<li class="col-md-3">{{a.kaishishijian}}</li>
-				<li class="col-md-3">{{a.jieshushijian}}</li>
-				<li class="col-md-2">{{a.shenpiren}}</li>
-				<li class="col-md-2"><ins>{{a.zhuangtai|resetCategory}}</ins><button class="btn btn-danger">删除</button></li>
-			</ul>
-			<ul class="row"  ng-repeat="a in dwsptwo">
-				<li class="col-md-2">{{a.zleixing}}</li>
-				<li class="col-md-3">{{a.kaishishijian}}</li>
-				<li class="col-md-3">{{a.jieshushijian}}</li>
-				<li class="col-md-2">{{a.shenpiren}}</li>
-				<li class="col-md-2"><ins>{{a.zhuangtai|resetCategory}}</ins><button class="btn btn-danger">删除</button></li>
-			</ul>
-			<ul class="row"  ng-repeat="a in dwspthere">
-				<li class="col-md-2">{{a.zleixing}}</li>
-				<li class="col-md-3">{{a.ruzhishijian}}</li>
-				<li class="col-md-3">{{a.lizhishijian}}</li>
-				<li class="col-md-2">{{a.shenpiren}}</li>
-				<li class="col-md-2"><ins>{{a.zhuangtai|resetCategory}}</ins><button class="btn btn-danger">删除</button></li>
-			</ul>-->
+			<div ng-show="HIDE">
+			        抱歉,暂无数据 !      	
+			  </div>
 		</div>	
 	</div>
 	
