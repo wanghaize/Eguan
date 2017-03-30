@@ -23,7 +23,13 @@ angular.module('cyzApp')
 					$("#prevpage").attr("disabled","disabled")		
 				}
 				
-
+				
+				if($scope.num=="1"){
+					$("#prevpage").attr("disabled","disabled")
+					$("#nextpage").attr("disabled","disabled")	
+				}
+				
+				
 				$scope.next = function() {
 					if($scope.currentpage < $scope.num - 1) {
 						$scope.currentpage++;

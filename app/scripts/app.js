@@ -42,7 +42,7 @@ angular
 	})
 	.state('main.add',{
 		url:"/add",
-		templateUrl:"views/Add.html"	
+		templateUrl:"views/add.html"	
 	})
 	.state('main.user.userinfo',{
 		url:"/userinfo",

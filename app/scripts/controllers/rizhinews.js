@@ -1,5 +1,12 @@
 angular.module('cyzApp')
- 	.controller("rizhinews",["$scope","$http","$state","$timeout",function($scope,$http,$state,$timeout){
+ 	.controller("rizhinews",["$scope","$http","$state","$stateParams","$timeout","$location",function($scope,$http,$state,$timeout,$stateParams,$location){
+ 		$scope.u = $location.url().split("/")
+		$scope.ur = $location.url().split("/").length
+		$scope.zul = $scope.u[$scope.ur-1]
+		if($scope.u[$scope.ur-1]=="rizhinews"){
+			$(".newsConNav p").eq(1).attr("class","n_active").siblings().removeClass("n_active")
+		}
+ 		
  		$scope.loading=true;
 		$http({
 			url:"http://47.88.16.225:402/rizhi",
@@ -9,21 +16,53 @@ angular.module('cyzApp')
 			
 			$scope.rizhinews=data.data;
 			console.log($scope.rizhinews[0].time)
-				$scope.num = 0;
+			
+			
+				$scope.num = 0;				
+				$scope.SY = 1;				
 				$scope.num = Math.ceil(data.data.length / 10)
 				$scope.currentpage = 0;
 				$scope.listpage = 10;
+				$scope.page = 1;
+				
+				if($scope.SY=="1"){
+					$("#prevpage").attr("disabled","disabled")		
+				}
+				
+				if($scope.num=="1"){
+					$("#prevpage").attr("disabled","disabled")
+					$("#nextpage").attr("disabled","disabled")	
+				}
+				
 				$scope.next = function() {
 					if($scope.currentpage < $scope.num - 1) {
 						$scope.currentpage++;
+						$scope.page += 1;
+						$scope.SY++
 					}
+					
+					if($scope.num==$scope.SY){
+						$("#nextpage").attr("disabled","disabled")	
+						$("#prevpage").attr("disabled",false)	
+					}					
 				}
+				
 				$scope.prev = function() {
 					if($scope.currentpage > 0) {
 						$scope.currentpage--;
+						$scope.page -= 1;
+						$scope.SY--
 					}
-				}
-				
+					
+					if($scope.num!==$scope.SY){
+						$("#nextpage").attr("disabled",false)		
+					}
+					
+					if($scope.SY=="1"){
+						$("#prevpage").attr("disabled","disabled")		
+					}
+					
+				}			
 		})
 		
 		$scope.riInfos=function($index){

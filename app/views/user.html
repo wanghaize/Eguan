@@ -14,10 +14,11 @@
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="input-group">
-							<input type="text" class="form-control" placeholder="请根据昵称进行搜索" ng-model="find">
+							
 							<span class="input-group-btn">
-								<button class="btn btn-default" ng-click="prev()">上一页</button>
-								<button class="btn btn-default" ng-click="next()">下一页</button>
+								<input type="text" class="form-control" placeholder="请根据昵称进行搜索" ng-model="find">
+								<button class="btn btn-default" id="prevpage" type="button" ng-click="prev()">上一页</button>                       
+                       			<button class="btn btn-default" id="nextpage" type="button" ng-click="next()">下一页</button> 
 							</span>
 						</div>
 					</div>

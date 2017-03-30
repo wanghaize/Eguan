@@ -1,5 +1,11 @@
 angular.module('cyzApp')
- 	.controller("user",["$scope","$http","$state","$timeout",function($scope,$http,$state,$timeout){
+ 	.controller("user",["$scope","$http","$state","$timeout","$location",function($scope,$http,$state,$timeout,$location){
+ 		$scope.u = $location.url().split("/")
+		$scope.ur = $location.url().split("/").length
+		$scope.zul = $scope.u[$scope.ur-1]
+		if($scope.u[$scope.ur-1]=="user"){
+			$(".m_active li").eq(1).attr("class","m_activeLi").siblings().removeClass("m_activeLi")
+		}
  		$scope.loading=true;
 	Suser()
 	function Suser(){
@@ -9,6 +15,8 @@ angular.module('cyzApp')
 		}).then(function(data){
 			$scope.loading=false;
 			$scope.a=data.data
+						
+				
 			$scope.guanli = function(){
 				$scope.a=[]
 				for(var i=0;i<data.data.length;i++){
@@ -16,6 +24,8 @@ angular.module('cyzApp')
 							$scope.a.push(data.data[i])
 						}
 				}
+				
+				
 				nex($scope.a)
 			}
 			$scope.yuangong = function(){
@@ -32,21 +42,64 @@ angular.module('cyzApp')
 			}	
 	nex($scope.a)		
 	function nex(n){
-		$scope.num = 0;
-		$scope.num = Math.ceil(n.length / 10)
-		$scope.currentpage = 0;
-		$scope.listpage = 10;
-		$scope.next = function() {
-			if($scope.currentpage < $scope.num - 1) {
-				$scope.currentpage++;
-			}
-		}
-		$scope.prev = function() {
-			
-			if($scope.currentpage > 0) {
-				$scope.currentpage--;
-					}
+		
+		
+				$scope.num = 0;				
+				$scope.SY = 1;				
+				$scope.num = Math.ceil($scope.a.length / 10)
+				$scope.currentpage = 0;
+				$scope.listpage = 10;
+				$scope.page = 1;
+				
+				
+				
+				if($scope.SY=="1"){
+					$("#prevpage").attr("disabled","disabled")		
 				}
+				
+				
+				if($scope.num=="1"){
+					$("#prevpage").attr("disabled","disabled")
+					$("#nextpage").attr("disabled","disabled")					
+				}else{
+					$("#nextpage").attr("disabled",false)
+				}
+				
+				
+				$scope.next = function() {
+					if($scope.currentpage < $scope.num - 1) {
+						$scope.currentpage++;
+						$scope.page += 1;
+						$scope.SY++
+					}
+					
+					if($scope.num==$scope.SY){
+						$("#nextpage").attr("disabled","disabled")	
+						$("#prevpage").attr("disabled",false)	
+					}					
+				}
+				
+				$scope.prev = function() {
+					if($scope.currentpage > 0) {
+						$scope.currentpage--;
+						$scope.page -= 1;
+						$scope.SY--
+					}
+					
+					if($scope.num!==$scope.SY){
+						$("#nextpage").attr("disabled",false)		
+					}
+					
+					if($scope.SY=="1"){
+						$("#prevpage").attr("disabled","disabled")		
+					}
+					
+				}
+		
+		
+		
+		
+		
 	}	
 		},function(data){
 			console.log("错误")

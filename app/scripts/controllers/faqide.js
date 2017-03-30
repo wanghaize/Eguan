@@ -1,5 +1,11 @@
 angular.module('cyzApp')
-	.controller("faqide", ["$scope", "$http", "$state", "$timeout", function($scope, $http, $state, $timeout) {
+	.controller("faqide", ["$scope", "$http", "$state", "$timeout","$location", function($scope, $http, $state, $timeout,$location) {
+		$scope.u = $location.url()
+		$scope.uNum = $scope.u.indexOf("faqide")
+		if($scope.uNum!=-1){
+			$(".spCon li").eq(3).attr("class","rzActive").siblings().removeClass("rzActive")
+		}
+		
 		$scope.dwsp = [];
 		$scope.loading=true;
 		var arr = $scope.dwsp

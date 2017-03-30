@@ -1,5 +1,16 @@
 angular.module('cyzApp')
-	.controller("shenpinews", ["$scope", "$http", "$state", "$timeout", function($scope, $http, $state, $timeout) {
+	.controller("shenpinews", ["$scope", "$http", "$state", "$timeout","$location", function($scope, $http, $state, $timeout,$location) {
+//		console.log($location.url())
+		$scope.u = $location.url().split("/")
+		$scope.ur = $location.url().split("/").length
+		$scope.zul = $scope.u[$scope.ur-1]
+		if($scope.u[$scope.ur-1]=="shenpinews"){
+			$(".newsConNav p").eq(2).attr("class","n_active").siblings().removeClass("n_active")
+		}
+//		$scope.u = location.href.split("/")
+//		var uLen = location.href.split("/").length
+//		var ur = location.href.split("/")[uLen-1]
+//		console.log(ur)
 		$scope.dwsp = []
 		$scope.loading=true;
 		$http({

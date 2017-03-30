@@ -1,5 +1,11 @@
 angular.module('cyzApp')
- 	.controller("add",["$scope","$http","$state","$timeout","$interval",function($scope,$http,$state,$timeout,$interval){
+ 	.controller("add",["$scope","$http","$state","$timeout","$interval","$location",function($scope,$http,$state,$timeout,$interval,$location){
+		$scope.u = $location.url()
+		$scope.uNum = $scope.u.indexOf("add")
+		if($scope.uNum!=-1){
+			$(".m_active li").eq(3).attr("class","m_activeLi").siblings().removeClass("m_activeLi")
+		}
+		
 		
 function Isadmin(){
  		

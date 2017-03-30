@@ -1,5 +1,10 @@
 angular.module('cyzApp')
-	.controller("yishenpi", ["$scope", "$http", "$state", "$timeout", function($scope, $http, $state, $timeout) {
+	.controller("yishenpi", ["$scope", "$http", "$state", "$timeout","$location", function($scope, $http, $state, $timeout,$location) {
+		$scope.u = $location.url()
+		$scope.uNum = $scope.u.indexOf("yishenpi")
+		if($scope.uNum!=-1){
+			$(".spCon li").eq(2).attr("class","rzActive").siblings().removeClass("rzActive")
+		}
 		$scope.dwsp = [];
 		$scope.loading=true;
 		var arr = $scope.dwsp

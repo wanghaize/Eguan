@@ -1,5 +1,12 @@
 angular.module('cyzApp')
-	.controller("worizhi", ["$scope", "$http", "$state", "$timeout", function($scope, $http, $state, $timeout) {
+	.controller("worizhi", ["$scope", "$http", "$state", "$timeout","$location", function($scope, $http, $state, $timeout,$location) {
+		
+		$scope.u = $location.url()
+		$scope.uNum = $scope.u.indexOf("worizhi")
+		if($scope.uNum!=-1){
+			$(".rz_Wrapp li").eq(2).attr("class","rzActive").siblings().removeClass("rzActive")
+		}
+		
 		$scope.postInfos = [];
 		$scope.classifys = [];
 		$scope.Infosa = [];
