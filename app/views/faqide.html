@@ -31,15 +31,23 @@
 			<div class="col-md-2">审批人</div>
 			<div class="col-md-2">状态</div>
 		</div>
+			<!--搜索-->
+		<input type="text" class="form-control col-lg-10 scar" placeholder="请根据类型进行检索" ng-model="find">
+			
 		<div class="dsp_info" style="height: 480px;overflow-x: hidden;">
-			<ul class="row" ng-repeat="a in dwsp">
+				
+			<ul class="row" ng-repeat="a in dwsp | filter:{zleixing:find}">
 				<li class="col-md-2">{{a.zleixing}}</li>
 				<li class="col-md-3">{{a.kaishishijian}}</li>
 				<li class="col-md-3">{{a.jieshushijian}}</li>
 				<li class="col-md-2">{{a.shenpiren}}</li>
 				<li class="col-md-2"><ins>{{a.zhuangtai|resetCategory}}</ins><button class="btn btn-danger" data-toggle="modal" data-target="#myModalgj" ng-click="del(a.id)">删除</button></li>
 			</ul>
+			<div ng-show="HIDE">
+			        抱歉,暂无数据 !      	
+			</div>
 		</div>
+		
 	</div>
 
 </div>

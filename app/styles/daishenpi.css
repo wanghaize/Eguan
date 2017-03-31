@@ -19,11 +19,17 @@
 /*.dsp_wrap .dsp_title div:nth-child(even){
 	background: #0F0F0F;
 }*/
+.scar{
+	z-index: 9;
+	height: 30px;
+	margin: 2px 0;
+}
 .dsp_info{
 	text-align: center;
 	/*background: #B2DBA1;*/
 	width: 100%;
 	color: #000;
+	position: relative;
 }
 
 
@@ -34,7 +40,6 @@
 	line-height: 40px;
 	background: #eee;
 }
-
 
 
 .dsp_info  div{

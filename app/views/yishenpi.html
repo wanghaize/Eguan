@@ -11,8 +11,10 @@
 		 	<div class="col-md-2">发起人</div>
 		 	<div class="col-md-2">状态</div>
 		</div>
+			<!--搜索-->
+		<input type="text" class="form-control col-lg-10 scar" placeholder="请根据类型进行检索" ng-model="find">
 		<div class="dsp_info" style="height: 480px;overflow-x: hidden;">
-			<ul class="row"  ng-repeat="a in dwsp">
+			<ul class="row"  ng-repeat="a in dwsp | filter:{zleixing:find}">
 				<li class="col-md-2">{{a.zleixing}}</li>
 				<li class="col-md-3">{{a.kaishishijian}}</li>
 				<li class="col-md-3">{{a.jieshushijian}}</li>

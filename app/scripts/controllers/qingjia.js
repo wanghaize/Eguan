@@ -61,14 +61,14 @@ angular.module('cyzApp')
 			}else{
 				console.log(123)
 			}
-   		}
-   		
+   	}
+
 		$scope.tijiao = function() {
-			var dt1 = Date.parse(new Date())
-			 leixing = $scope.leixing
-			 kaishi = document.getElementsByClassName("kaishi")[0].value
-			 jieshu = document.getElementsByClassName("jieshu")[0].value
-			 shiyou = $scope.shiyou
+			var dt1 = Date.parse(new Date()),
+				leixing = $scope.leixing,
+			 kaishi = document.getElementsByClassName("kaishi")[0].value,
+			 jieshu = document.getElementsByClassName("jieshu")[0].value,
+			 shiyou = $scope.shiyou,
 			 shenpiren = document.getElementsByClassName("shenpiren")[0].value
 			if(leixing && shenpiren && kaishi && jieshu && shiyou) {
 				$http({

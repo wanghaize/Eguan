@@ -1,67 +1,75 @@
 angular.module('cyzApp')
-	.controller("faqide", ["$scope", "$http", "$state", "$timeout","$location", function($scope, $http, $state, $timeout,$location) {
+	.controller("faqide", ["$scope", "$http", "$state", "$timeout", "$location", function($scope, $http, $state, $timeout, $location) {
 		$scope.u = $location.url()
 		$scope.uNum = $scope.u.indexOf("faqide")
-		if($scope.uNum!=-1){
-			$(".spCon li").eq(3).attr("class","rzActive").siblings().removeClass("rzActive")
+		if($scope.uNum != -1) {
+			$(".spCon li").eq(3).attr("class", "rzActive").siblings().removeClass("rzActive")
 		}
-		
+
 		$scope.dwsp = [];
-		$scope.loading=true;
+		$scope.loading = true;
+		$scope.HIDE = true
 		var arr = $scope.dwsp
-function xx(){
-			
-		
-		$http({
-			url: "http://47.88.16.225:402/qingjia",
-			method: "get"
-		}).then(function(data) {
-			for(var i = 0; i < data.data.length; i++) {
-				if(data.data[i].faqiren == localStorage.uNnme) {
-					$scope.dwsp.push(data.data[i])
+
+		function xx() {
+
+			$http({
+				url: "http://47.88.16.225:402/qingjia",
+				method: "get"
+			}).then(function(data) {
+				for(var i = 0; i < data.data.length; i++) {
+					if(data.data[i].faqiren == localStorage.uNnme) {
+						$scope.dwsp.push(data.data[i])
+					}
 				}
-			}
-		})
-		$http({
-			url: "http://47.88.16.225:402/chuchai",
-			method: "get"
-		}).then(function(data) {
-			for(var i = 0; i < data.data.length; i++) {
-				if(data.data[i].faqiren == localStorage.uNnme) {
-					$scope.dwsp.push(data.data[i])
-				}
-			}
-		})
-		$http({
-			url: "http://47.88.16.225:402/baoxiao",
-			method: "get"
-		}).then(function(data) {
-			for(var i = 0; i < data.data.length; i++) {
-				if(data.data[i].faqiren == localStorage.uNnme) {
-					$scope.dwsp.push(data.data[i])
-				}
-			}
-		})
-		$http({
-			url: "http://47.88.16.225:402/lizhishenqing",
-			method: "get"
-		}).then(function(data) {
-			$scope.loading=false;
-			for(var i = 0; i < data.data.length; i++) {
-				if(data.data[i].faqiren == localStorage.uNnme) {
-					$scope.dwsp.push(data.data[i])
-					
-				}
-			}
-		})
-		
+				$http({
+					url: "http://47.88.16.225:402/chuchai",
+					method: "get"
+				}).then(function(data) {
+					for(var i = 0; i < data.data.length; i++) {
+						if(data.data[i].faqiren == localStorage.uNnme) {
+							$scope.dwsp.push(data.data[i])
+						}
+					}
+					$http({
+						url: "http://47.88.16.225:402/baoxiao",
+						method: "get"
+					}).then(function(data) {
+						for(var i = 0; i < data.data.length; i++) {
+							if(data.data[i].faqiren == localStorage.uNnme) {
+								$scope.dwsp.push(data.data[i])
+							}
+						}
+						$http({
+							url: "http://47.88.16.225:402/lizhishenqing",
+							method: "get"
+						}).then(function(data) {
+							$scope.loading = false;
+							for(var i = 0; i < data.data.length; i++) {
+								if(data.data[i].faqiren == localStorage.uNnme) {
+									$scope.dwsp.push(data.data[i])
+
+								}
+							}
+							if($scope.dwsp.length == 0) {
+								$scope.HIDE = true
+
+							} else {
+								$scope.HIDE = false
+
+							}
+						})
+					})
+				})
+			})
+
 		}
 
 		xx()
 		var lx = "",
-			aid=""
+			aid = ""
 		$scope.del = function(id) {
-			aid=id
+			aid = id
 			for(var i = 0; i < arr.length; i++) {
 				if(arr[i].id == id) {
 					console.log(arr[i])
@@ -78,12 +86,12 @@ function xx(){
 					}
 				}
 			}
-			
+
 		}
-		$scope.queding=function(){
-			$scope.dwsp=[]
+		$scope.queding = function() {
+			$scope.dwsp = []
 			$http({
-				url: 'http://47.88.16.225:402/'+lx+"/"+aid,
+				url: 'http://47.88.16.225:402/' + lx + "/" + aid,
 				method: "delete"
 			}).then(function(data) {
 				xx()

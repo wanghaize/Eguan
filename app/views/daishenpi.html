@@ -12,8 +12,11 @@
 		 	<div class="col-md-2">发起人</div>
 		 	<div class="col-md-2">操作</div>
 		</div>
+			<!--搜索-->
+		<input type="text" class="form-control col-lg-10 scar" placeholder="请根据类型进行检索" ng-model="find">
 		<div class="dsp_info" style="height: 480px;overflow-x: hidden;">
-			<ul class="row" ng-repeat="a in dwsp">
+
+			<ul class="row" ng-repeat="a in dwsp | filter:{zleixing:find}">
 				<li class="col-md-2">{{a.zleixing}}</li>
 				<li class="col-md-3">{{a.kaishishijian}}</li>
 				<li class="col-md-3">{{a.jieshushijian}}</li>
@@ -34,7 +37,7 @@
                 <h4 class="modal-title" id="myModalLabel">批阅详情</h4>
             </div>
 
-            <ul class="dsp_pyxq" ng-repeat="a in arr">
+            <ul class="dsp_pyxq" ng-repeat="a in deteil">
             <li>发起人:<span>{{a.faqiren}}</span></li>
 			<li>审批类型:<span class="dsleixing">{{a.zleixing}}</span></li>
 			<li>开始时间:<span>{{a.kaishishijian}}</span></li>

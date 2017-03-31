@@ -75,7 +75,7 @@
 			<span>发送时间</span>
 			<span>操作</span>
 		</li>
-		<li ng-repeat="new in rizhinews| filter:{nicheng:searchNews} | orderBy:time |  myfilter:currentpage*listpage | limitTo:listpage">
+		<li ng-repeat="new in rizhinews| filter:{nicheng:searchNews} | orderBy:'-time' |  myfilter:currentpage*listpage | limitTo:listpage">
 			<span>{{$index+1}}</span>
 			<span>{{new.nicheng}}</span>
 			<span>{{new.fageishui}}</span>

@@ -15,8 +15,8 @@
 }
 .f_select_wrap>.f_select{
 	width: 150px;
-	height: 250px;
-	background: #AFD9EE;
+	height: auto;
+	background: #c9d2e3;
 	overflow-y: initial;
 	position: absolute;
 	top:calc(50% - 125px);
@@ -42,7 +42,7 @@
 	line-height: 30px;
 	/*text-align: center;*/
 	margin: 5px 0;
-	background: #66AFE9;
+	background: #184b99;
 	cursor: pointer;
 }
 .f_select_wrap>.f_select>ul li i{
