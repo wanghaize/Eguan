@@ -27,6 +27,7 @@ angular.module('cyzApp')
 			}) 
  
 //上传头像
+		var str = ""
 		if(typeof(FileReader) === 'undefined') {
 			$("#img_input").setAttribute('disabled', 'disabled')
 		} else {
@@ -42,7 +43,7 @@ angular.module('cyzApp')
 			}
 			var reader = new FileReader();
 			reader.readAsDataURL(file);
-			reader.onload = function(e) {
+			reader.onload = function() {
 				var img = new Image,
 					width = 100, //image resize
 					quality = 0.8, //image quality
@@ -74,8 +75,6 @@ angular.module('cyzApp')
 				},1)
 				
 			}
-			
-			
 		}
  
  

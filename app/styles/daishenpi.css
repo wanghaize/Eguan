@@ -81,3 +81,14 @@
 .dsp_pyxq li:nth-child(4) span{
 	margin-left: 30px;
 }
+
+.a_anniu{
+	position: absolute;
+	right: 50px;
+	bottom: 20px;
+}
+.a_anniu button{
+	width: 80px;
+	height: 30px;
+	color: #000000;
+}

@@ -148,7 +148,7 @@ function Isadmin(){
  		
 				
 $scope.TJ=function(){		
- 		$scope.a;
+ 		var a=""
  		if($scope.isadmin=="公司管理者"){
  			a=1
  		}
@@ -300,7 +300,6 @@ else if( $scope.uGLg==true &&$scope.unichengg==true &&  $scope.uphoneg==true && 
  					}
  				}).then(function(da){
  					$scope.suss = true;	
- 					console.log("成功")						
  					$timeout(function(){
  					    $scope.suss = false;   
  					},2000);

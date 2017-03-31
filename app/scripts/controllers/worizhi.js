@@ -28,8 +28,12 @@ angular.module('cyzApp')
 					if(data.data[k].uid == localStorage.uid) {
 						$scope.postInfos.push(data.data[k])
 					}else{
-						$scope.Infobbb = true
+						$scope.Infobbb = false
 					}
+				}
+				
+				if($scope.postInfos.length==0){
+					$scope.Infobbb = true
 				}
 				for(var i = 0; i < $scope.postInfos.length; i++) {
 					if($scope.postInfos[i].classify == 0) {

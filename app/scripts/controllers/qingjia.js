@@ -64,13 +64,12 @@ angular.module('cyzApp')
    		}
    		
 		$scope.tijiao = function() {
-			dt1 = Date.parse(new Date())
+			var dt1 = Date.parse(new Date())
 			 leixing = $scope.leixing
 			 kaishi = document.getElementsByClassName("kaishi")[0].value
 			 jieshu = document.getElementsByClassName("jieshu")[0].value
 			 shiyou = $scope.shiyou
 			 shenpiren = document.getElementsByClassName("shenpiren")[0].value
-			console.log(kaishi+","+jieshu)
 			if(leixing && shenpiren && kaishi && jieshu && shiyou) {
 				$http({
    				url: "http://47.88.16.225:402/qingjia",

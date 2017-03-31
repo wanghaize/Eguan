@@ -9,7 +9,7 @@ angular.module('cyzApp')
 		$scope.dwsp = [];
 		$scope.loading=true;
 		var arr = $scope.dwsp
-		function xx(){
+function xx(){
 			
 		
 		$http({
@@ -50,10 +50,13 @@ angular.module('cyzApp')
 			for(var i = 0; i < data.data.length; i++) {
 				if(data.data[i].faqiren == localStorage.uNnme) {
 					$scope.dwsp.push(data.data[i])
+					
 				}
 			}
 		})
+		
 		}
+
 		xx()
 		var lx = "",
 			aid=""
